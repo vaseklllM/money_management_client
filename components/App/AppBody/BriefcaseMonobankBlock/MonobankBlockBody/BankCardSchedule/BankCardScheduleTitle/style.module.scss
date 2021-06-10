@@ -1,0 +1,15 @@
+.body {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 500px) {
+  .body {
+    margin-left: 20px;
+
+    .fs_12 {
+      font-size: 12px;
+    }
+  }
+}

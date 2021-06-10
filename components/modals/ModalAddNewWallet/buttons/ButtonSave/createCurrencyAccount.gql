@@ -1,0 +1,7 @@
+mutation createCurrencyAccount($currencyId: ID!, $value: Float!, $name: String!) {
+  createCurrencyAccount(
+    createCurrencyAccount: { currencyId: $currencyId, value: $value, name: $name }
+  ) {
+    name
+  }
+}

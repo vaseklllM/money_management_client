@@ -1,0 +1,13 @@
+.body {
+  width: 300px;
+
+  .title_row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .input {
+    margin-top: 10px;
+  }
+}

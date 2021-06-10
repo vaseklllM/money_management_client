@@ -1,0 +1,20 @@
+.button {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  // min-width: 100px;
+  width: 50%;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #e6f7ff;
+
+  svg {
+    fill: #1890ff;
+  }
+}

@@ -1,0 +1,22 @@
+query {
+  bankcards {
+    monobank {
+      token
+      user {
+        firstName
+        lastName
+      }
+      historyCards {
+        date
+        cards {
+          iban
+          cardNumber
+          balance
+          currency {
+            code
+          }
+        }
+      }
+    }
+  }
+}

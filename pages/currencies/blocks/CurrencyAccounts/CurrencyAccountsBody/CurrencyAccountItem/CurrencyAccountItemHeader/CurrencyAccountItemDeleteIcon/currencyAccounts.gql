@@ -1,0 +1,17 @@
+query currencyAccounts($numberOfHistoryItems: Int!) {
+  currencyAccounts(numberOfHistoryItems: $numberOfHistoryItems) {
+    id
+    name
+    value
+    currency {
+      id
+      code
+    }
+    history {
+      title
+      date
+      value
+      id
+    }
+  }
+}

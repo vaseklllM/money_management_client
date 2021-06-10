@@ -1,0 +1,19 @@
+mutation addMonobank(
+  $token: String!
+  $userFirstName: String!
+  $userLastName: String!
+  $cards: [BankCardInput!]!
+) {
+  addMonobank(
+    addMonobank: {
+      token: $token
+      userFirstName: $userFirstName
+      userLastName: $userLastName
+      cards: $cards
+    }
+  ) {
+    monobank {
+      token
+    }
+  }
+}

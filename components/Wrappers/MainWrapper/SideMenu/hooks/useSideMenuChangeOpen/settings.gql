@@ -1,0 +1,8 @@
+query {
+  settings {
+    id
+    sideMenu {
+      open
+    }
+  }
+}

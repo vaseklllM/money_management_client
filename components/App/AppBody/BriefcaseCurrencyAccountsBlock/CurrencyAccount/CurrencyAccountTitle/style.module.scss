@@ -1,0 +1,19 @@
+.body {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 500px) {
+  .body {
+    margin-left: 20px;
+
+    .name {
+      font-size: 12px;
+    }
+
+    .currency {
+      font-size: 12px;
+    }
+  }
+}

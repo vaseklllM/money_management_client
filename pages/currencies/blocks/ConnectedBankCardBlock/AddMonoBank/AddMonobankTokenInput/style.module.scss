@@ -1,0 +1,29 @@
+.token_input_row {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+
+  .token_input {
+    max-width: 400px;
+  }
+
+  .token_status_icon {
+    margin-left: 15px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .token_input_row {
+    .token_input {
+      max-width: 250px;
+    }
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .token_input_row {
+    .token_input {
+      max-width: 200px;
+    }
+  }
+}

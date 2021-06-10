@@ -1,0 +1,11 @@
+.icon {
+  display: flex;
+  cursor: pointer;
+  width: max-content;
+  
+  svg {
+    fill: #67d62f;
+    width: 16px;
+    height: 16px;
+  }
+}

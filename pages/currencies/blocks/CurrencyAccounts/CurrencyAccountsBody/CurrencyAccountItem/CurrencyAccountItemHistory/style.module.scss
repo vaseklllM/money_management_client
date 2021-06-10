@@ -1,0 +1,16 @@
+.body {
+  padding: 10px 20px 15px;
+  border: 2px solid #f0f0f0;
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  .table {
+    overflow-x: auto;
+    margin-top: 10px;
+
+    .date {
+      width: max-content;
+    }
+  }
+}

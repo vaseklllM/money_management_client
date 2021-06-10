@@ -1,0 +1,16 @@
+.form {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
+}
+
+@media screen and (max-width: 650px) {
+  .form {
+    background-color: transparent;
+  }
+}

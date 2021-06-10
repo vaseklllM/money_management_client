@@ -1,0 +1,8 @@
+mutation updateSettings($sideMenuOpen: Boolean!) {
+  updateSettings(updateSettings: { sideMenu: { open: $sideMenuOpen } }) {
+    id
+    sideMenu {
+      open
+    }
+  }
+}

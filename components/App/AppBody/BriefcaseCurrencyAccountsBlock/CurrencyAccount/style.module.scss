@@ -1,0 +1,13 @@
+.body {
+  background-color: #f0f0f0;
+  padding: 20px 20px 20px 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 1px 1px rgb(0 0 0 / 7%), 0 0 6px 3px rgb(0 0 0 / 6%);
+}
+
+@media screen and (max-width: 500px) {
+  .body {
+    box-shadow: none;
+    padding: 10px 10px 10px 5px;
+  }
+}

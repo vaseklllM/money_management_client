@@ -1,0 +1,14 @@
+.icon {
+  display: flex;
+  cursor: pointer;
+  width: max-content;
+
+  svg {
+    width: 21px;
+    height: 21px;
+
+    path {
+      fill: #409df5;
+    }
+  }
+}

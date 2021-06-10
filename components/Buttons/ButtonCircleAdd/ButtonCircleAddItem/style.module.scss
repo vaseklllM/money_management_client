@@ -1,0 +1,22 @@
+.button {
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
+  height: 40px;
+  margin: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  transform: scale(0.5);
+  transition: 0.3s;
+  width: 40px;
+  z-index: 0;
+  background-color: #f50057;
+
+  &:hover {
+    background-color: #606fc7;
+    cursor: pointer;
+  }
+}

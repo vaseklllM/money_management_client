@@ -1,0 +1,56 @@
+$badColor: #ee5253;
+$goodColor: #10ac84;
+$itemWidth: 80px;
+
+.body {
+  transition: background-color 0.3s ease-in-out;
+  background: $badColor;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  height: 36px;
+  border-radius: 4px;
+  width: calc(#{$itemWidth} + #{$itemWidth} + 4px);
+
+  .item {
+    width: $itemWidth;
+    height: 32px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bad {
+    color: white;
+    margin-left: 2px;
+    cursor: pointer;
+  }
+
+  .good {
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  .switch {
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    background: white;
+    left: 2px;
+    color: $badColor;
+    transition: left 0.15s ease-in-out;
+    box-shadow: 0 3px 3px rgb(0 0 0 / 40%);
+  }
+}
+
+.active_body {
+  background: $goodColor;
+
+  .switch {
+    color: $goodColor;
+    left: calc(100% - (#{$itemWidth} + 2px));
+  }
+}

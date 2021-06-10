@@ -1,0 +1,23 @@
+.icon {
+  width: 18px;
+  height: 20px;
+  cursor: pointer;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: rgb(241, 39, 39);
+  }
+}
+
+.body_disabled {
+  opacity: 0.3;
+
+  .icon {
+    cursor: auto;
+
+    svg {
+      fill: black;
+    }
+  }
+}

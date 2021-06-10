@@ -1,0 +1,30 @@
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  .icon {
+    display: flex;
+
+    svg {
+      width: 20px;
+      height: 20px;
+
+      path {
+        fill: white;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .btn {
+    .icon {
+      svg {
+        width: 17px;
+        height: 17px;
+      }
+    }
+  }
+}
