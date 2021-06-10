@@ -7,6 +7,7 @@ import { ApolloProvider } from "@apollo/client/react"
 import { useApollo } from "./apolloClient"
 
 // export const client = new ApolloClient({
+//   ssrMode: typeof window === "undefined",
 //   link: from([authLink, errorLink, httpLink]),
 //   cache: new InMemoryCache(),
 // })
