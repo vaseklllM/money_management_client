@@ -1,37 +1,40 @@
-import { client } from "@/providers/Apollo"
+// import { client } from "@/providers/Apollo"
+import { addApolloState, initializeApollo } from "@/providers/Apollo/apolloClient"
 import { useQuery } from "@apollo/client"
 import Link from "next/link"
-import React, { ReactElement } from "react"
+import React, { ReactElement, useEffect, useState } from "react"
 import CURRENCY_ACCOUNTS from "./currencyAccounts.gql"
-import getConfig from "next/config"
+// import getConfig from "next/config"
 
-const { publicRuntimeConfig } = getConfig()
-
-interface ICA {
-  currencyAccounts: {
-    id: string
-    value: number
-    currency: {
-      historyCourseInUAH: {
-        price: number
-      }[]
-    }
-  }[]
-}
+// const { publicRuntimeConfig } = getConfig()
 
 export default function Page(props): ReactElement {
-  // const { data, loading } = useQuery<ICA>(CURRENCY_ACCOUNTS)
+  const [data, setData] = useState(props.data)
+  const [loading, setLoading] = useState(props.loading)
 
-  const data = "data"
-  const loading = false
+  console.log(props)
 
-  console.log(publicRuntimeConfig)
+  async function getData() {
+    const data = await getDataInPause()
+    setData(data)
+    setLoading(false)
+  }
 
-  if (loading) return <div>loading...</div>
+  useEffect(() => {
+    if (props.loading) {
+      getData()
+    }
+  }, [])
+  // const { data, loading } = useQuery(CURRENCY_ACCOUNTS)
+
+  // console.log(loading, data)
+
+  // const data = "data"
+  // const loading = false
 
   return (
     <div>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      {loading ? <div>loading</div> : <pre>{JSON.stringify(data, null, 2)}</pre>}
       <Link href='/currencies'>
         <a>back</a>
       </Link>
@@ -39,23 +42,73 @@ export default function Page(props): ReactElement {
   )
 }
 
-export async function getServerSideProps({ req }) {
+async function getDataInPause() {
+  // const res = await fetch("https://api.github.com/repos/vercel/next.js")
+  // const json = await res.json()
+
+  const apolloClient = initializeApollo()
+
+  const { data } = await apolloClient.query({
+    query: CURRENCY_ACCOUNTS,
+  })
+
+  return new Promise((res) => {
+    setTimeout(() => {
+      res(data)
+    }, 1000)
+  })
+}
+
+// Page.getInitialProps = async ({ req }) => {
+//   if (!req) {
+//     return { data: null, loading: true }
+//   }
+
+//   const data = await getDataInPause()
+
+//   return { data, loading: false }
+// }
+
+// This function gets called at build time
+export async function getStaticProps({ req }) {
   if (!req) {
     return {
-      props: { data: null },
+      props: { data: null, loading: true },
     }
   }
 
-  console.log(req.headers)
+  const data = await getDataInPause()
 
-  const res = await fetch("https://api.github.com/repos/vercel/next.js")
-  const json = await res.json()
+  return { props: { data, loading: false } }
 
-  // const { data } = await client.query({
-  //   query: CURRENCY_ACCOUNTS,
-  // })
-
-  // console.log(data)
-
-  return { props: { data: json.stargazers_count } }
+  // return {
+  //   props: { data: null, loading: true },
+  // }
 }
+
+// export async function getServerSideProps(/* { req } */) {
+// if (!req) {
+//   return {
+//     props: { data: null, loading: true },
+//   }
+// }
+
+//   const data = await getData()
+
+//   return { props: { data, loading: false } }
+
+//   // const { data } = await client.query({
+//   //   query: CURRENCY_ACCOUNTS,
+//   // })
+
+//   // const apolloClient = initializeApollo()
+
+//   // const { data, loading } = await apolloClient.query({
+//   //   query: CURRENCY_ACCOUNTS,
+
+//   // })
+
+//   // return addApolloState(apolloClient, {
+//   //   props: { data, loading },
+//   // })
+// }

@@ -16,8 +16,9 @@ const configuration = {
     return config
   },
   publicRuntimeConfig: {
-    // Will be available on both server and client
-    token: null,
+    // Буде доступний як на сервері, так і на клієнті
+    token: 'asd',
+    // token: window?.localStorage?.getItem('token') || 'asd',
   },
 }
 
