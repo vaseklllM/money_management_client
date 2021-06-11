@@ -1,9 +1,8 @@
 import { addApolloState, initializeApollo } from "@/providers/Apollo/apolloClient"
 import Link from "next/link"
-import React, { ReactElement /* useEffect */ } from "react"
+import React, { ReactElement } from "react"
 import CURRENCIES from "./currencies.gql"
 import PostItem from "./PostItem"
-// import { client } from "@/providers/Apollo"
 
 export default function Page(): ReactElement {
   return (
@@ -17,14 +16,6 @@ export default function Page(): ReactElement {
 }
 
 export async function getStaticProps() {
-  // await client.query({
-  //   query: CURRENCIES,
-  // })
-
-  // return {
-  //   props: {},
-  // }
-
   const apolloClient = initializeApollo()
 
   await apolloClient.query({

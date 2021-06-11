@@ -6,8 +6,10 @@ import BankCardsBlock from "./blocks/BankCardsBlock"
 import CurrencyAccounts from "./blocks/CurrencyAccounts"
 import classes from "./style.module.scss"
 import Link from "next/link"
+// import { addApolloState, initializeApollo } from "@/providers/Apollo/apolloClient"
+// import BANK_CARDS from "./blocks/BankCardsBlock/bankCards.gql"
 
-export default function Currencies(props): ReactElement {
+export default function Currencies(): ReactElement {
   const { Content } = Layout
 
   return (
@@ -24,32 +26,16 @@ export default function Currencies(props): ReactElement {
   )
 }
 
-// Currencies.getInitialProps = async ({ req }) => {
-//   if (!req) {
-//     return { stars: null }
-//   }
+// export async function getStaticProps() {
+//   const apolloClient = initializeApollo()
 
-//   const res = await fetch("https://api.github.com/repos/vercel/next.js")
-//   const json = await res.json()
+//   const { data, loading } = await apolloClient.query({
+//     query: BANK_CARDS,
+//   })
 
-//   return {
-//     stars: json.stargazers_count,
-//   }
-// }
+//   console.log(data, loading)
 
-// export async function getStaticProps({ req }) {
-//   // if (!req) {
-//   //   return { props: { stars: null } }
-//   // }
-
-//   const res = await fetch("https://api.github.com/repos/vercel/next.js")
-//   const json = await res.json()
-
-//   // const { data } = await client.query({
-//   //   query: CURRENCY_ACCOUNTS,
-//   // })
-
-//   // console.log(data)
-
-//   return { props: { stars: json.stargazers_count } }
+//   return addApolloState(apolloClient, {
+//     props: {},
+//   })
 // }
