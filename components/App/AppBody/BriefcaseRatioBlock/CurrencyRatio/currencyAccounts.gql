@@ -1,0 +1,14 @@
+query {
+  currencyAccounts {
+    id
+    name
+    value
+    currency {
+      code
+      symbol
+      historyCourseInUAH {
+        price
+      }
+    }
+  }
+}

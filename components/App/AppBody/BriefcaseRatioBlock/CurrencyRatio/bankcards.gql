@@ -1,0 +1,18 @@
+query {
+  bankcards {
+    monobank {
+      historyCards {
+        cards {
+          balance
+          currency {
+            code
+            symbol
+            historyCourseInUAH {
+              price
+            }
+          }
+        }
+      }
+    }
+  }
+}
