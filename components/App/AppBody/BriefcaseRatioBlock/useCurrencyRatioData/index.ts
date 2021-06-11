@@ -72,7 +72,7 @@ function convertCAData(CAData: ICA): ICurrencyRatioData[] {
 }
 
 function convertBCData(BCData: IBC, data: ICurrencyRatioData[]): ICurrencyRatioData[] {
-  BCData.bankcards.monobank.historyCards[0].cards.forEach((el) => {
+  BCData.bankcards.monobank?.historyCards?.[0]?.cards.forEach((el) => {
     const dataEl = data.find((i) => i.symbol === el.currency.symbol)
     if (!dataEl) {
       data.push({
