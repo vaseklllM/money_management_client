@@ -1,10 +1,7 @@
 import { onError } from "@apollo/client/link/error"
-import getConfig from "next/config"
-
-const { publicRuntimeConfig } = getConfig()
 
 const errorLink = onError((params) => {
-  const { graphQLErrors, networkError, forward, response } = params
+  const { graphQLErrors, networkError, response } = params
 
   const isServer = typeof window === "undefined"
 
