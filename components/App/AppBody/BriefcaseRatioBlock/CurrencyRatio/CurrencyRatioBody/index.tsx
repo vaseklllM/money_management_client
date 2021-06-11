@@ -99,7 +99,7 @@ export default function CurrencyRatioBody({ data }: IProps): ReactElement {
             label={renderCustomizedLabel}
             outerRadius={radius}
             fill='#8884d8'
-            dataKey='value'
+            dataKey='uahValue'
           >
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
