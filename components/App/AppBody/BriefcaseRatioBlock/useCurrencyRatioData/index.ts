@@ -37,19 +37,6 @@ interface IResData {
   data: ICurrencyRatioData[]
 }
 
-export default function useCurrencyRatioData(): IResData {
-  const { data: CAData, loading: CALoading } = useQuery<ICA>(CURRENCY_ACCOUNTS)
-  const { data: BCData, loading: BCLoading } = useQuery<IBC>(BANK_CARDS)
-
-  if (CALoading || BCLoading) return { data: null, loading: true }
-
-  const data: ICurrencyRatioData[] = convertBCData(BCData, convertCAData(CAData)).filter(
-    (i) => i.value > 0
-  )
-
-  return { data, loading: false }
-}
-
 function convertCAData(CAData: ICA): ICurrencyRatioData[] {
   let data: ICurrencyRatioData[] = []
 
@@ -64,7 +51,8 @@ function convertCAData(CAData: ICA): ICurrencyRatioData[] {
       })
     } else {
       dataEl.value = dataEl.value + el.value
-      dataEl.uahValue = dataEl.uahValue + el.value * el.currency.historyCourseInUAH[0].price
+      dataEl.uahValue =
+        dataEl.uahValue + el.value * el.currency.historyCourseInUAH[0].price
     }
   })
 
@@ -89,4 +77,17 @@ function convertBCData(BCData: IBC, data: ICurrencyRatioData[]): ICurrencyRatioD
   })
 
   return data
+}
+
+export default function useCurrencyRatioData(): IResData {
+  const { data: CAData, loading: CALoading } = useQuery<ICA>(CURRENCY_ACCOUNTS)
+  const { data: BCData, loading: BCLoading } = useQuery<IBC>(BANK_CARDS)
+
+  if (CALoading || BCLoading) return { data: null, loading: true }
+
+  const data: ICurrencyRatioData[] = convertBCData(BCData, convertCAData(CAData)).filter(
+    (i) => i.value > 0
+  )
+
+  return { data, loading: false }
 }
