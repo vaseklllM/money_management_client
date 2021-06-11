@@ -1,7 +1,4 @@
 import { setContext } from "@apollo/client/link/context"
-// import getConfig from "next/config"
-
-// const { publicRuntimeConfig } = getConfig()
 
 const authLink = setContext((_, { headers }) => {
   const isServer = typeof window === "undefined"
