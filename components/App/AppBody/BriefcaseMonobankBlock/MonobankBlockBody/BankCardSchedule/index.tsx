@@ -7,14 +7,14 @@ import BankCardScheduleTitle from "./BankCardScheduleTitle"
 import classes from "./style.module.scss"
 import randomColorRGB from "random-color-rgb"
 
+const { Text } = Typography
+
 interface Props {
   data: IBankCardItem
   className?: string
 }
 
 export default function BankCardSchedule({ data, className }: Props): ReactElement {
-  const { Text } = Typography
-
   const numberFormat = new Intl.NumberFormat("ru-RU", {
     style: "currency",
     currency: data.currency.code,

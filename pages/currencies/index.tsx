@@ -5,9 +5,6 @@ import ConnectedBankCardBlock from "./blocks/ConnectedBankCardBlock"
 import BankCardsBlock from "./blocks/BankCardsBlock"
 import CurrencyAccounts from "./blocks/CurrencyAccounts"
 import classes from "./style.module.scss"
-import Link from "next/link"
-// import { addApolloState, initializeApollo } from "@/providers/Apollo/apolloClient"
-// import BANK_CARDS from "./blocks/BankCardsBlock/bankCards.gql"
 
 export default function Currencies(): ReactElement {
   const { Content } = Layout
@@ -15,9 +12,9 @@ export default function Currencies(): ReactElement {
   return (
     <MainWrapper>
       <Content className={classes.body}>
-        <Link href='/post'>
+        {/* <Link href='/post'>
           <a>post</a>
-        </Link>
+        </Link> */}
         <CurrencyAccounts />
         <ConnectedBankCardBlock />
         <BankCardsBlock />
@@ -25,17 +22,3 @@ export default function Currencies(): ReactElement {
     </MainWrapper>
   )
 }
-
-// export async function getStaticProps() {
-//   const apolloClient = initializeApollo()
-
-//   const { data, loading } = await apolloClient.query({
-//     query: BANK_CARDS,
-//   })
-
-//   console.log(data, loading)
-
-//   return addApolloState(apolloClient, {
-//     props: {},
-//   })
-// }

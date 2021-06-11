@@ -1,0 +1,44 @@
+.ratio {
+  margin-top: 10px;
+
+  .text {
+    font-size: 14px;
+    pointer-events: none;
+  }
+
+  .tooltip {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .legend {
+    position: relative;
+    left: 190px;
+    top: -45px;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+
+    .legend_item {
+      width: max-content;
+      display: flex;
+      align-items: center;
+
+      &:not(:first-child) {
+        margin-top: 15px;
+      }
+
+      .legend_item_color {
+        width: 20px;
+        height: 20px;
+      }
+
+      .legend_item_text {
+        margin-left: 10px;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client"
-import { Col, Statistic } from "antd"
+import { Statistic } from "antd"
 import { ReactElement } from "react"
 import CURRENCY_ACCOUNTS from "./currencyAccounts.gql"
 import BANK_CARDS from "./bankcards.gql"
@@ -49,11 +49,7 @@ export default function FullPrice(): ReactElement {
     currency: "UAH",
   })
 
-  return (
-    <Col span={8}>
-      <Statistic title='Вартість всіх рахунків' value={numberFormat.format(price)} />
-    </Col>
-  )
+  return <Statistic title='Вартість всіх рахунків' value={numberFormat.format(price)} />
 }
 
 function CAFullPrice(data: ICA): number {
