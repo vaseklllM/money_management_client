@@ -15,7 +15,10 @@ export default function Page(): ReactElement {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps({ req }) {
+  // console.log(req.headers.cookies)
+  // console.log(req)
+
   const apolloClient = initializeApollo()
 
   await apolloClient.query({

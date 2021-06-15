@@ -39,9 +39,9 @@ export default function ModalAddWalletActionInputSum({
 
   return (
     <div className={classes.body}>
-      <Text>Сумма {transactionType ? "покупки" : "продажи"} </Text>
+      <Text>Сума {transactionType ? "покупки" : "продажи"} </Text>
       <Input
-        placeholder='Сумма'
+        placeholder='Сума'
         className={classes.input}
         value={buySaleValue}
         onChange={onChange}

@@ -15,11 +15,6 @@ const configuration = {
   webpackDevMiddleware: (config) => {
     return config
   },
-  publicRuntimeConfig: {
-    // Буде доступний як на сервері, так і на клієнті
-    token: 'asd',
-    // token: window?.localStorage?.getItem('token') || 'asd',
-  },
 }
 
 module.exports = withImages(configuration)
