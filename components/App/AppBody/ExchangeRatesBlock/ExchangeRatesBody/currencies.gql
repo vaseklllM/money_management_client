@@ -1,0 +1,9 @@
+query currencies($numberOfHistoryItems: Int!) {
+  currencies(numberOfHistoryItems: $numberOfHistoryItems) {
+    code
+    historyCourseInUAH {
+      price
+      date
+    }
+  }
+}

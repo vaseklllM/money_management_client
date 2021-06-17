@@ -3,12 +3,12 @@ import React, { ReactElement } from "react"
 import { IBankCardsUser } from "../interfaces"
 import classes from "./style.module.scss"
 
+const { Title, Text } = Typography
 interface Props {
   user: IBankCardsUser
 }
 
 export default function MonobankBlockTitleRow({ user }: Props): ReactElement {
-  const { Title, Text } = Typography
   return (
     <div className={classes.body}>
       <Title className={classes.title} level={5}>
