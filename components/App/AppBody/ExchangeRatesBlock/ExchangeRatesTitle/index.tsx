@@ -1,7 +1,7 @@
 import { Typography } from "antd"
 import React, { ReactElement } from "react"
 
-const { Title, Text } = Typography
+const { Title } = Typography
 
 interface Props {}
 
