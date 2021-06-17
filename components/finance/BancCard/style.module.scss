@@ -13,7 +13,17 @@
       padding: 24px;
 
       .title_text {
+        grid-area: title_text;
         margin-bottom: 0;
+      }
+
+      .title_right {
+        display: flex;
+        align-items: center;
+
+        .title_button_is_not_valid {
+          margin-left: 15px;
+        }
       }
     }
 

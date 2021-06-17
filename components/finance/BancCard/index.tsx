@@ -4,6 +4,7 @@ import classes from "./style.module.scss"
 import { txt } from "../../../utils"
 import { useResize } from "@/hooks"
 import BancCardButtonAdd from "./BancCardButtonAdd"
+import BancCardIconIsNotValid from "./BancCardIconIsNotValid"
 
 interface childrenFunc {
   onClose: Function
@@ -19,12 +20,13 @@ interface Props {
   children?: TChildren
   added?: boolean /** true - банківська карта добавлена */
   onDelete?: Function
+  isValid?: boolean
 }
 
 const ANIMATION_TIME = 700
 
 export default function BancCard(props: Props): ReactElement {
-  const { title = "card title", className, children, added, onDelete } = props
+  const { title = "card title", className, children, added, onDelete, isValid } = props
 
   const { Title } = Typography
   const [isAdd, setIsAdd] = useState(false)
@@ -83,7 +85,7 @@ export default function BancCard(props: Props): ReactElement {
         style={{
           transition: `width ${t}s, height ${t}s ease-in-out`,
           height: `${bodyHeight + 84}px`,
-          width: `${bodyWidth + 280}px`,
+          width: `${bodyWidth + 300}px`,
         }}
       >
         <div>
@@ -91,12 +93,18 @@ export default function BancCard(props: Props): ReactElement {
             <Title level={5} className={classes.title_text}>
               {title}
             </Title>
-            <BancCardButtonAdd
-              isAdd={isAdd}
-              changeIsAdd={changeIsAdd}
-              added={added}
-              onDelete={onDelete}
-            />
+            <div className={classes.title_right}>
+              <BancCardButtonAdd
+                isAdd={isAdd}
+                changeIsAdd={changeIsAdd}
+                added={added}
+                onDelete={onDelete}
+              />
+              <BancCardIconIsNotValid
+                isValid={isValid}
+                className={classes.title_button_is_not_valid}
+              />
+            </div>
           </div>
           {isShowBody && <div className={classes.hr} />}
           {isShowBody && (

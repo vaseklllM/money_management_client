@@ -7,10 +7,11 @@ interface Props {
   changeIsAdd: Function
   added?: boolean /** true - банківська карта добавлена */
   onDelete?: Function
+  className?: string
 }
 
 export default function BancCardButtonAdd(props: Props): ReactElement {
-  const { isAdd, changeIsAdd, added, onDelete = () => {} } = props
+  const { isAdd, changeIsAdd, added, onDelete = () => {}, className } = props
 
   return (
     <Tooltip title={added ? "Видалити карту" : isAdd ? "Приховати" : "Підключити"}>
@@ -20,6 +21,7 @@ export default function BancCardButtonAdd(props: Props): ReactElement {
         shape='circle'
         danger={added}
         icon={added ? <DeleteOutlined /> : isAdd ? <MinusOutlined /> : <PlusOutlined />}
+        className={className}
       />
     </Tooltip>
   )

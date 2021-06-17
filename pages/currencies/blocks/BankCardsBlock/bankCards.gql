@@ -2,6 +2,7 @@ query {
   bankcards {
     monobank {
       token
+      isValidToken
       user {
         firstName
         lastName

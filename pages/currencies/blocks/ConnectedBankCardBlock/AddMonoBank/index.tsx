@@ -2,7 +2,6 @@ import React, { ReactElement, useEffect, useState } from "react"
 import AddMonobankTokenInput from "./AddMonobankTokenInput"
 import AddMonobankCardData from "./AddMonobankCardData"
 import AddMonobankTitleRow from "./AddMonobankTitleRow"
-import { txt } from "@/utils"
 import BancCard from "@/components/finance/BancCard"
 import { IMonobankUserData } from "@/api/banks/monobank/getUserInfo"
 import { useLazyQuery, useMutation } from "@apollo/client"
@@ -11,12 +10,11 @@ import DELETE_CARDS from "./deleteCards.gql"
 
 interface IBank {
   token: string
+  isValidToken: boolean
 }
 
 interface bankCards {
   monobank: IBank
-  privatbank: IBank
-  oshadbank: IBank
 }
 
 interface Props {
@@ -56,6 +54,7 @@ export default function AddMonobank(props: Props): ReactElement {
         className={className}
         title='Монобанк'
         added={typeof data?.bankcards?.monobank?.token === "string"}
+        isValid={data?.bankcards?.monobank?.isValidToken}
       />
     )
   }
@@ -79,6 +78,7 @@ export default function AddMonobank(props: Props): ReactElement {
       title='Монобанк'
       added={typeof data.bankcards?.monobank?.token === "string"}
       onDelete={onDeleteCard}
+      isValid={data?.bankcards?.monobank?.isValidToken ?? null}
     >
       {(params) => {
         /** Закриття форми та видалення даних після збереження карти */
