@@ -3,13 +3,13 @@ import React, { ReactElement } from "react"
 import { IBankCardItem } from "../../../interfaces"
 import classes from "./style.module.scss"
 
+const { Text } = Typography
+
 interface Props {
   data: IBankCardItem
 }
 
 export default function BankCardScheduleTitle({ data }: Props): ReactElement {
-  const { Text } = Typography
-
   return (
     <div className={classes.body}>
       <Text className={classes.fs_12} type='secondary'>

@@ -5,6 +5,7 @@ import { ICurrency } from "../interface"
 import randomColorRGB from "random-color-rgb"
 import classes from "./style.module.scss"
 import { date } from "@/utils"
+import ExchangeRatesGraphItemTitle from "./ExchangeRatesGraphItemTitle"
 
 const { Text } = Typography
 
@@ -27,6 +28,7 @@ export default function ExchangeRatesGraphItem({ data }: Props): ReactElement {
 
   return (
     <div className={classes.body}>
+      <ExchangeRatesGraphItemTitle currencyCode={data.code} />
       <ResponsiveContainer className={classes.schedule}>
         <AreaChart
           data={data.historyCourseInUAH.map((i) => ({
