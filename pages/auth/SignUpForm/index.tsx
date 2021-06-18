@@ -8,6 +8,7 @@ import { useMutation } from "@apollo/client"
 import { err } from "@/utils"
 import { useRouter } from "next/router"
 import { useAuthGetUser } from "@/hooks"
+import Cookies from "js-cookie"
 
 const key = "singUp"
 
@@ -49,7 +50,8 @@ export default function SignUpForm(): ReactElement {
       })
 
       message.success({ content: "Успішна реєстрація", key, duration: 3 })
-      localStorage.setItem("token", result.data.signUp.token)
+      // localStorage.setItem("token", result.data.signUp.token)
+      Cookies.set("token", result.data.signUp.token)
       getUser()
       router.push("/")
     } catch (error) {

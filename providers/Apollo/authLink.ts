@@ -1,30 +1,23 @@
 import { setContext } from "@apollo/client/link/context"
 import getConfig from "next/config"
+import Cookies from "js-cookie"
 
 const { serverRuntimeConfig } = getConfig()
 
 const authLink = setContext((_, req) => {
-  const isServer = typeof window === "undefined"
+  const token = serverRuntimeConfig.token || Cookies.get("token")
 
-  if (isServer) {
-    const token = serverRuntimeConfig.token
+  const isToken = typeof token === "string" && token !== ""
 
-    // console.log(localStorage.getItem("token"))
+  if (typeof window === "undefined") {
+    console.log(isToken, serverRuntimeConfig.token)
+  }
 
-    return {
-      headers: {
-        ...req.headers,
-        authorization: token ? `Bearer ${token}` : "",
-      },
-    }
-  } else {
-    const token = localStorage.getItem("token")
-    return {
-      headers: {
-        ...req.headers,
-        authorization: token ? `Bearer ${token}` : "",
-      },
-    }
+  return {
+    headers: {
+      ...req.headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
   }
 })
 

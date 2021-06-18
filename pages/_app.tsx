@@ -5,7 +5,6 @@ import Apollo from "@/providers/Apollo"
 import { ButtonCircleAdd } from "@/components/Buttons"
 import { ReactElement } from "react"
 import Head from "next/head"
-import onStart from "./onStart"
 
 export default function MyApp({ Component, pageProps }): ReactElement {
   return (
@@ -18,5 +17,3 @@ export default function MyApp({ Component, pageProps }): ReactElement {
     </Apollo>
   )
 }
-
-onStart()

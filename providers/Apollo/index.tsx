@@ -1,26 +1,30 @@
 import React, { ReactElement } from "react"
 import { ApolloProvider } from "@apollo/client/react"
-// import { ApolloClient, from, InMemoryCache } from "@apollo/client"
-// import errorLink from "./errorLink"
-// import authLink from "./authLink"
-// import httpLink from "./httpLink"
-import { useApollo } from "./apolloClient"
+import { ApolloClient, from, InMemoryCache } from "@apollo/client"
+import errorLink from "./errorLink"
+import authLink from "./authLink"
+import httpLink from "./httpLink"
+// import { withApollo } from "next-apollo";
 
-// export const client = new ApolloClient({
-//   ssrMode: typeof window === "undefined",
-//   link: from([authLink, errorLink, httpLink]),
-//   cache: new InMemoryCache(),
-// })
+// import { useApollo } from "./apolloClient"
+
+export const client = new ApolloClient({
+  ssrMode: typeof window === "undefined",
+  link: from([authLink, errorLink, httpLink]),
+  cache: new InMemoryCache(),
+})
 
 interface Props {
   children: ReactElement | ReactElement[]
   pageProps: any
 }
 
+// export default withApollo(client)
+
 export default function Apollo(props: Props): ReactElement {
-  const { children, pageProps } = props
+  const { children, /* pageProps */ } = props
 
-  const apolloClient = useApollo(pageProps)
+  // const apolloClient = useApollo(pageProps)
 
-  return <ApolloProvider client={apolloClient}>{children}</ApolloProvider>
+  return <ApolloProvider client={client}>{children}</ApolloProvider>
 }

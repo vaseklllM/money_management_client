@@ -1,5 +1,4 @@
-query {
-  currencyAccounts {
+query {  currencyAccounts {
     id
     value
     history {
