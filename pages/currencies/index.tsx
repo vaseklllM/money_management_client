@@ -13,9 +13,9 @@ export default function Currencies(): ReactElement {
   return (
     <MainWrapper>
       <Content className={classes.body}>
-        <Link href='/post'>
+        {/* <Link href='/post'>
           <a>post</a>
-        </Link>
+        </Link> */}
         <CurrencyAccounts />
         <ConnectedBankCardBlock />
         <BankCardsBlock />
