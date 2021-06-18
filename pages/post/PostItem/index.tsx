@@ -7,15 +7,17 @@ export default function PostItem(): ReactElement {
 
   if (loading) return <div>loading</div>
 
+  // console.log(data)
+
   return (
     <div>
-      {data.currencies.map((i) => (
+      {/* {data.currencies.map((i) => (
         <div key={i.id}>
           <span>{i.code}</span>
           <span>{i.symbol}</span>
           <span>id: {i.id}</span>
         </div>
-      ))}
+      ))} */}
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   )

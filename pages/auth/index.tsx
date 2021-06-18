@@ -6,6 +6,7 @@ import { AuthPageButton, AuthPageH1 } from "./components"
 import SignInForm from "./SignInForm"
 import SignUpForm from "./SignUpForm"
 import classes from "./style.module.scss"
+import Cookies from "js-cookie"
 
 /** Сторінка входу/реєстрації */
 export default function Auth(): ReactElement {
@@ -15,7 +16,8 @@ export default function Auth(): ReactElement {
   const router = useRouter()
 
   useEffect(() => {
-    const token = localStorage.getItem("token")
+    const token = Cookies.get("token")
+    // const token = localStorage.getItem("token")
     if (typeof token === "string" && token !== "") {
       router.push("/")
     } else {

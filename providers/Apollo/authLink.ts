@@ -1,15 +1,27 @@
 import { setContext } from "@apollo/client/link/context"
+import getConfig from "next/config"
 
-const authLink = setContext((_, { headers }) => {
+const { serverRuntimeConfig } = getConfig()
+
+const authLink = setContext((_, req) => {
   const isServer = typeof window === "undefined"
 
   if (isServer) {
-    // console.log(publicRuntimeConfig)
+    const token = serverRuntimeConfig.token
+
+    // console.log(localStorage.getItem("token"))
+
+    return {
+      headers: {
+        ...req.headers,
+        authorization: token ? `Bearer ${token}` : "",
+      },
+    }
   } else {
     const token = localStorage.getItem("token")
     return {
       headers: {
-        ...headers,
+        ...req.headers,
         authorization: token ? `Bearer ${token}` : "",
       },
     }

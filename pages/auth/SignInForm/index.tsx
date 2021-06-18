@@ -8,6 +8,7 @@ import { message } from "antd"
 import { err } from "@/utils"
 import { useRouter } from "next/router"
 import { useAuthGetUser } from "@/hooks"
+import Cookies from "js-cookie"
 
 const key = "singIn"
 
@@ -47,7 +48,8 @@ export default function SignInForm(): ReactElement {
       })
 
       message.success({ content: "Успішна авторизація", key, duration: 2 })
-      localStorage.setItem("token", result.data.signIn.token)
+      // localStorage.setItem("token", result.data.signIn.token)
+      Cookies.set("token", result.data.signIn.token)
       getUser()
       router.push("/")
     } catch (error) {

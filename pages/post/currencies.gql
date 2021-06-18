@@ -1,7 +1,11 @@
-query  {
-  currencies {
+query {
+  currencyAccounts {
     id
-    code
-    symbol
+    value
+    history {
+      date
+      title
+      value
+    }
   }
 }

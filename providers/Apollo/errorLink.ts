@@ -1,4 +1,5 @@
 import { onError } from "@apollo/client/link/error"
+import Cookies from "js-cookie"
 
 const errorLink = onError((params) => {
   const { graphQLErrors, networkError, response } = params
@@ -10,7 +11,8 @@ const errorLink = onError((params) => {
       /** Обработка Unauthorized */
       if (err?.extensions?.exception?.status === 401) {
         if (!isServer) {
-          localStorage.removeItem("token")
+          Cookies.remove("token")
+          // localStorage.removeItem("token")
           if (location.pathname !== "/auth") location.assign("/auth")
         }
         response.errors = undefined
