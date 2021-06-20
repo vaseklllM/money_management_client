@@ -83,7 +83,7 @@ export default function useCurrencyRatioData(): IResData {
   const { data: CAData, loading: CALoading } = useQuery<ICA>(CURRENCY_ACCOUNTS)
   const { data: BCData, loading: BCLoading } = useQuery<IBC>(BANK_CARDS)
 
-  if (CALoading || BCLoading) return { data: null, loading: true }
+  if (CALoading || !CAData || BCLoading || !BCData) return { data: null, loading: true }
 
   const data: ICurrencyRatioData[] = convertBCData(BCData, convertCAData(CAData)).filter(
     (i) => i.value > 0

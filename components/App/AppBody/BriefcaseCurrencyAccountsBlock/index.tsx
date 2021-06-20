@@ -22,7 +22,7 @@ export default function BriefcaseCurrencyAccountsBlock(): ReactElement {
     fetchPolicy: "cache-and-network",
   })
 
-  if (loading) return null
+  if (loading || !data) return null
 
   const isData = data.currencyAccounts.length !== 0
 

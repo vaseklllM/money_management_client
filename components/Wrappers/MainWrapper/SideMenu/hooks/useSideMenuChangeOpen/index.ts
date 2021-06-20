@@ -32,7 +32,7 @@ export function useSideMenuChangeOpen(): IReturnUseSideMenuChangeOpen {
     })
   }
 
-  if (loading) return { collapsed: true, setCollapsed }
+  if (loading || !data) return { collapsed: true, setCollapsed }
 
   return { collapsed: !data.settings.sideMenu.open, setCollapsed }
 }

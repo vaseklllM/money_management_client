@@ -10,7 +10,7 @@ import { IBankCards } from "./interfaces"
 export default function BriefcaseMonobankBlock(): ReactElement {
   const { data, loading } = useQuery<IBankCards>(BANC_CARDS)
 
-  if (loading || !data.bankcards.monobank) return null
+  if (loading || !data || !data.bankcards.monobank) return null
 
   return (
     <FinanceContentBlock>

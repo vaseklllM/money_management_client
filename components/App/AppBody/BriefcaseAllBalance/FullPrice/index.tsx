@@ -37,7 +37,7 @@ export default function FullPrice(): ReactElement {
   const { data: CAData, loading: CALoading } = useQuery<ICA>(CURRENCY_ACCOUNTS)
   const { data: BCData, loading: BCLoading } = useQuery<IBC>(BANK_CARDS)
 
-  if (CALoading || BCLoading) return null
+  if (CALoading || !BCData || BCLoading || !BCData) return null
 
   const CAPrice = CAFullPrice(CAData)
   const BCPrice = BCFullPrice(BCData)
