@@ -9,7 +9,7 @@ import httpLink from "./httpLink"
 
 export const client = new ApolloClient({
   ssrMode: typeof window === "undefined",
-  link: from([authLink, /* errorLink, */ httpLink]),
+  link: from([authLink, errorLink, httpLink]),
   cache: new InMemoryCache(),
 })
 
