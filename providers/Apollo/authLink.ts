@@ -7,11 +7,11 @@ const { serverRuntimeConfig } = getConfig()
 const authLink = setContext((_, req) => {
   const token = serverRuntimeConfig.token || Cookies.get("token")
 
-  const isToken = typeof token === "string" && token !== ""
+  // const isToken = typeof token === "string" && token !== ""
 
-  if (typeof window === "undefined") {
-    console.log(isToken, serverRuntimeConfig.token)
-  }
+  // if (typeof window === "undefined") {
+  //   console.log(isToken, serverRuntimeConfig.token)
+  // }
 
   return {
     headers: {

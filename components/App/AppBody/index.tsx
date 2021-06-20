@@ -13,9 +13,9 @@ const { Content } = Layout
 export default function AppBody(): ReactElement {
   return (
     <Content className={classes.body}>
-      {/* <Link href='/post'>
+      <Link href='/post'>
         <a>post</a>
-      </Link> */}
+      </Link>
       <BriefcaseAllBalance />
       <BriefcaseRatioBlock />
       <BriefcaseMonobankBlock />

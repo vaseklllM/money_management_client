@@ -6,32 +6,35 @@ import CURRENCIES from "./currencies.gql"
 import PostItem from "./PostItem"
 import getConfig from "next/config"
 import { client } from "@/providers/Apollo"
-// import withApollo from "@/providers/Apollo"
 
 const { serverRuntimeConfig } = getConfig()
+
+export const PostPageContext = React.createContext({
+  currencies: { data: null, loading: true },
+})
 
 export default function Page(props): ReactElement {
   const { currencies } = props
 
   return (
-    <>
+    <PostPageContext.Provider value={{ currencies }}>
       <Link href='/'>
         <a>back</a>
       </Link>
-      <PostItem data={currencies.data} loading={currencies.loading} />
-    </>
+      <PostItem />
+    </PostPageContext.Provider>
   )
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   serverRuntimeConfig.token = req.cookies.token
 
-  const { data, loading } = await client.query({
+  const currencies = await client.query({
     query: CURRENCIES,
   })
 
   return {
-    props: { currencies: { data, loading } },
+    props: { currencies: { data: currencies.data, loading: currencies.loading } },
   }
 
   // const apolloClient = initializeApollo()
