@@ -4,7 +4,6 @@ import { ApolloClient, from, InMemoryCache } from "@apollo/client"
 import errorLink from "./errorLink"
 import authLink from "./authLink"
 import httpLink from "./httpLink"
-// import { withApollo } from "next-apollo";
 
 // import { useApollo } from "./apolloClient"
 
@@ -19,10 +18,8 @@ interface Props {
   pageProps: any
 }
 
-// export default withApollo(client)
-
 export default function Apollo(props: Props): ReactElement {
-  const { children, /* pageProps */ } = props
+  const { children /* pageProps */ } = props
 
   // const apolloClient = useApollo(pageProps)
 

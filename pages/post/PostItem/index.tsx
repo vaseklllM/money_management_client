@@ -6,9 +6,7 @@ export default function PostItem(): ReactElement {
     currencies: { data, loading },
   } = useContext(PostPageContext)
 
-  // console.log("update")
-
-  if (loading) return <pre>loading</pre>
+  if (loading || !data) return <pre>loading</pre>
 
   return <pre>{JSON.stringify(data, null, 2)}</pre>
 }

@@ -10,11 +10,11 @@ export default function App() {
   const router = useRouter()
 
   useEffect(() => {
-    const token = Cookies.get("token")
-    // const token = localStorage.getItem("token")
+    // const token = Cookies.get("token")
+    // // const token = localStorage.getItem("token")
 
-    if (!token) router.push("/auth")
-    else setIsLoadingPage(false)
+    // if (!token) router.push("/auth")
+    // else setIsLoadingPage(false)
   }, [])
 
   if (isLoadingPage) return null

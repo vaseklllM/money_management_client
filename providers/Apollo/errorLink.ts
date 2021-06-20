@@ -1,5 +1,6 @@
 import { onError } from "@apollo/client/link/error"
 import Cookies from "js-cookie"
+import Router from "next/router"
 
 const errorLink = onError((params) => {
   const { graphQLErrors, networkError, response } = params
@@ -10,11 +11,7 @@ const errorLink = onError((params) => {
     for (let err of graphQLErrors) {
       /** Обработка Unauthorized */
       if (err?.extensions?.exception?.status === 401) {
-        if (!isServer) {
-          Cookies.remove("token")
-          // localStorage.removeItem("token")
-          if (location.pathname !== "/auth") location.assign("/auth")
-        }
+        if (!isServer) authError()
         response.errors = undefined
       }
     }
@@ -24,5 +21,16 @@ const errorLink = onError((params) => {
     console.log(`[Network error]: ${networkError}`)
   }
 })
+
+/** Перенаправлення в випадку якщо користувач не авторизований */
+function authError() {
+  Cookies.remove("token")
+
+  const { pathname } = Router
+
+  if (pathname !== "/auth") {
+    Router.push("/auth")
+  }
+}
 
 export default errorLink
