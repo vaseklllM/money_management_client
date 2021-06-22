@@ -9,7 +9,7 @@ export default function parseInputFloat(str: string, options: IOptions = {}): st
 
   let valueNum = parseFloat(str)
 
-  if (valueNum) {
+  if (typeof valueNum === "number" && !isNaN(valueNum)) {
     if (!str.includes(".")) {
       if (notMinus) return String(Math.abs(valueNum))
       return String(valueNum)
