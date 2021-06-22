@@ -15,7 +15,7 @@ export default function AppBody(): ReactElement {
     <Content className={classes.body}>
       {/* <Link href='/post'>
         <a>post</a>
-      </Link> */}
+          </Link> */}
       <BriefcaseAllBalance />
       <BriefcaseRatioBlock />
       <BriefcaseMonobankBlock />
