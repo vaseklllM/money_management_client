@@ -23,13 +23,13 @@ export default function ModalAddWalletInputNewValue({
   function onChange(event) {
     const value = txt.parseInputFloat(event.target.value, { fixedNumbers: 2 })
 
-    const newBuySaleValue = +value - activeValue || 0
+    const newBuySaleValue: number = +value - activeValue || 0
 
     /** нове значення "Типу операції" */
     setTransactionType(newBuySaleValue > 0)
 
     /** Нове значення "Сумма продажи" */
-    setBuySaleValue(String(Math.abs(newBuySaleValue)))
+    setBuySaleValue(String(Math.abs(parseFloat(newBuySaleValue.toFixed(2)))))
 
     /** Нове значення "Нове значення рахунку" */
     setNewValue(value)

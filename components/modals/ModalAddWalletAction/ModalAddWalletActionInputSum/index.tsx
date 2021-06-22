@@ -31,10 +31,10 @@ export default function ModalAddWalletActionInputSum({
     /** Нове значення "Сумма продажи" */
     setBuySaleValue(value)
 
+    const newValue = transactionType ? valueNum + activeValue : activeValue - valueNum
+
     /** Нове значення "Нове значення рахунку" */
-    setNewValue(
-      transactionType ? String(valueNum + activeValue) : String(activeValue - valueNum)
-    )
+    setNewValue(String(parseFloat(newValue.toFixed(2))))
   }
 
   return (

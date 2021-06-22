@@ -25,10 +25,12 @@ export default function ModalAddWalletActionTypeToggle({
 
     const buySaleValueNum = +buySaleValue
 
+    const newValue: number = value
+      ? activeValue + buySaleValueNum
+      : activeValue - buySaleValueNum
+
     /** Нове значення "Нове значення рахунку" */
-    setNewValue(
-      String(value ? activeValue + buySaleValueNum : activeValue - buySaleValueNum)
-    )
+    setNewValue(String(parseFloat(newValue.toFixed(2))))
   }
 
   return (
