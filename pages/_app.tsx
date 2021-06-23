@@ -6,7 +6,7 @@ import { ButtonCircleAdd } from "@/components/Buttons"
 import { ReactElement } from "react"
 import Head from "next/head"
 
-export default function MyApp({ Component, pageProps }): ReactElement {
+export default function App({ Component, pageProps }): ReactElement {
   return (
     <Apollo pageProps={pageProps}>
       <Head>

@@ -11,11 +11,13 @@ export default function PostItem(): ReactElement {
 
   if (loading || !data) return <div>loading</div>
 
-  return (
-    <div>
-      {data.currencyAccounts.map((i) => (
-        <div key={i.id}>{i.name}</div>
-      ))}
-    </div>
-  )
+  return <pre>{JSON.stringify(data, null, 2)}</pre>
+
+  // return (
+  //   <div>
+  //     {data.currencyAccounts.map((i) => (
+  //       <div key={i.id}>{i.name}</div>
+  //     ))}
+  //   </div>
+  // )
 }
