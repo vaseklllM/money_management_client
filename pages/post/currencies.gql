@@ -7,10 +7,9 @@
 # }
 
 query currencyAccounts($numberOfHistoryItems: Int!) {
-  currencyAccounts(numberOfHistoryItems: $numberOfHistoryItems)  {
+  currencyAccounts(numberOfHistoryItems: $numberOfHistoryItems) {
     id
     name
-    value
   }
 }
 

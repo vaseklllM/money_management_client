@@ -1,6 +1,5 @@
 import { useQuery } from "@apollo/client"
-import React, { ReactElement, useContext } from "react"
-import { PostPageContext } from ".."
+import React, { ReactElement } from "react"
 import CURRENCIES from "../currencies.gql"
 
 export default function PostItem(): ReactElement {
@@ -10,19 +9,13 @@ export default function PostItem(): ReactElement {
     },
   })
 
-  // const {
-  //   currencies: { data, loading },
-  // } = useContext(PostPageContext)
-
   if (loading || !data) return <div>loading</div>
 
-  return <pre>{JSON.stringify(data, null, 2)}</pre>
-
-  // return (
-  //   <div>
-  //     {data.currencyAccounts.map((i) => (
-  //       <div key={i.id}> {i.name}</div>
-  //     ))}
-  //   </div>
-  // )
+  return (
+    <div>
+      {data.currencyAccounts.map((i) => (
+        <div key={i.id}>{i.name}</div>
+      ))}
+    </div>
+  )
 }
