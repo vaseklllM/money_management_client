@@ -19,9 +19,8 @@ export default function Page(): ReactElement {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  // serverRuntimeConfig.token = req.cookies.token
-  console.log(1, typeof window !== "undefined")
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  serverRuntimeConfig.token = req.cookies.token
 
   const apolloClient = initializeApollo()
 
@@ -38,22 +37,3 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   }
 }
-
-// export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-//   // serverRuntimeConfig.token = req.cookies.token
-
-//   const apolloClient = initializeApollo()
-
-//   await apolloClient.query({
-//     query: CURRENCIES,
-//     variables: {
-//       numberOfHistoryItems: 5,
-//     },
-//   })
-
-//   return {
-//     props: {
-//       initialApolloState: apolloClient.cache.extract(),
-//     },
-//   }
-// }

@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client"
 import { Statistic } from "antd"
 import { ReactElement } from "react"
-import CURRENCY_ACCOUNTS from "./currencyAccounts.gql"
+import CURRENCY_ACCOUNTS from "../../../currencyAccounts.gql"
 import BANK_CARDS from "./bankcards.gql"
 
 interface ICA {
@@ -14,6 +14,10 @@ interface ICA {
       }[]
     }
   }[]
+}
+
+interface ICAVariables {
+  numberOfHistoryItems: number
 }
 
 interface IBC {
@@ -34,7 +38,14 @@ interface IBC {
 }
 
 export default function FullPrice(): ReactElement {
-  const { data: CAData, loading: CALoading } = useQuery<ICA>(CURRENCY_ACCOUNTS)
+  const { data: CAData, loading: CALoading } = useQuery<ICA, ICAVariables>(
+    CURRENCY_ACCOUNTS,
+    {
+      variables: {
+        numberOfHistoryItems: 0,
+      },
+    }
+  )
   const { data: BCData, loading: BCLoading } = useQuery<IBC>(BANK_CARDS)
 
   if (CALoading || !BCData || BCLoading || !BCData) return null
@@ -47,6 +58,7 @@ export default function FullPrice(): ReactElement {
   const numberFormat = new Intl.NumberFormat("ru-RU", {
     style: "currency",
     currency: "UAH",
+    currencyDisplay: "narrowSymbol",
   })
 
   return <Statistic title='Вартість всіх рахунків' value={numberFormat.format(price)} />

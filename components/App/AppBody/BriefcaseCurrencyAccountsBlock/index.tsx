@@ -3,9 +3,9 @@ import { useQuery } from "@apollo/client"
 import React, { ReactElement } from "react"
 import BriefcaseCurrencyAccountsBlockTitleRow from "./BriefcaseCurrencyAccountsBlockTitleRow"
 import CurrencyAccount from "./CurrencyAccount"
-import CURRENCY_ACCOUNTS from "./currencyAccounts.gql"
 import { ICurrencyAccountsQueryData } from "./interfaces"
 import classes from "./style.module.scss"
+import CURRENCY_ACCOUNTS from "../../currencyAccounts.gql"
 
 interface ICurrencyAccountVariables {
   numberOfHistoryItems: number
@@ -19,7 +19,7 @@ export default function BriefcaseCurrencyAccountsBlock(): ReactElement {
     variables: {
       numberOfHistoryItems: 15,
     },
-    fetchPolicy: "cache-and-network",
+    // fetchPolicy: "cache-and-network",
   })
 
   if (loading || !data) return null
