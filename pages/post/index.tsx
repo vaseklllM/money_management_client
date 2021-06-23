@@ -5,7 +5,8 @@ import React, { ReactElement } from "react"
 import CURRENCIES from "./currencies.gql"
 import PostItem from "./PostItem"
 import getConfig from "next/config"
-import { client } from "@/providers/Apollo"
+// import { client } from "@/providers/Apollo"
+import { initializeApollo } from "@/providers/Apollo/apolloClient"
 
 const { serverRuntimeConfig } = getConfig()
 
@@ -29,24 +30,46 @@ export default function Page(props): ReactElement {
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   serverRuntimeConfig.token = req.cookies.token
 
-  const currencies = await client.query({
+  const apolloClient = initializeApollo()
+
+  await apolloClient.query({
     query: CURRENCIES,
+    variables: {
+      numberOfHistoryItems: 5,
+    },
   })
 
   return {
-    props: { currencies: { data: currencies.data, loading: currencies.loading } },
+    props: {
+      initialApolloState: apolloClient.cache.extract(),
+    },
   }
-
-  // const apolloClient = initializeApollo()
-
-  // await apolloClient.query(
-  //   {
-  //     query: CURRENCIES,
-  //   },
-  //   { fetchPolicy: "cache-and-network" }
-  // )
-
-  // return addApolloState(apolloClient, {
-  //   props: {},
-  // })
 }
+
+// export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+//   serverRuntimeConfig.token = req.cookies.token
+
+//   const currencies = await client.query({
+//     query: CURRENCIES,
+//     variables: {
+//       numberOfHistoryItems: 5,
+//     },
+//   })
+
+//   return {
+//     props: { currencies: { data: currencies.data, loading: currencies.loading } },
+//   }
+
+//   // const apolloClient = initializeApollo()
+
+//   // await apolloClient.query(
+//   //   {
+//   //     query: CURRENCIES,
+//   //   },
+//   //   { fetchPolicy: "cache-and-network" }
+//   // )
+
+//   // return addApolloState(apolloClient, {
+//   //   props: {},
+//   // })
+// }

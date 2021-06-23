@@ -1,10 +1,26 @@
-query {  currencyAccounts {
+# query {
+#   currencyAccounts {
+#     id
+#     name
+#     value
+#   }
+# }
+
+query currencyAccounts($numberOfHistoryItems: Int!) {
+  currencyAccounts(numberOfHistoryItems: $numberOfHistoryItems)  {
     id
+    name
     value
-    history {
-      date
-      title
-      value
-    }
   }
 }
+
+# query {
+#   currencies {
+#     code
+#     symbol
+#     historyCourseInUAH {
+#       price
+#       date
+#     }
+#   }
+# }
