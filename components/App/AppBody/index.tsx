@@ -18,9 +18,9 @@ export default function AppBody(): ReactElement {
       </Link>
       <BriefcaseAllBalance />
       {/* <BriefcaseRatioBlock />*/}
-      {/* <BriefcaseMonobankBlock /> */}
+      <BriefcaseMonobankBlock />
       <BriefcaseCurrencyAccountsBlock />
-      {/* <ExchangeRatesBlock /> */}
+      <ExchangeRatesBlock />
     </Content>
   )
 }

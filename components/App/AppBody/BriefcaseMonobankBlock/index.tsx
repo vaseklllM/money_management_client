@@ -3,7 +3,7 @@ import React, { ReactElement } from "react"
 import MonobankBlockBody from "./MonobankBlockBody"
 import MonobankBlockTitleRow from "./MonobankBlockTitleRow"
 import classes from "./style.module.scss"
-import BANC_CARDS from "./bankCards.gql"
+import BANC_CARDS from "../../bankCards.gql"
 import { useQuery } from "@apollo/client"
 import { IBankCards } from "./interfaces"
 

@@ -2,9 +2,11 @@ import App from "@/components/App"
 import { initializeApollo } from "@/providers/Apollo/apolloClient"
 import { GetServerSideProps } from "next"
 import getConfig from "next/config"
-import BANK_CARDS from "@/components/App/AppBody/BriefcaseAllBalance/FullPrice/bankcards.gql"
+// import BANK_CARDS from "@/components/App/AppBody/BriefcaseAllBalance/FullPrice/bankcards.gql"
 // import BANC_CARDS1 from "@/components/App/AppBody/BriefcaseMonobankBlock/bankCards.gql"
 import CURRENCY_ACCOUNTS from "@/components/App/currencyAccounts.gql"
+import BANK_CARDS from "@/components/App/bankCards.gql"
+import CURRENCIES from "@/components/App/currencies.gql"
 
 const { serverRuntimeConfig } = getConfig()
 
@@ -17,6 +19,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
 
   const apolloClient = initializeApollo()
 
+  /** Вартість всіх рахунків / Статистика монобанка */
   await apolloClient.query({
     query: BANK_CARDS,
   })
@@ -36,6 +39,14 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
       numberOfHistoryItems: 15,
     },
     // fetchPolicy: "cache-and-network",
+  })
+
+  /** Курс валют */
+  await apolloClient.query({
+    query: CURRENCIES,
+    variables: {
+      numberOfHistoryItems: 30,
+    },
   })
 
   return {

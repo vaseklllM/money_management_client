@@ -1,9 +1,9 @@
 import React, { ReactElement } from "react"
 import ExchangeRatesGraphItem from "./ExchangeRatesGraphItem"
-import CURRENCIES from "./currencies.gql"
 import { useQuery } from "@apollo/client"
 import { ICurrenciesData, ICurrency } from "./interface"
 import classes from "./style.module.scss"
+import CURRENCIES from "../../../currencies.gql"
 
 interface ICurrenciesVariables {
   numberOfHistoryItems: number

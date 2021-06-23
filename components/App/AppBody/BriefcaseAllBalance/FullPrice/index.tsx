@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client"
 import { Statistic } from "antd"
 import { ReactElement } from "react"
 import CURRENCY_ACCOUNTS from "../../../currencyAccounts.gql"
-import BANK_CARDS from "./bankcards.gql"
+import BANK_CARDS from '../../../bankCards.gql'
 
 interface ICA {
   currencyAccounts: {
