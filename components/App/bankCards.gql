@@ -15,6 +15,7 @@ query {
           balance
           currency {
             code
+            symbol
             historyCourseInUAH {
               price
             }
@@ -24,20 +25,3 @@ query {
     }
   }
 }
-
-# query {
-#   bankcards {
-#     monobank {
-#       historyCards {
-#         cards {
-#           balance
-#           currency {
-#             historyCourseInUAH {
-#               price
-#             }
-#           }
-#         }
-#       }
-#     }
-#   }
-# }

@@ -24,7 +24,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     query: BANK_CARDS,
   })
 
-  /** Вартість всіх рахунків */
+  /** Вартість всіх рахунків / Співвідношення валют */
   await apolloClient.query({
     query: CURRENCY_ACCOUNTS,
     variables: {

@@ -1,5 +1,5 @@
-import CURRENCY_ACCOUNTS from "./currencyAccounts.gql"
-import BANK_CARDS from "./bankcards.gql"
+import CURRENCY_ACCOUNTS from "../../../currencyAccounts.gql"
+import BANK_CARDS from "../../../bankCards.gql"
 import { useQuery } from "@apollo/client"
 import { ICurrencyRatioData } from "../CurrencyRatio/interface"
 
@@ -79,8 +79,15 @@ function convertBCData(BCData: IBC, data: ICurrencyRatioData[]): ICurrencyRatioD
   return data
 }
 
+interface ICAVariables {
+  numberOfHistoryItems: number
+}
+
 export default function useCurrencyRatioData(): IResData {
-  const { data: CAData, loading: CALoading } = useQuery<ICA>(CURRENCY_ACCOUNTS)
+  const { data: CAData, loading: CALoading } = useQuery<ICA, ICAVariables>(
+    CURRENCY_ACCOUNTS,
+    { variables: { numberOfHistoryItems: 0 } }
+  )
   const { data: BCData, loading: BCLoading } = useQuery<IBC>(BANK_CARDS)
 
   if (CALoading || !CAData || BCLoading || !BCData) return { data: null, loading: true }

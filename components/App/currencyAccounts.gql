@@ -10,6 +10,7 @@ query currencyAccounts($numberOfHistoryItems: Int!) {
     }
     currency {
       code
+      symbol
       historyCourseInUAH {
         price
       }
