@@ -22,6 +22,8 @@ export default function ModalAddWalletAction({
   currencyAccountId,
   page,
 }: Props): ReactElement {
+  const getDefaultActiveValue = String(parseFloat(activeValue.toFixed(2)))
+
   /** Назва транзакції */
   const [name, setName] = useState("")
   /** Тип операції: */
@@ -29,12 +31,12 @@ export default function ModalAddWalletAction({
   /** Сумма покупки */
   const [buySaleValue, setBuySaleValue] = useState("")
   /** Нове значення рахунку */
-  const [newValue, setNewValue] = useState(String(activeValue))
+  const [newValue, setNewValue] = useState(getDefaultActiveValue)
 
   function close() {
     setTransactionType(true)
     setBuySaleValue("")
-    setNewValue(String(activeValue))
+    setNewValue(getDefaultActiveValue)
     setName("")
     onCancel()
   }

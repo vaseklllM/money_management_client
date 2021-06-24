@@ -5,7 +5,7 @@ import ConnectedBankCardBlock from "./blocks/ConnectedBankCardBlock"
 import BankCardsBlock from "./blocks/BankCardsBlock"
 import CurrencyAccounts from "./blocks/CurrencyAccounts"
 import classes from "./style.module.scss"
-import Link from "next/link"
+// import Link from "next/link"
 import { GetServerSideProps } from "next"
 import { initializeApollo } from "@/providers/Apollo/apolloClient"
 import getConfig from "next/config"
@@ -21,9 +21,9 @@ export default function Currencies(): ReactElement {
   return (
     <MainWrapper>
       <Content className={classes.body}>
-        <Link href='/post'>
+        {/* <Link href='/post'>
           <a>post</a>
-        </Link>
+        </Link> */}
         <CurrencyAccounts />
         <ConnectedBankCardBlock />
         <BankCardsBlock />
