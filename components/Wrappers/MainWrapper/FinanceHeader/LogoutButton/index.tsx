@@ -3,7 +3,11 @@ import { useAuthGetUser } from "@/hooks"
 import Cookies from "js-cookie"
 import { ButtonLogout } from "@/components/Buttons"
 
-export default function LogoutButton(): ReactElement {
+interface IProps {
+  className?: string
+}
+
+export default function LogoutButton({ className }: IProps): ReactElement {
   const { getUser } = useAuthGetUser()
 
   function onClick() {
@@ -11,5 +15,5 @@ export default function LogoutButton(): ReactElement {
     getUser()
   }
 
-  return <ButtonLogout onClick={onClick} />
+  return <ButtonLogout className={className} onClick={onClick} />
 }

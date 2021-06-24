@@ -1,9 +1,23 @@
 .header {
   background-color: white;
-}
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "currencies . logout";
+  padding: 15px 20px;
+  // margin: 0px 16px;
+  border-radius: 5px;
 
-@media screen and (max-width: 600px) {
-  .header {
-    padding: 5px 15px;
+  .currencies {
+    grid-area: currencies;
+  }
+
+  .logout {
+    grid-area: logout;
   }
 }
+
+// @media screen and (max-width: 600px) {
+//   .header {
+//     padding: 5px 15px;
+//   }
+// }

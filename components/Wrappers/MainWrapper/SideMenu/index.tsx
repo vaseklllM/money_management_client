@@ -4,6 +4,7 @@ import { useRouter } from "next/router"
 import { /* BitcoinIcon, */ BriefcaseIcon } from "@/components/Icons"
 import { DollarCircleOutlined /* , BarChartOutlined  */ } from "@ant-design/icons"
 import { useSideMenuChangeOpen } from "./hooks/useSideMenuChangeOpen"
+import SideMenuBody from "./SideMenuBody"
 
 const { Sider } = Layout
 
@@ -14,6 +15,8 @@ interface Props {
 export default memo(function SideMenu({ className }: Props) {
   const { collapsed, setCollapsed } = useSideMenuChangeOpen()
   const router = useRouter()
+
+  // return <SideMenuBody />
 
   const financeMenuList = [
     {

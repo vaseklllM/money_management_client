@@ -1,3 +1,26 @@
+.main {
+  background-color: rgb(245, 245, 245);
+  gap: 16px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "header header"
+    "sideMenu body";
+
+  .sideMenu {
+    grid-area: sideMenu;
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .body {
+    grid-area: body;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .sideMenu {
     display: none;

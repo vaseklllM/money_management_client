@@ -5,6 +5,7 @@ import { Typography } from "antd"
 import classes from "./style.module.scss"
 import CURRENCIES from "../../currencies.gql"
 import { useQuery } from "@apollo/client"
+import { txt } from "@/utils"
 
 const { Title } = Typography
 interface ICurrencies {
@@ -21,7 +22,11 @@ interface ICurrenciesVariables {
   numberOfHistoryItems: number
 }
 
-export default memo(function FinanceHeaderTitle(): ReactElement {
+interface Props {
+  className?: string
+}
+
+export default memo(function FinanceHeaderTitle({ className }: Props): ReactElement {
   const { data, loading, error } = useQuery<ICurrencies, ICurrenciesVariables>(
     CURRENCIES,
     { variables: { numberOfHistoryItems: 0 } }
@@ -34,7 +39,7 @@ export default memo(function FinanceHeaderTitle(): ReactElement {
   if (error) return <div>Помилка при завантажені даних</div>
 
   return (
-    <div className={classes.currencies}>
+    <div className={txt.join([classes.currencies, className])}>
       {data.currencies
         .filter((i) => i.code !== "UAH")
         .map((el) => (

@@ -20,17 +20,22 @@ export default function MainWrapper(props: Props): ReactElement {
   useAdaptiveCollapsedSideMenu(bodyRef)
 
   return (
-    <>
-      <Layout style={{ minHeight: "100vh" }}>
+    <div className={classes.main}>
+      <FinanceHeader className={classes.header} />
+      <SideMenu className={classes.sideMenu} />
+      <div className={classes.body} ref={bodyRef}>
+        {children}
+      </div>
+      {/* <Layout style={{ minHeight: "100vh" }}>
         <SideMenu className={classes.sideMenu} />
         <Layout>
           <FinanceHeader />
           <div ref={bodyRef}>{children}</div>
           <Footer style={{ textAlign: "center" }}>Created by Vasek ©2021</Footer>
         </Layout>
-      </Layout>
-      <BottomMenu />
+      </Layout> */}
+      {/* <BottomMenu /> */}
       <ButtonCircleAdd />
-    </>
+    </div>
   )
 }
