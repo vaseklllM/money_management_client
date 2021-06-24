@@ -5,7 +5,6 @@ import ConnectedBankCardBlock from "./blocks/ConnectedBankCardBlock"
 import BankCardsBlock from "./blocks/BankCardsBlock"
 import CurrencyAccounts from "./blocks/CurrencyAccounts"
 import classes from "./style.module.scss"
-// import Link from "next/link"
 import { GetServerSideProps } from "next"
 import { initializeApollo } from "@/providers/Apollo/apolloClient"
 import getConfig from "next/config"
@@ -15,21 +14,18 @@ import CURRENCIES from "@/components/Wrappers/MainWrapper/currencies.gql"
 import { configCurrencyAccounts } from "./blocks/CurrencyAccounts/config"
 import SETTINGS from "@/components/Wrappers/MainWrapper/settings.gql"
 
+const { Content } = Layout
+
 const { serverRuntimeConfig } = getConfig()
 
 export default function Currencies(): ReactElement {
-  const { Content } = Layout
-
   return (
     <MainWrapper>
-      <Content className={classes.body}>
-        {/* <Link href='/post'>
-          <a>post</a>
-        </Link> */}
+      <div className={classes.body}>
         <CurrencyAccounts />
         <ConnectedBankCardBlock />
         <BankCardsBlock />
-      </Content>
+      </div>
     </MainWrapper>
   )
 }
