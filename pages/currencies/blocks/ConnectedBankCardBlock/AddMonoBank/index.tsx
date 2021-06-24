@@ -1,11 +1,11 @@
-import React, { ReactElement, useEffect, useState } from "react"
+import React, { ReactElement, useState } from "react"
 import AddMonobankTokenInput from "./AddMonobankTokenInput"
 import AddMonobankCardData from "./AddMonobankCardData"
 import AddMonobankTitleRow from "./AddMonobankTitleRow"
 import BancCard from "@/components/finance/BancCard"
 import { IMonobankUserData } from "@/api/banks/monobank/getUserInfo"
-import { useLazyQuery, useMutation } from "@apollo/client"
-import BANK_CARDS from "./bankCards.gql"
+import { useMutation, useQuery } from "@apollo/client"
+import BANK_CARDS from "../../../bankCards.gql"
 import DELETE_CARDS from "./deleteCards.gql"
 
 interface IBank {
@@ -37,14 +37,9 @@ export default function AddMonobank(props: Props): ReactElement {
   const { className } = props
   const [token, setToken] = useState<string>("")
   const [cardData, setCardData] = useState<IMonobankUserData | null>(null)
-  const [getBankCards, { loading, data }] = useLazyQuery<queryData>(BANK_CARDS, {
-    fetchPolicy: "cache-and-network",
-  })
-  const [deleteCard] = useMutation<IDeleteCardsData, IDeleteCardVariables>(DELETE_CARDS)
 
-  useEffect(() => {
-    getBankCards()
-  }, [])
+  const { loading, data, refetch } = useQuery<queryData>(BANK_CARDS)
+  const [deleteCard] = useMutation<IDeleteCardsData, IDeleteCardVariables>(DELETE_CARDS)
 
   const inputPlaceholder = "Токен"
 
@@ -68,7 +63,7 @@ export default function AddMonobank(props: Props): ReactElement {
     })
 
     if (!data.deleteBankCards?.monobank?.token) {
-      getBankCards()
+      refetch()
     }
   }
 
@@ -81,12 +76,12 @@ export default function AddMonobank(props: Props): ReactElement {
       isValid={data?.bankcards?.monobank?.isValidToken ?? null}
     >
       {(params) => {
-        /** Закриття форми та видалення даних після збереження карти */
+        /** Закриття форми, та після видалення даних після збереження карти */
         function onClose() {
           setToken("")
           setCardData(null)
           params.onClose()
-          getBankCards()
+          refetch()
         }
 
         return (
