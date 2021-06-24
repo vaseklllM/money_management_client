@@ -1,6 +1,6 @@
 import React, { ReactElement, useRef } from "react"
 import { Layout } from "antd"
-import FinanceHeader from "@/components/Wrappers/MainWrapper/FinanceHeader"
+import Header from "@/components/Wrappers/MainWrapper/FinanceHeader"
 import SideMenu from "./SideMenu"
 import { useAdaptiveCollapsedSideMenu } from "./useAdaptiveCollapsedSideMenu"
 import classes from "./style.module.scss"
@@ -21,7 +21,7 @@ export default function MainWrapper(props: Props): ReactElement {
 
   return (
     <div className={classes.main}>
-      <FinanceHeader className={classes.header} />
+      <Header className={classes.header} />
       <SideMenu className={classes.sideMenu} />
       <div className={classes.body} ref={bodyRef}>
         {children}

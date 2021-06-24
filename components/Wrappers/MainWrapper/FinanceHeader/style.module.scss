@@ -1,23 +1,35 @@
-.header {
-  background-color: white;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-areas: "currencies . logout";
-  padding: 15px 20px;
-  // margin: 0px 16px;
-  border-radius: 5px;
+.header_wrapper {
+  height: 62px;
 
-  .currencies {
-    grid-area: currencies;
+  .header {
+    background-color: white;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "currencies . logout";
+    padding: 15px 20px;
+    border-radius: 5px;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    width: calc(100% - 32px);
+    transition: all 0.2s ease-in-out;
+    z-index: 10;
+
+    .currencies {
+      grid-area: currencies;
+    }
+
+    .logout {
+      grid-area: logout;
+    }
   }
 
-  .logout {
-    grid-area: logout;
+  .fixed_header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    border-radius: 0;
   }
 }
-
-// @media screen and (max-width: 600px) {
-//   .header {
-//     padding: 5px 15px;
-//   }
-// }
