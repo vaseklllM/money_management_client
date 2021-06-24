@@ -6,26 +6,24 @@ import { AuthPageButton, AuthPageH1 } from "./components"
 import SignInForm from "./SignInForm"
 import SignUpForm from "./SignUpForm"
 import classes from "./style.module.scss"
-import Cookies from "js-cookie"
+import { GetServerSideProps } from "next"
+import getConfig from "next/config"
+
+const { serverRuntimeConfig } = getConfig()
+
+interface IProps {
+  isAuth: boolean
+}
 
 /** Сторінка входу/реєстрації */
-export default function Auth(): ReactElement {
+export default function Auth({ isAuth }: IProps): ReactElement {
   const [isSingUp, setIsSingUp] = useState(false)
-  const [isLoadingPage, setIsLoadingPage] = useState(true)
 
   const router = useRouter()
 
   useEffect(() => {
-    const token = Cookies.get("token")
-    // const token = localStorage.getItem("token")
-    if (typeof token === "string" && token !== "") {
-      router.push("/")
-    } else {
-      setIsLoadingPage(false)
-    }
-  }, [])
-
-  if (isLoadingPage) return null
+    if (isAuth) router.push("/")
+  }, [isAuth])
 
   return (
     <div className={classes.body}>
@@ -69,4 +67,21 @@ export default function Auth(): ReactElement {
       />
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const { token } = req.cookies
+  serverRuntimeConfig.token = token
+
+  let isAuth = false
+
+  if (typeof token === "string" && token !== "") {
+    isAuth = true
+  }
+
+  return {
+    props: {
+      isAuth,
+    },
+  }
 }
