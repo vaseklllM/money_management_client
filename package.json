@@ -18,6 +18,7 @@
     "next-apollo": "^5.0.4",
     "next-images": "^1.8.1",
     "node-fetch": "^2.6.1",
+    "nprogress": "^0.2.0",
     "random-color-rgb": "^1.1.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",

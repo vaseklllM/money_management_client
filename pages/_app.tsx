@@ -4,6 +4,7 @@ import "antd/dist/antd.css" /** стили Ant Design */
 import Apollo from "@/providers/Apollo"
 import { ReactElement } from "react"
 import Head from "next/head"
+import LoaderIndicator from "@/components/LoaderIndicator"
 
 export default function App({ Component, pageProps }): ReactElement {
   return (
@@ -12,6 +13,7 @@ export default function App({ Component, pageProps }): ReactElement {
         <title>Веб-додаток для аналізу курсів та особистих рахунків</title>
       </Head>
       <Component {...pageProps} />
+      <LoaderIndicator />
     </Apollo>
   )
 }
