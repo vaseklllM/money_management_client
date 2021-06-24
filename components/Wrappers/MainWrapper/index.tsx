@@ -5,14 +5,15 @@ import SideMenu from "./SideMenu"
 import { useAdaptiveCollapsedSideMenu } from "./useAdaptiveCollapsedSideMenu"
 import classes from "./style.module.scss"
 import BottomMenu from "./BottomMenu"
+import { ButtonCircleAdd } from "@/components/Buttons"
 
+const { Footer } = Layout
 interface Props {
   children: ReactElement | string | ReactElement[]
 }
 
 export default function MainWrapper(props: Props): ReactElement {
   const { children } = props
-  const { Footer } = Layout
 
   const bodyRef = useRef(null)
 
@@ -29,6 +30,7 @@ export default function MainWrapper(props: Props): ReactElement {
         </Layout>
       </Layout>
       <BottomMenu />
+      <ButtonCircleAdd />
     </>
   )
 }
