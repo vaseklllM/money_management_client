@@ -5,6 +5,7 @@ import getConfig from "next/config"
 import CURRENCY_ACCOUNTS from "@/components/App/currencyAccounts.gql"
 import BANK_CARDS from "@/components/App/bankCards.gql"
 import CURRENCIES from "@/components/App/currencies.gql"
+import SETTINGS from '@/components/Wrappers/MainWrapper/settings.gql'
 
 const { serverRuntimeConfig } = getConfig()
 
@@ -16,6 +17,11 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   serverRuntimeConfig.token = req.cookies.token
 
   const apolloClient = initializeApollo()
+
+  /** side menu */
+  await apolloClient.query({
+    query: SETTINGS,
+  })
 
   /** Вартість всіх рахунків / Статистика монобанка */
   await apolloClient.query({
@@ -44,6 +50,14 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     query: CURRENCIES,
     variables: {
       numberOfHistoryItems: 30,
+    },
+  })
+
+  /** Курс валют в хедері */
+  await apolloClient.query({
+    query: CURRENCIES,
+    variables: {
+      numberOfHistoryItems: 0,
     },
   })
 

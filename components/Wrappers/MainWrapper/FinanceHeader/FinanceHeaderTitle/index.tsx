@@ -1,11 +1,12 @@
-import React, { ReactElement } from "react"
+import React, { memo, ReactElement } from "react"
 import { LoadingOutlined } from "@ant-design/icons"
 import { Spin } from "antd"
 import { Typography } from "antd"
 import classes from "./style.module.scss"
-import CURRENCIES from "./currencies.gql"
+import CURRENCIES from "../../currencies.gql"
 import { useQuery } from "@apollo/client"
 
+const { Title } = Typography
 interface ICurrencies {
   currencies: {
     code: string
@@ -16,16 +17,21 @@ interface ICurrencies {
   }[]
 }
 
-export default function FinanceHeaderTitle(): ReactElement {
-  const { Title } = Typography
+interface ICurrenciesVariables {
+  numberOfHistoryItems: number
+}
 
-  const { data, loading, error } = useQuery<ICurrencies>(CURRENCIES)
+export default memo(function FinanceHeaderTitle(): ReactElement {
+  const { data, loading, error } = useQuery<ICurrencies, ICurrenciesVariables>(
+    CURRENCIES,
+    { variables: { numberOfHistoryItems: 0 } }
+  )
 
   if (loading) {
     return <Spin indicator={<LoadingOutlined style={{ fontSize: 23 }} spin />} />
   }
 
-  if (error) return <div>loading error</div>
+  if (error) return <div>Помилка при завантажені даних</div>
 
   return (
     <div className={classes.currencies}>
@@ -38,4 +44,4 @@ export default function FinanceHeaderTitle(): ReactElement {
         ))}
     </div>
   )
-}
+})

@@ -10,8 +10,10 @@ import { GetServerSideProps } from "next"
 import { initializeApollo } from "@/providers/Apollo/apolloClient"
 import getConfig from "next/config"
 import BANK_CARDS from "./bankCards.gql"
-import { configCurrencyAccounts } from "./blocks/CurrencyAccounts/config"
 import CURRENCY_ACCOUNTS from "./currencyAccounts.gql"
+import CURRENCIES from "@/components/Wrappers/MainWrapper/currencies.gql"
+import { configCurrencyAccounts } from "./blocks/CurrencyAccounts/config"
+import SETTINGS from "@/components/Wrappers/MainWrapper/settings.gql"
 
 const { serverRuntimeConfig } = getConfig()
 
@@ -36,6 +38,19 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   serverRuntimeConfig.token = req.cookies.token
 
   const apolloClient = initializeApollo()
+
+  /** side menu */
+  await apolloClient.query({
+    query: SETTINGS,
+  })
+
+  /** Курс валют в хедері */
+  await apolloClient.query({
+    query: CURRENCIES,
+    variables: {
+      numberOfHistoryItems: 0,
+    },
+  })
 
   /** Підключення банківських карт "Монобанк" */
   await apolloClient.query({

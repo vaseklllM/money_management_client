@@ -1,9 +1,0 @@
-query {
-  currencies {
-    code
-    symbol
-    historyCourseInUAH {
-      price
-    }
-  }
-}

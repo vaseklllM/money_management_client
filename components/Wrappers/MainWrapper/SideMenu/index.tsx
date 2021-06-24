@@ -2,7 +2,7 @@ import React from "react"
 import { Layout, Menu } from "antd"
 import { useRouter } from "next/router"
 import { /* BitcoinIcon, */ BriefcaseIcon } from "@/components/Icons"
-import { DollarCircleOutlined/* , BarChartOutlined  */} from "@ant-design/icons"
+import { DollarCircleOutlined /* , BarChartOutlined  */ } from "@ant-design/icons"
 import { useSideMenuChangeOpen } from "./hooks/useSideMenuChangeOpen"
 
 interface Props {
@@ -13,6 +13,8 @@ export default function SideMenu({ className }: Props) {
   const { collapsed, setCollapsed } = useSideMenuChangeOpen()
   const router = useRouter()
   const { Sider } = Layout
+
+  // console.log("update")
 
   const financeMenuList = [
     {
