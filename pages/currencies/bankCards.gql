@@ -3,6 +3,21 @@ query {
     monobank {
       token
       isValidToken
+      user {
+        firstName
+        lastName
+      }
+      historyCards {
+        date
+        cards {
+          iban
+          cardNumber
+          balance
+          currency {
+            code
+          }
+        }
+      }
     }
   }
 }

@@ -17,6 +17,7 @@ export default function CurrencyAccountItemValue({
   const numberFormat = new Intl.NumberFormat("ru-RU", {
     style: "currency",
     currency: currencyCode,
+    currencyDisplay: "narrowSymbol",
   })
 
   return (

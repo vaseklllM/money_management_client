@@ -1,7 +1,7 @@
 import FinanceContentBlock from "@/components/finance/FinanceContentBlock"
 import React, { ReactElement } from "react"
 import CurrencyAccountsTitleRow from "./CurrencyAccountsTitleRow"
-import CURRENCY_ACCOUNTS from "./currencyAccounts.gql"
+import CURRENCY_ACCOUNTS from "../../currencyAccounts.gql"
 import { useQuery } from "@apollo/client"
 import { ICurrencyAccountsData } from "./interface"
 import CurrencyAccountsBody from "./CurrencyAccountsBody"

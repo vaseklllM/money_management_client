@@ -10,6 +10,8 @@ import { GetServerSideProps } from "next"
 import { initializeApollo } from "@/providers/Apollo/apolloClient"
 import getConfig from "next/config"
 import BANK_CARDS from "./bankCards.gql"
+import { configCurrencyAccounts } from "./blocks/CurrencyAccounts/config"
+import CURRENCY_ACCOUNTS from "./currencyAccounts.gql"
 
 const { serverRuntimeConfig } = getConfig()
 
@@ -22,9 +24,9 @@ export default function Currencies(): ReactElement {
         <Link href='/post'>
           <a>post</a>
         </Link>
-        {/* <CurrencyAccounts /> */}
+        <CurrencyAccounts />
         <ConnectedBankCardBlock />
-        {/* <BankCardsBlock /> */}
+        <BankCardsBlock />
       </Content>
     </MainWrapper>
   )
@@ -40,13 +42,13 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     query: BANK_CARDS,
   })
 
-  // /** */
-  // await apolloClient.query({
-  //   query: CURRENCY_ACCOUNTS,
-  //   variables: {
-  //     numberOfHistoryItems: 0,
-  //   },
-  // })
+  /** Валютні рахунки */
+  await apolloClient.query({
+    query: CURRENCY_ACCOUNTS,
+    variables: {
+      numberOfHistoryItems: configCurrencyAccounts.numberOfHistoryItems,
+    },
+  })
 
   return {
     props: {

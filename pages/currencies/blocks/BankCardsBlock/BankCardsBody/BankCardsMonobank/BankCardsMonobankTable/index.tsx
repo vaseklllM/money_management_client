@@ -41,6 +41,7 @@ export default function BankCardsMonobankTable(props: Props): ReactElement {
         const numberFormat = new Intl.NumberFormat("ru-RU", {
           style: "currency",
           currency: obj.currencyKey,
+          currencyDisplay: "narrowSymbol",
         })
 
         const num = numberFormat.format(balance)
