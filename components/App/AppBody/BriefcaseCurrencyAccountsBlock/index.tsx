@@ -1,4 +1,4 @@
-import FinanceContentBlock from "@/components/finance/FinanceContentBlock"
+import ContentBlock from "@/components/finance/ContentBlock"
 import { useQuery } from "@apollo/client"
 import React, { ReactElement } from "react"
 import BriefcaseCurrencyAccountsBlockTitleRow from "./BriefcaseCurrencyAccountsBlockTitleRow"
@@ -27,7 +27,7 @@ export default function BriefcaseCurrencyAccountsBlock(): ReactElement {
   const isData = data.currencyAccounts.length !== 0
 
   return (
-    <FinanceContentBlock>
+    <ContentBlock>
       <BriefcaseCurrencyAccountsBlockTitleRow isNotData={!isData} />
       {isData && (
         <div className={classes.graphs}>
@@ -36,6 +36,6 @@ export default function BriefcaseCurrencyAccountsBlock(): ReactElement {
           ))}
         </div>
       )}
-    </FinanceContentBlock>
+    </ContentBlock>
   )
 }

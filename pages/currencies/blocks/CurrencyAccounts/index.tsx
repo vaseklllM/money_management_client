@@ -1,4 +1,4 @@
-import FinanceContentBlock from "@/components/finance/FinanceContentBlock"
+import ContentBlock from "@/components/finance/ContentBlock"
 import React, { ReactElement } from "react"
 import CurrencyAccountsTitleRow from "./CurrencyAccountsTitleRow"
 import CURRENCY_ACCOUNTS from "../../currencyAccounts.gql"
@@ -24,9 +24,9 @@ export default function CurrencyAccounts(): ReactElement {
   if (loading || !data || data.currencyAccounts.length === 0) return null
 
   return (
-    <FinanceContentBlock>
+    <ContentBlock>
       <CurrencyAccountsTitleRow />
       <CurrencyAccountsBody data={data.currencyAccounts} />
-    </FinanceContentBlock>
+    </ContentBlock>
   )
 }

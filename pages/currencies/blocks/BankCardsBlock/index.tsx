@@ -1,4 +1,4 @@
-import FinanceContentBlock from "@/components/finance/FinanceContentBlock"
+import ContentBlock from "@/components/finance/ContentBlock"
 import { useQuery } from "@apollo/client"
 import React, { ReactElement } from "react"
 import BANK_CARDS from "../../bankCards.gql"
@@ -23,9 +23,9 @@ export default function BankCardsBlock(): ReactElement {
   })()
 
   return (
-    <FinanceContentBlock>
+    <ContentBlock>
       <BankCardsTitleRow isNotCards={isNotCards} />
       {!isNotCards && <BankCardsBody data={data} />}
-    </FinanceContentBlock>
+    </ContentBlock>
   )
 }

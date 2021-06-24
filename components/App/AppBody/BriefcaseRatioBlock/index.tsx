@@ -1,4 +1,4 @@
-import FinanceContentBlock from "@/components/finance/FinanceContentBlock"
+import ContentBlock from "@/components/finance/ContentBlock"
 import React, { ReactElement } from "react"
 import useCurrencyRatioData from "./useCurrencyRatioData"
 import dynamic from "next/dynamic"
@@ -11,8 +11,8 @@ export default function BriefcaseRatioBlock(): ReactElement {
   if (loading || currencyRatioData.length < 2) return null
 
   return (
-    <FinanceContentBlock>
+    <ContentBlock>
       <Ratio data={currencyRatioData} />
-    </FinanceContentBlock>
+    </ContentBlock>
   )
 }

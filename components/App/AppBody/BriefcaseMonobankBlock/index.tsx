@@ -1,4 +1,4 @@
-import FinanceContentBlock from "@/components/finance/FinanceContentBlock"
+import ContentBlock from "@/components/finance/ContentBlock"
 import React, { ReactElement } from "react"
 import MonobankBlockBody from "./MonobankBlockBody"
 import MonobankBlockTitleRow from "./MonobankBlockTitleRow"
@@ -13,12 +13,12 @@ export default function BriefcaseMonobankBlock(): ReactElement {
   if (loading || !data || !data.bankcards.monobank) return null
 
   return (
-    <FinanceContentBlock>
+    <ContentBlock>
       <MonobankBlockTitleRow user={data.bankcards.monobank.user} />
       <MonobankBlockBody
         className={classes.graph}
         data={data.bankcards.monobank.historyCards}
       />
-    </FinanceContentBlock>
+    </ContentBlock>
   )
 }

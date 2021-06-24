@@ -1,13 +1,13 @@
-import FinanceContentBlock from "@/components/finance/FinanceContentBlock"
+import ContentBlock from "@/components/finance/ContentBlock"
 import React, { ReactElement } from "react"
 import ExchangeRatesBody from "./ExchangeRatesBody"
 import ExchangeRatesTitle from "./ExchangeRatesTitle"
 
 export default function ExchangeRatesBlock(): ReactElement {
   return (
-    <FinanceContentBlock>
+    <ContentBlock>
       <ExchangeRatesTitle />
       <ExchangeRatesBody />
-    </FinanceContentBlock>
+    </ContentBlock>
   )
 }

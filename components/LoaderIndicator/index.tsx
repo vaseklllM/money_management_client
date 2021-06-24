@@ -39,11 +39,7 @@ export default function LoaderIndicator(): ReactElement {
         transform: rotate(3deg) translate(0px, -4px);
       }
       #nprogress .spinner {
-        display: "block";
-        position: fixed;
-        z-index: 1031;
-        top: 15px;
-        right: 15px;
+        display: none;
       }
       #nprogress .spinner-icon {
         width: 18px;
