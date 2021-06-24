@@ -8,12 +8,12 @@ import ExchangeRatesBlock from "./ExchangeRatesBlock"
 
 export default function AppBody(): ReactElement {
   return (
-    <div>
+    <>
       <BriefcaseAllBalance />
       <BriefcaseRatioBlock />
       <BriefcaseMonobankBlock />
       <BriefcaseCurrencyAccountsBlock />
       <ExchangeRatesBlock />
-    </div>
+    </>
   )
 }
