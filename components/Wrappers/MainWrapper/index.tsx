@@ -20,7 +20,7 @@ export default function MainWrapper(props: Props): ReactElement {
   useAdaptiveCollapsedSideMenu(bodyRef)
 
   return (
-    <div className={classes.main}>
+    <div className={classes.main} /* style={{ backgroundImage: "url(macos-big-sur.jpg)" }} */>
       <Header className={classes.header} />
       <SideMenu className={classes.sideMenu} />
       <div className={classes.body} ref={bodyRef}>
