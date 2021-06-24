@@ -12,8 +12,8 @@
     top: 16px;
     left: 16px;
     width: calc(100% - 32px);
-    transition: all 0.2s ease-in-out;
     z-index: 10;
+    transition: width 0.15s, left 0.15s, box-shadow 0.15s, border-radius 0.15s ease-in-out;
 
     .currencies {
       grid-area: currencies;
