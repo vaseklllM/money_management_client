@@ -6,7 +6,6 @@
   margin: 5px 10px 0;
   border-radius: 6px;
   width: calc(100% - 20px);
-  // justify-content: center;
   transition: all 0.2s ease-in-out;
 
   &:hover {
@@ -18,7 +17,8 @@
   }
 
   .icon {
-    min-width: 15px;
+    min-width: 16px;
+    width: 16px;
     display: flex;
     height: 22px;
     align-items: center;
@@ -30,7 +30,6 @@
 
   .text {
     margin-left: 15px;
-    // display: none;
     visibility: hidden;
     opacity: 0;
     transition: all 0.2s ease-in-out;
@@ -42,11 +41,9 @@
 }
 
 .open_link {
-  // justify-content: flex-start;
   padding: 10px 15px;
 
   .text {
-    // display: block;
     opacity: 1;
     visibility: visible;
   }

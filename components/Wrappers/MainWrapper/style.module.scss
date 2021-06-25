@@ -6,6 +6,8 @@
   padding: 16px;
   display: grid;
   grid-template-columns: auto 1fr;
+  grid-template-rows: 62px 1fr;
+  min-height: 100vh;
   grid-template-areas:
     "header header"
     "sideMenu body";
