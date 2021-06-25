@@ -16,7 +16,10 @@ export default function SideMenuButtonOpen({
   setOpen,
 }: Props): ReactElement {
   return (
-    <button className={txt.join([className, classes.button, open && classes.open])}>
+    <button
+      onClick={() => setOpen(!open)}
+      className={txt.join([className, classes.button, open && classes.open])}
+    >
       <ReactSVG src={icon} className={classes.icon} />
     </button>
   )

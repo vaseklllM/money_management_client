@@ -4,7 +4,6 @@
   left: 16px;
   cursor: pointer;
   background-color: transparent;
-  width: 210px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,6 +11,8 @@
   padding: 12px 15px;
   margin: 5px 10px;
   border: none;
+  width: 45px;
+  transition: width 0.2s ease-in-out;
 
   &:hover {
     background-color: #eef5ff;
@@ -19,6 +20,8 @@
 
   .icon {
     width: 13px;
+    transition: transform 0.3s ease-in-out;
+    transform: rotate(0deg);
 
     svg {
       display: flex;
@@ -26,7 +29,10 @@
   }
 }
 
-
 .open {
-  
+  width: 210px;
+
+  .icon {
+    transform: rotate(-180deg);
+  }
 }

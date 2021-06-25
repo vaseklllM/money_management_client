@@ -28,7 +28,7 @@ export function useSideMenuChangeOpen(): IReturnUseSideMenuChangeOpen {
   async function setOpen(sideMenuOpen) {
     await updateSettings({
       variables: {
-        sideMenuOpen: !sideMenuOpen,
+        sideMenuOpen: sideMenuOpen,
       },
     })
   }

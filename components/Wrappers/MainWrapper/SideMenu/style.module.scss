@@ -3,6 +3,7 @@
   background-color: white;
   height: 100%;
   border-radius: 6px;
+  transition: width 0.2s ease-in-out;
 
   .links {
     display: flex;
@@ -11,5 +12,5 @@
 }
 
 .close_body {
-  // width: 100px;
+  width: 65px;
 }
