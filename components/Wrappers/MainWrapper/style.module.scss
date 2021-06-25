@@ -20,11 +20,20 @@
 
   .body {
     grid-area: body;
+    display: grid;
+    gap: 16px;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .sideMenu {
-    display: none;
+  .main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "body";
+
+    .sideMenu {
+      display: none;
+    }
   }
 }

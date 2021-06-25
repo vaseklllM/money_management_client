@@ -1,8 +1,8 @@
 import React, { memo } from "react"
-import { Layout, Menu } from "antd"
-import { useRouter } from "next/router"
-import { /* BitcoinIcon, */ BriefcaseIcon } from "@/components/Icons"
-import { DollarCircleOutlined /* , BarChartOutlined  */ } from "@ant-design/icons"
+// import { Layout, /* Menu */ } from "antd"
+// import { useRouter } from "next/router"
+// import { /* BitcoinIcon, */ BriefcaseIcon } from "@/components/Icons"
+// import { DollarCircleOutlined /* , BarChartOutlined  */ } from "@ant-design/icons"
 import SideMenuLink from "./SideMenuLink"
 import classes from "./style.module.scss"
 import briefcase from "./icons/briefcase.svg"
@@ -11,14 +11,14 @@ import SideMenuButtonOpen from "./SideMenuButtonOpen"
 import { useSideMenuChangeOpen } from "./hooks/useSideMenuChangeOpen"
 import { txt } from "@/utils"
 
-const { Sider } = Layout
+// const { Sider } = Layout
 interface Props {
   className?: string
 }
 
 export default memo(function SideMenu({ className }: Props) {
   const { open, setOpen } = useSideMenuChangeOpen()
-  const router = useRouter()
+  // const router = useRouter()
 
   return (
     <div className={txt.join([classes.body, !open && classes.close_body, className])}>

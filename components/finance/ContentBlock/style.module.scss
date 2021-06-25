@@ -2,17 +2,17 @@
   padding: 24px;
   border-radius: 7px;
   background-color: white;
+  max-width: 100%;
   // backdrop-filter: blur(20px);
   // background-color: rgba(255, 255, 255, 0.3);
 
-  &:not(:first-child) {
-    margin-top: 16px;
-  }
+  // &:not(:first-child) {
+  //   margin-top: 16px;
+  // }
 }
 
 @media screen and (max-width: 500px) {
   .block {
     padding: 14px;
-    margin-top: 10px;
   }
 }

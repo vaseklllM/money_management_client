@@ -20,7 +20,9 @@ export default function MainWrapper(props: Props): ReactElement {
   useAdaptiveCollapsedSideMenu(bodyRef)
 
   return (
-    <div className={classes.main} /* style={{ backgroundImage: "url(macos-big-sur.jpg)" }} */>
+    <div
+      className={classes.main} /* style={{ backgroundImage: "url(macos-big-sur.jpg)" }} */
+    >
       <Header className={classes.header} />
       <SideMenu className={classes.sideMenu} />
       <div className={classes.body} ref={bodyRef}>
@@ -34,7 +36,7 @@ export default function MainWrapper(props: Props): ReactElement {
           <Footer style={{ textAlign: "center" }}>Created by Vasek ©2021</Footer>
         </Layout>
       </Layout> */}
-      {/* <BottomMenu /> */}
+      <BottomMenu />
       <ButtonCircleAdd />
     </div>
   )
