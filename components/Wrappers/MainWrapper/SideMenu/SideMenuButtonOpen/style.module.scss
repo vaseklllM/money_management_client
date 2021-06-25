@@ -1,0 +1,32 @@
+.button {
+  position: fixed;
+  bottom: 20px;
+  left: 16px;
+  cursor: pointer;
+  background-color: transparent;
+  width: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 12px 15px;
+  margin: 5px 10px;
+  border: none;
+
+  &:hover {
+    background-color: #eef5ff;
+  }
+
+  .icon {
+    width: 13px;
+
+    svg {
+      display: flex;
+    }
+  }
+}
+
+
+.open {
+  
+}

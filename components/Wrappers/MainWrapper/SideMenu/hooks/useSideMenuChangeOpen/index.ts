@@ -3,8 +3,8 @@ import UPDATE_SETTINGS from "./updateSettings.gql"
 import SETTINGS from "../../../settings.gql"
 
 interface IReturnUseSideMenuChangeOpen {
-  collapsed: boolean
-  setCollapsed: (v: boolean) => any
+  open: boolean
+  setOpen: (v: boolean) => any
 }
 
 interface ISettingsData {
@@ -25,7 +25,7 @@ export function useSideMenuChangeOpen(): IReturnUseSideMenuChangeOpen {
     UPDATE_SETTINGS
   )
 
-  async function setCollapsed(sideMenuOpen) {
+  async function setOpen(sideMenuOpen) {
     await updateSettings({
       variables: {
         sideMenuOpen: !sideMenuOpen,
@@ -33,7 +33,7 @@ export function useSideMenuChangeOpen(): IReturnUseSideMenuChangeOpen {
     })
   }
 
-  if (loading || !data) return { collapsed: true, setCollapsed }
+  if (loading || !data) return { open: false, setOpen }
 
-  return { collapsed: !data.settings.sideMenu.open, setCollapsed }
+  return { open: data.settings.sideMenu.open, setOpen }
 }

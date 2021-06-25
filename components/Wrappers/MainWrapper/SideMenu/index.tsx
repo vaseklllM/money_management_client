@@ -3,28 +3,30 @@ import { Layout, Menu } from "antd"
 import { useRouter } from "next/router"
 import { /* BitcoinIcon, */ BriefcaseIcon } from "@/components/Icons"
 import { DollarCircleOutlined /* , BarChartOutlined  */ } from "@ant-design/icons"
-import { useSideMenuChangeOpen } from "./hooks/useSideMenuChangeOpen"
 import SideMenuLink from "./SideMenuLink"
 import classes from "./style.module.scss"
 import briefcase from "./icons/briefcase.svg"
 import currency from "./icons/currency.svg"
+import SideMenuButtonOpen from "./SideMenuButtonOpen"
+import { useSideMenuChangeOpen } from "./hooks/useSideMenuChangeOpen"
+import { txt } from "@/utils"
 
 const { Sider } = Layout
-
 interface Props {
   className?: string
 }
 
 export default memo(function SideMenu({ className }: Props) {
-  const { collapsed, setCollapsed } = useSideMenuChangeOpen()
+  const { open, setOpen } = useSideMenuChangeOpen()
   const router = useRouter()
 
   return (
-    <div className={classes.body}>
+    <div className={txt.join([classes.body, !open && classes.close_body])}>
       <div className={classes.links}>
         <SideMenuLink text='Портфель' to='/' icon={briefcase} />
         <SideMenuLink text='Валюти' to='/currencies' icon={currency} />
       </div>
+      <SideMenuButtonOpen open={open} setOpen={setOpen} />
     </div>
   )
 
