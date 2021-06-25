@@ -1,0 +1,11 @@
+.body {
+  width: 230px;
+  background-color: white;
+  height: 100%;
+  border-radius: 6px;
+
+  .links {
+    display: flex;
+    flex-direction: column;
+  }
+}

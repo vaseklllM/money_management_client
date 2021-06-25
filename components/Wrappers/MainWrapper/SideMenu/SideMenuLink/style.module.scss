@@ -1,0 +1,32 @@
+.link {
+  width: calc(100% - 20px);
+  display: flex;
+  color: #1684eb;
+  align-items: center;
+  padding: 10px 15px;
+  margin: 5px 10px;
+  border-radius: 6px;
+
+  &:hover {
+    background-color: #eef5ff;
+  }
+
+  &:first-child {
+    margin-top: 10px;
+  }
+
+  .icon {
+    width: 15px;
+    display: flex;
+
+    svg {
+      fill: #1684eb;
+      path {
+      }
+    }
+  }
+
+  .text {
+    margin-left: 15px;
+  }
+}
