@@ -1,5 +1,4 @@
 import React, { ReactElement, useRef } from "react"
-import { Layout } from "antd"
 import Header from "@/components/Wrappers/MainWrapper/FinanceHeader"
 import SideMenu from "./SideMenu"
 import { useAdaptiveCollapsedSideMenu } from "./useAdaptiveCollapsedSideMenu"
@@ -7,7 +6,6 @@ import classes from "./style.module.scss"
 import BottomMenu from "./BottomMenu"
 import { ButtonCircleAdd } from "@/components/Buttons"
 
-const { Footer } = Layout
 interface Props {
   children: ReactElement | string | ReactElement[]
 }
@@ -28,14 +26,6 @@ export default function MainWrapper(props: Props): ReactElement {
       <div className={classes.body} ref={bodyRef}>
         {children}
       </div>
-      {/* <Layout style={{ minHeight: "100vh" }}>
-        <SideMenu className={classes.sideMenu} />
-        <Layout>
-          <FinanceHeader />
-          <div ref={bodyRef}>{children}</div>
-          <Footer style={{ textAlign: "center" }}>Created by Vasek ©2021</Footer>
-        </Layout>
-      </Layout> */}
       <BottomMenu />
       <ButtonCircleAdd />
     </div>
