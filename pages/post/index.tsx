@@ -1,4 +1,4 @@
-import { GetServerSideProps, GetStaticProps } from "next"
+import { GetServerSideProps } from "next"
 import Link from "next/link"
 import React, { ReactElement } from "react"
 import CURRENCIES from "./currencies.gql"
