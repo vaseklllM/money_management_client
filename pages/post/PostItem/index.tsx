@@ -15,7 +15,7 @@ export default function PostItem({ text = "test1" }: Props): ReactElement {
 
   // if (loading || !data) return <div>loading</div>
 
-  return <p>{text}</p>
+  return <span>{text}</span>
 
   // return <pre>{JSON.stringify(data, null, 2)}</pre>
 

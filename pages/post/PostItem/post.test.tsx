@@ -1,11 +1,13 @@
+import { initializeApollo } from "@/providers/Apollo/apolloClient"
 import { shallow } from "enzyme"
-// import React from "react"
+import CURRENCIES from "../currencies.gql"
 
 import PostItem from "."
 
-describe("With Enzyme", () => {
-  it('App shows "A simple example repo" in a <p> tag', () => {
-    const app = shallow(<PostItem />)
-    expect(app.find("p").text()).toEqual("test1")
+describe("With Post", () => {
+  it('App shows "A simple example repo" in a <p> tag', async () => {
+    const text = "asdafqwerqwrtqw"
+    const app = shallow(<PostItem text={text} />)
+    expect(app.find("span").text()).toEqual(text)
   })
 })
