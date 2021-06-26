@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next"
 import Link from "next/link"
 import React, { ReactElement } from "react"
-import CURRENCIES from "./currencies.gql"
+import { CURRENCIES } from "./currencies"
 import PostItem from "./PostItem"
 import getConfig from "next/config"
 import { initializeApollo } from "@/providers/Apollo/apolloClient"
