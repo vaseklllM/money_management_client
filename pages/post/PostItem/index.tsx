@@ -7,20 +7,18 @@ interface Props {
 }
 
 export default function PostItem({ text = "test1" }: Props): ReactElement {
-  // const { data, loading } = useQuery<currenciesData, currenciesVariables>(CURRENCIES, {
-  //   variables: {
-  //     numberOfHistoryItems: 5,
-  //   },
-  // })
+  const { data, loading } = useQuery<currenciesData, currenciesVariables>(CURRENCIES)
 
-  // if (loading || !data) return <div>loading</div>
+  // console.log(data, loading)
 
-  return <span>{text}</span>
+  if (loading || !data) return <p>loading</p>
+
+  // return <p>{text}</p>
 
   // return <pre>{JSON.stringify(data, null, 2)}</pre>
 
   // return <div className='t1'>{text}</div>
-  // return <div className='t1'>{data.currencies[0].code}</div>
+  return <p className='t1'>{data.currencies[0].code}</p>
 
   // return (
   //   <div>

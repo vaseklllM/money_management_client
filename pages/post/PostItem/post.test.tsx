@@ -1,54 +1,67 @@
-import { initializeApollo } from "@/providers/Apollo/apolloClient"
-import { shallow, mount } from "enzyme"
-// import CURRENCIES from "../currencies.gql"
-import { MockedProvider } from "@apollo/client/testing"
-import { act } from "react-dom/test-utils"
+// import { MockedProvider } from "@apollo/client/testing"
 
-import PostItem from "."
-import { CURRENCIES } from "../currencies.gql"
+// import { /* shallow, */ mount } from "enzyme"
+// import { act } from "react-dom/test-utils"
+// import React from "react"
+// import TestRenderer from "react-test-renderer"
+// // import wait from "waait"
+// // const { act } = TestRenderer
 
-const mockData = {
-  request: {
-    query: CURRENCIES,
-  },
-  result: {
-    data: {
-      currencyAccounts: [{ id: 0, code: "test1" }],
-    },
-  },
-}
+// import Page from "."
+// import { CURRENCIES } from "../currencies.gql"
 
-describe("With Post", () => {
-  it('App shows "A simple example repo" in a <p> tag', async () => {
-    // const app = shallow(
-    //   <MockedProvider mocks={[mockData]}>
-    //     <PostItem text='t1' />
-    //   </MockedProvider>
-    // )
+// const mockData = {
+//   request: {
+//     query: CURRENCIES,
+//   },
+//   result: {
+//     data: {
+//       currencies: [
+//         { code: "UAH", id: "60c085515832ca2ea472393a" },
+//         { code: "USD", id: "2" },
+//       ],
+//     },
+//   },
+// }
 
-    // expect(app).toBeTruthy()
-    // expect(app.find("span")).toHaveText("t1")
-    // expect(app.find(".t1")).toHaveTextContent("test1", { normalizeWhitespace: false })
+// // describe("With Post", () => {
+// it("------------- test 1 ---------------", async () => {
+//   let wrapper
 
-    // let wrapper
-    // await act(async () => {
-    //   wrapper = shallow(
-    //     <MockedProvider /* addTypename={false} */ mocks={[mockData]}>
-    //       <PostItem />
-    //     </MockedProvider>
-    //   )
-    // })
+//   await act(async () => {
+//     wrapper = mount(
+//       <MockedProvider mocks={[mockData]} addTypename={false}>
+//         <Page text='Buck' />
+//       </MockedProvider>
+//     )
+//   })
 
-    // await act(() => wait(0))
+// })
+// // })
 
-    // wrapper.update()
+// // const app = shallow(
+// //   <MockedProvider mocks={[mockData]}>
+// //     <PostItem text='t1' />
+// //   </MockedProvider>
+// // )
 
-    // // console.log(wrapper.find("span"))
+// // expect(app).toBeTruthy()
+// // expect(app.find("span")).toHaveText("t1")
+// // expect(app.find(".t1")).toHaveTextContent("test1", { normalizeWhitespace: false })
 
-    // expect(wrapper.find("span")).toEqual("test1")
+// // let wrapper
+// // await act(async () => {
+// //   wrapper = shallow(
+// //     <MockedProvider /* addTypename={false} */ mocks={[mockData]}>
+// //       <PostItem />
+// //     </MockedProvider>
+// //   )
+// // })
 
-    const text = "asdafqwerqwrtqw"
-    const app = shallow(<PostItem text={text} />)
-    expect(app.find("span").text()).toEqual(text)
-  })
-})
+// // await act(() => wait(0))
+
+// // wrapper.update()
+
+// // // console.log(wrapper.find("span"))
+
+// // expect(wrapper.find("span")).toEqual("test1")
