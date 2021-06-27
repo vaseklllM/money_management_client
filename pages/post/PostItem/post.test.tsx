@@ -3,18 +3,9 @@ import { shallow, mount } from "enzyme"
 // import CURRENCIES from "../currencies.gql"
 import { MockedProvider } from "@apollo/client/testing"
 import { act } from "react-dom/test-utils"
-import { gql } from "@apollo/client"
 
 import PostItem from "."
-
-const CURRENCIES = gql`
-  query {
-    currencies {
-      id
-      code
-    }
-  }
-`
+import { CURRENCIES } from "../currencies.gql"
 
 const mockData = {
   request: {
@@ -29,13 +20,13 @@ const mockData = {
 
 describe("With Post", () => {
   it('App shows "A simple example repo" in a <p> tag', async () => {
-    const app = shallow(
-      <MockedProvider mocks={[mockData]}>
-        <PostItem text='t1' />
-      </MockedProvider>
-    )
+    // const app = shallow(
+    //   <MockedProvider mocks={[mockData]}>
+    //     <PostItem text='t1' />
+    //   </MockedProvider>
+    // )
 
-    expect(app).toBeTruthy()
+    // expect(app).toBeTruthy()
     // expect(app.find("span")).toHaveText("t1")
     // expect(app.find(".t1")).toHaveTextContent("test1", { normalizeWhitespace: false })
 
@@ -56,8 +47,8 @@ describe("With Post", () => {
 
     // expect(wrapper.find("span")).toEqual("test1")
 
-    // const text = "asdafqwerqwrtqw"
-    // const app = shallow(<PostItem text={text} />)
-    // expect(app.find("span").text()).toEqual(text)
+    const text = "asdafqwerqwrtqw"
+    const app = shallow(<PostItem text={text} />)
+    expect(app.find("span").text()).toEqual(text)
   })
 })

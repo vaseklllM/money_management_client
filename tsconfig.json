@@ -14,7 +14,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": ".",
-    "paths": { "@/*": ["*"] }
+    "paths": { "@/*": ["*"] },
   },
   "include": [
     "next-env.d.ts",
@@ -23,5 +23,5 @@
     "pages/_app.tsx",
     "utils/config.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
 }
