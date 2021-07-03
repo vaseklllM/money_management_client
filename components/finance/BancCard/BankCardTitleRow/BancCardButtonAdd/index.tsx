@@ -1,8 +1,8 @@
 import React, { ReactElement } from "react"
-import { Tooltip } from "antd"
 import { txt } from "@/utils"
 import classes from "./style.module.scss"
 import BancCardButtonAddIcon from "./BancCardButtonAddIcon"
+import { TooltipBlack } from "@/components/Tooltips"
 
 interface Props {
   open: boolean
@@ -24,17 +24,16 @@ export default function BancCardButtonAdd(props: Props): ReactElement {
   }
 
   return (
-    <Tooltip title={added ? "Видалити карту" : open ? "Приховати" : "Підключити"}>
+    <TooltipBlack
+      className={className}
+      title={added ? "Видалити карту" : open ? "Приховати" : "Підключити"}
+    >
       <button
         onClick={onClick}
-        className={txt.join([
-          className,
-          classes.button,
-          added ? classes.red : classes.blue,
-        ])}
+        className={txt.join([classes.button, added ? classes.red : classes.blue])}
       >
         <BancCardButtonAddIcon icon={added ? "delete" : open ? "minus" : "plus"} />
       </button>
-    </Tooltip>
+    </TooltipBlack>
   )
 }
