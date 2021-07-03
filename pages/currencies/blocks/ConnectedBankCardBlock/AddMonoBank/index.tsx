@@ -6,31 +6,19 @@ import BancCard from "@/components/finance/BancCard"
 import { IMonobankUserData } from "@/api/banks/monobank/getUserInfo"
 import { useMutation, useQuery } from "@apollo/client"
 import BANK_CARDS from "../../../bankCards.gql"
-import DELETE_CARDS from "./deleteCards.gql"
-
-interface IBank {
-  token: string
-  isValidToken: boolean
-}
-
-interface bankCards {
-  monobank: IBank
-}
+import {
+  DELETE_CARDS,
+  IDeleteCardsData,
+  IDeleteCardVariables,
+  IBankCards,
+} from "./deleteCards.gql"
 
 interface Props {
   className?: string
 }
 
 interface queryData {
-  bankcards: bankCards
-}
-
-interface IDeleteCardsData {
-  deleteBankCards: bankCards
-}
-
-interface IDeleteCardVariables {
-  keys: (keyof bankCards)[]
+  bankcards: IBankCards
 }
 
 export default function AddMonobank(props: Props): ReactElement {

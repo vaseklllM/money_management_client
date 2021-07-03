@@ -1,7 +1,0 @@
-mutation deleteCards($keys: [String!]!) {
-  deleteBankCards(deleteBankCards: { keys: $keys }) {
-    monobank {
-      token
-    }
-  }
-}
