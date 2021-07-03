@@ -1,5 +1,4 @@
 import React, { ReactElement, useEffect, useRef, useState } from "react"
-// import { Col, Typography } from "antd"
 import classes from "./style.module.scss"
 import { txt } from "../../../utils"
 import { useResize } from "@/hooks"
@@ -31,47 +30,9 @@ interface Props {
 export default function BancCard(props: Props): ReactElement {
   const { title = "card title", className, children, added, onDelete, isValid } = props
 
-  // const { Title } = Typography
-  const [isAdd, setIsAdd] = useState(false)
   const [isShowBody, setIsShowBody] = useState(false)
-  // const [bodyHeight, setBodyHeight] = useState(300)
-  // const [bodyWidth, setBodyWidth] = useState(300)
-
-  // const bodyRef = useRef(null)
-  // const mainRef = useRef(null)
-
-  // const { width } = useResize(mainRef)
-
-  // useEffect(() => {
-  //   if (width !== 0) {
-  //     if (bodyRef.current && isAdd) {
-  //       setBodyWidth(mainRef.current?.offsetWidth ?? 0)
-  //       setTimeout(() => {
-  //         setBodyHeight(bodyRef.current?.offsetHeight ?? 0)
-  //       }, ANIMATION_TIME / 2)
-  //     } else {
-  //       setBodyWidth(0)
-  //       setBodyHeight(0)
-  //     }
-  //   }
-  // }, [isShowBody, isAdd, width, children])
-
-  // function changeIsAdd() {
-  //   if (isAdd) {
-  //     setIsAdd(false)
-  //     setTimeout(() => {
-  //       setIsShowBody(false)
-  //     }, ANIMATION_TIME)
-  //   } else {
-  //     setIsShowBody(true)
-  //     setIsAdd(true)
-  //   }
-  // }
-
-  // const t = ANIMATION_TIME / 1000
 
   function onClose() {
-    setIsAdd(false)
     setIsShowBody(false)
   }
 
@@ -83,7 +44,14 @@ export default function BancCard(props: Props): ReactElement {
 
   return (
     <div className={txt.join([classes.body, className])}>
-      <BankCardTitleRow changeOpen={setIsShowBody} open={isShowBody} title={title} />
+      <BankCardTitleRow
+        onDelete={onDelete}
+        changeOpen={setIsShowBody}
+        open={isShowBody}
+        title={title}
+        added={added}
+        isValid={isValid}
+      />
       {isShowBody && (
         <BankCardWrapper open={isShowBody} className={classes.wrapper}>
           <BankCardBody>{getChildren()}</BankCardBody>

@@ -3,32 +3,32 @@ import { Button, Tooltip } from "antd"
 import { PlusOutlined, MinusOutlined, DeleteOutlined } from "@ant-design/icons"
 
 interface Props {
-  isAdd: boolean
-  changeIsAdd: Function
+  open: boolean
+  changeOpen: Function
   added?: boolean /** true - банківська карта добавлена */
   onDelete?: Function
   className?: string
 }
 
 export default function BancCardButtonAdd(props: Props): ReactElement {
-  const { isAdd, changeIsAdd, added, onDelete = () => {}, className } = props
+  const { open, changeOpen, added, onDelete = () => {}, className } = props
 
   function onClick() {
     if (added) {
       onDelete()
     } else {
-      changeIsAdd((v) => !v)
+      changeOpen((v: boolean) => !v)
     }
   }
 
   return (
-    <Tooltip title={added ? "Видалити карту" : isAdd ? "Приховати" : "Підключити"}>
+    <Tooltip title={added ? "Видалити карту" : open ? "Приховати" : "Підключити"}>
       <Button
         onClick={onClick}
         type='primary'
         shape='circle'
         danger={added}
-        icon={added ? <DeleteOutlined /> : isAdd ? <MinusOutlined /> : <PlusOutlined />}
+        icon={added ? <DeleteOutlined /> : open ? <MinusOutlined /> : <PlusOutlined />}
         className={className}
       />
     </Tooltip>

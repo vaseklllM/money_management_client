@@ -6,7 +6,6 @@ import { Popover } from "antd"
 import { txt } from "@/utils"
 
 interface Props {
-  isValid: boolean
   className?: string
 }
 
@@ -16,12 +15,7 @@ const content = (
   </div>
 )
 
-export default memo(function BancCardIconIsNotValid({
-  isValid,
-  className,
-}: Props): ReactElement {
-  if (typeof isValid !== "boolean" || isValid) return null
-
+export default memo(function BancCardIconIsNotValid({ className }: Props): ReactElement {
   return (
     <Popover content={content} trigger='hover'>
       <ReactSVG src={icon} className={txt.join([classes.icon, className])} />

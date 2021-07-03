@@ -1,8 +1,13 @@
 .body {
   display: flex;
   align-items: flex-end;
+  align-items: center;
 
   .icon {
+    margin-left: 20px;
+  }
+
+  .is_valid {
     margin-left: 20px;
   }
 }
