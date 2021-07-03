@@ -1,5 +1,5 @@
 import React, { ReactElement, useEffect, useRef, useState } from "react"
-import { Col, Typography } from "antd"
+// import { Col, Typography } from "antd"
 import classes from "./style.module.scss"
 import { txt } from "../../../utils"
 import { useResize } from "@/hooks"
@@ -7,6 +7,7 @@ import BancCardButtonAdd from "./BancCardButtonAdd"
 import BancCardIconIsNotValid from "./BancCardIconIsNotValid"
 import BankCardWrapper from "./BankCardWrapper"
 import BankCardTitleRow from "./BankCardTitleRow"
+import BankCardBody from "./BankCardBody"
 
 interface childrenFunc {
   onClose: Function
@@ -25,49 +26,49 @@ interface Props {
   isValid?: boolean
 }
 
-const ANIMATION_TIME = 700
+// const ANIMATION_TIME = 700
 
 export default function BancCard(props: Props): ReactElement {
   const { title = "card title", className, children, added, onDelete, isValid } = props
 
-  const { Title } = Typography
+  // const { Title } = Typography
   const [isAdd, setIsAdd] = useState(false)
   const [isShowBody, setIsShowBody] = useState(false)
-  const [bodyHeight, setBodyHeight] = useState(300)
-  const [bodyWidth, setBodyWidth] = useState(300)
+  // const [bodyHeight, setBodyHeight] = useState(300)
+  // const [bodyWidth, setBodyWidth] = useState(300)
 
-  const bodyRef = useRef(null)
-  const mainRef = useRef(null)
+  // const bodyRef = useRef(null)
+  // const mainRef = useRef(null)
 
-  const { width } = useResize(mainRef)
+  // const { width } = useResize(mainRef)
 
-  useEffect(() => {
-    if (width !== 0) {
-      if (bodyRef.current && isAdd) {
-        setBodyWidth(mainRef.current?.offsetWidth ?? 0)
-        setTimeout(() => {
-          setBodyHeight(bodyRef.current?.offsetHeight ?? 0)
-        }, ANIMATION_TIME / 2)
-      } else {
-        setBodyWidth(0)
-        setBodyHeight(0)
-      }
-    }
-  }, [isShowBody, isAdd, width, children])
+  // useEffect(() => {
+  //   if (width !== 0) {
+  //     if (bodyRef.current && isAdd) {
+  //       setBodyWidth(mainRef.current?.offsetWidth ?? 0)
+  //       setTimeout(() => {
+  //         setBodyHeight(bodyRef.current?.offsetHeight ?? 0)
+  //       }, ANIMATION_TIME / 2)
+  //     } else {
+  //       setBodyWidth(0)
+  //       setBodyHeight(0)
+  //     }
+  //   }
+  // }, [isShowBody, isAdd, width, children])
 
-  function changeIsAdd() {
-    if (isAdd) {
-      setIsAdd(false)
-      setTimeout(() => {
-        setIsShowBody(false)
-      }, ANIMATION_TIME)
-    } else {
-      setIsShowBody(true)
-      setIsAdd(true)
-    }
-  }
+  // function changeIsAdd() {
+  //   if (isAdd) {
+  //     setIsAdd(false)
+  //     setTimeout(() => {
+  //       setIsShowBody(false)
+  //     }, ANIMATION_TIME)
+  //   } else {
+  //     setIsShowBody(true)
+  //     setIsAdd(true)
+  //   }
+  // }
 
-  const t = ANIMATION_TIME / 1000
+  // const t = ANIMATION_TIME / 1000
 
   function onClose() {
     setIsAdd(false)
@@ -81,12 +82,14 @@ export default function BancCard(props: Props): ReactElement {
   }
 
   return (
-    <>
-      <BankCardWrapper open={isShowBody} className={className}>
-        <BankCardTitleRow changeOpen={setIsShowBody} open={isShowBody} title={title} />
-        {/* {getChildren()} */}
-      </BankCardWrapper>
-      <div className={classes.main} ref={mainRef}>
+    <div className={txt.join([classes.body, className])}>
+      <BankCardTitleRow changeOpen={setIsShowBody} open={isShowBody} title={title} />
+      {isShowBody && (
+        <BankCardWrapper open={isShowBody} className={classes.wrapper}>
+          <BankCardBody>{getChildren()}</BankCardBody>
+        </BankCardWrapper>
+      )}
+      {/* <div className={classes.main} ref={mainRef}>
         <Col
           className={txt.join([classes.card, isAdd && classes.active_card, className])}
           style={{
@@ -121,8 +124,8 @@ export default function BancCard(props: Props): ReactElement {
             )}
           </div>
         </Col>
-      </div>
-    </>
+      </div> */}
+    </div>
   )
 
   // return (

@@ -17,7 +17,7 @@ export default function BankCardTitleRow({
   return (
     <div className={classes.body}>
       <H4>{title}</H4>
-      <OpenIconButton changeOpen={changeOpen} open={open} />
+      <OpenIconButton className={classes.icon} changeOpen={changeOpen} open={open} />
     </div>
   )
 }
