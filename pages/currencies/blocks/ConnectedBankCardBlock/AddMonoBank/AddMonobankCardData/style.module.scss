@@ -1,6 +1,10 @@
 .card_data {
   margin-top: 20px;
 
+  .row {
+    display: flex;
+  }
+
   .user_name {
     margin-left: 7px;
   }
@@ -11,6 +15,8 @@
 
   .cards_row {
     margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
 
     .card_item {
       margin-right: 20px;
