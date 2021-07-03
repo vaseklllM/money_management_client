@@ -15,10 +15,10 @@ export default function PostItem({ text = "test1" }: Props): ReactElement {
 
   // return <p>{text}</p>
 
-  // return <pre>{JSON.stringify(data, null, 2)}</pre>
+  return <pre>{JSON.stringify(data, null, 2)}</pre>
 
   // return <div className='t1'>{text}</div>
-  return <p className='t1'>{data.currencies[0].code}</p>
+  // return <p className='t1'>{data.currencies[0].code}</p>
 
   // return (
   //   <div>

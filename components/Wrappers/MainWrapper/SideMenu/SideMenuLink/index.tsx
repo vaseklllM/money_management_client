@@ -26,7 +26,7 @@ export default function SideMenuLink({ icon, text, to, className }: Props): Reac
   const { data, loading } = useQuery<ISettingsData>(SETTINGS)
   const router = useRouter()
 
-  if (loading) return null
+  if (loading || !data) return null
 
   const { open } = data.settings.sideMenu
 
