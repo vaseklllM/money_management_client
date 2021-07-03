@@ -1,7 +1,7 @@
 import classes from "./style.module.scss"
-import { Button, Row, Typography } from "antd"
 import React, { ReactElement } from "react"
-import Link from "next/link"
+import { P14 } from "@/components/Typography"
+import { ButtonBlue } from "@/components/Buttons"
 
 interface Props {
   inputPlaceholder: string
@@ -9,27 +9,20 @@ interface Props {
 
 export default function AddMonobankTitleRow(props: Props): ReactElement {
   const { inputPlaceholder } = props
-  const { Text } = Typography
 
   const goMonoBtnText = "Получити токен"
 
   return (
     <>
-      <Row>
-        <Text>
-          Для того щоб підключити банківську карту монобанку потрібно натиснути кнопку "
-          {goMonoBtnText}" і авторизуватись. Далі після авторизації натисніть
-          "Активувати", скопіюйте згенерований токен та вставте в поле "{inputPlaceholder}
-          ".
-        </Text>
-      </Row>
-      <Row>
-        <Link href={{ pathname: "https://api.monobank.ua/" }} passHref>
-          <Button className={classes.go_bank} target='_blank' type='primary'>
-            {goMonoBtnText}
-          </Button>
-        </Link>
-      </Row>
+      <P14>
+        Для того щоб підключити банківську карту монобанку потрібно натиснути кнопку "
+        {goMonoBtnText}" і авторизуватись. Далі після авторизації натисніть "Активувати",
+        скопіюйте згенерований токен та вставте в поле "{inputPlaceholder}
+        ".
+      </P14>
+      <ButtonBlue openNewTab to='https://api.monobank.ua/' className={classes.button}>
+        {goMonoBtnText}
+      </ButtonBlue>
     </>
   )
 }
