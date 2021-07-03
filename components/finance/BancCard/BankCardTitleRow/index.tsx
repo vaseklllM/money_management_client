@@ -1,7 +1,7 @@
 import { H4 } from "@/components/Typography"
 import React, { ReactElement } from "react"
-import BancCardButtonAdd from "../BancCardButtonAdd"
-import BancCardIconIsNotValid from "../BancCardIconIsNotValid"
+import BancCardButtonAdd from "./BancCardButtonAdd"
+import BancCardIconIsNotValid from "./BancCardIconIsNotValid"
 import classes from "./style.module.scss"
 
 interface Props {

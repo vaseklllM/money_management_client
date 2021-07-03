@@ -1,6 +1,8 @@
 import React, { ReactElement } from "react"
-import { Button, Tooltip } from "antd"
-import { PlusOutlined, MinusOutlined, DeleteOutlined } from "@ant-design/icons"
+import { Tooltip } from "antd"
+import { txt } from "@/utils"
+import classes from "./style.module.scss"
+import BancCardButtonAddIcon from "./BancCardButtonAddIcon"
 
 interface Props {
   open: boolean
@@ -23,14 +25,16 @@ export default function BancCardButtonAdd(props: Props): ReactElement {
 
   return (
     <Tooltip title={added ? "Видалити карту" : open ? "Приховати" : "Підключити"}>
-      <Button
+      <button
         onClick={onClick}
-        type='primary'
-        shape='circle'
-        danger={added}
-        icon={added ? <DeleteOutlined /> : open ? <MinusOutlined /> : <PlusOutlined />}
-        className={className}
-      />
+        className={txt.join([
+          className,
+          classes.button,
+          added ? classes.red : classes.blue,
+        ])}
+      >
+        <BancCardButtonAddIcon icon={added ? "delete" : open ? "minus" : "plus"} />
+      </button>
     </Tooltip>
   )
 }

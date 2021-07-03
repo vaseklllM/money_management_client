@@ -1,0 +1,30 @@
+.button {
+  background-color: transparent;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.red {
+  background-color: #ff4d4f;
+
+  &:hover {
+    background-color: #ff7875;
+  }
+}
+
+.blue {
+  background-color: #1890ff;
+
+  &:hover {
+    background-color: #40a9ff;
+  }
+}

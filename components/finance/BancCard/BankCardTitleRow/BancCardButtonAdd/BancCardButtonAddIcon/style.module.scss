@@ -1,0 +1,23 @@
+.icon {
+  display: flex;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: white;
+  }
+}
+
+.plusIcon {
+  svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.minusIcon {
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
