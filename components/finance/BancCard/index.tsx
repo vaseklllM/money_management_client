@@ -5,6 +5,8 @@ import { txt } from "../../../utils"
 import { useResize } from "@/hooks"
 import BancCardButtonAdd from "./BancCardButtonAdd"
 import BancCardIconIsNotValid from "./BancCardIconIsNotValid"
+import BankCardWrapper from "./BankCardWrapper"
+import BankCardTitleRow from "./BankCardTitleRow"
 
 interface childrenFunc {
   onClose: Function
@@ -31,8 +33,8 @@ export default function BancCard(props: Props): ReactElement {
   const { Title } = Typography
   const [isAdd, setIsAdd] = useState(false)
   const [isShowBody, setIsShowBody] = useState(false)
-  const [bodyHeight, setBodyHeight] = useState(0)
-  const [bodyWidth, setBodyWidth] = useState(0)
+  const [bodyHeight, setBodyHeight] = useState(300)
+  const [bodyWidth, setBodyWidth] = useState(300)
 
   const bodyRef = useRef(null)
   const mainRef = useRef(null)
@@ -79,41 +81,86 @@ export default function BancCard(props: Props): ReactElement {
   }
 
   return (
-    <div className={classes.main} ref={mainRef}>
-      <Col
-        className={txt.join([classes.card, isAdd && classes.active_card, className])}
-        style={{
-          transition: `width ${t}s, height ${t}s ease-in-out`,
-          height: `${bodyHeight + 84}px`,
-          width: `${bodyWidth + 300}px`,
-        }}
-      >
-        <div>
-          <div className={classes.title}>
-            <Title level={5} className={classes.title_text}>
-              {title}
-            </Title>
-            <div className={classes.title_right}>
-              <BancCardButtonAdd
-                isAdd={isAdd}
-                changeIsAdd={changeIsAdd}
-                added={added}
-                onDelete={onDelete}
-              />
-              <BancCardIconIsNotValid
-                isValid={isValid}
-                className={classes.title_button_is_not_valid}
-              />
+    <>
+      <BankCardWrapper className={className}>
+        <BankCardTitleRow open={isShowBody} title={title} />
+        {/* {getChildren()} */}
+      </BankCardWrapper>
+      <div className={classes.main} ref={mainRef}>
+        <Col
+          className={txt.join([classes.card, isAdd && classes.active_card, className])}
+          style={{
+            transition: `width ${t}s, height ${t}s ease-in-out`,
+            height: `${bodyHeight + 84}px`,
+            width: `${bodyWidth + 300}px`,
+          }}
+        >
+          <div>
+            <div className={classes.title}>
+              <Title level={5} className={classes.title_text}>
+                {title}
+              </Title>
+              <div className={classes.title_right}>
+                <BancCardButtonAdd
+                  isAdd={isAdd}
+                  changeIsAdd={changeIsAdd}
+                  added={added}
+                  onDelete={onDelete}
+                />
+                <BancCardIconIsNotValid
+                  isValid={isValid}
+                  className={classes.title_button_is_not_valid}
+                />
+              </div>
             </div>
+            {isShowBody && <div className={classes.hr} />}
+            {isShowBody && (
+              <div className={classes.body} ref={bodyRef}>
+                {getChildren()}
+              </div>
+            )}
           </div>
-          {isShowBody && <div className={classes.hr} />}
-          {isShowBody && (
-            <div className={classes.body} ref={bodyRef}>
-              {getChildren()}
-            </div>
-          )}
-        </div>
-      </Col>
-    </div>
+        </Col>
+      </div>
+    </>
   )
+
+  // return (
+  //   <div className={classes.main} ref={mainRef}>
+  //     <Col
+  //       className={txt.join([classes.card, isAdd && classes.active_card, className])}
+  //       style={{
+  //         transition: `width ${t}s, height ${t}s ease-in-out`,
+  //         height: `${bodyHeight + 84}px`,
+  //         width: `${bodyWidth + 300}px`,
+  //       }}
+  //     >
+  //       <div>
+  //         <div className={classes.title}>
+  //           <Title level={5} className={classes.title_text}>
+  //             {title}
+  //           </Title>
+  //           <div className={classes.title_right}>
+  //             <BancCardButtonAdd
+  //               isAdd={isAdd}
+  //               changeIsAdd={changeIsAdd}
+  //               added={added}
+  //               onDelete={onDelete}
+  //             />
+  //             <BancCardIconIsNotValid
+  //               isValid={isValid}
+  //               className={classes.title_button_is_not_valid}
+  //             />
+  //           </div>
+  //         </div>
+  //         {isShowBody && <div className={classes.hr} />}
+  //         {isShowBody && (
+  //           <div className={classes.body} ref={bodyRef}>
+  //             {getChildren()}
+  //           </div>
+  //         )}
+  //       </div>
+  //     </Col>
+  //   </div>
+  // )
 }
