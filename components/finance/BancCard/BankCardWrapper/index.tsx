@@ -5,8 +5,17 @@ import classes from "./style.module.scss"
 interface Props {
   children?: any
   className?: string
+  open: boolean
 }
 
-export default function BankCardWrapper({ children, className }: Props): ReactElement {
-  return <div className={txt.join([classes.body, className])}>{children}</div>
+export default function BankCardWrapper({
+  children,
+  className,
+  open,
+}: Props): ReactElement {
+  return (
+    <div className={txt.join([classes.body, className, open && classes.open])}>
+      {children}
+    </div>
+  )
 }

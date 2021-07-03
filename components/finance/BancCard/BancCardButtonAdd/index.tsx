@@ -13,10 +13,18 @@ interface Props {
 export default function BancCardButtonAdd(props: Props): ReactElement {
   const { isAdd, changeIsAdd, added, onDelete = () => {}, className } = props
 
+  function onClick() {
+    if (added) {
+      onDelete()
+    } else {
+      changeIsAdd((v) => !v)
+    }
+  }
+
   return (
     <Tooltip title={added ? "Видалити карту" : isAdd ? "Приховати" : "Підключити"}>
       <Button
-        onClick={() => (added ? onDelete() : changeIsAdd())}
+        onClick={onClick}
         type='primary'
         shape='circle'
         danger={added}

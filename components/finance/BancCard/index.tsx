@@ -82,8 +82,8 @@ export default function BancCard(props: Props): ReactElement {
 
   return (
     <>
-      <BankCardWrapper className={className}>
-        <BankCardTitleRow open={isShowBody} title={title} />
+      <BankCardWrapper open={isShowBody} className={className}>
+        <BankCardTitleRow changeOpen={setIsShowBody} open={isShowBody} title={title} />
         {/* {getChildren()} */}
       </BankCardWrapper>
       <div className={classes.main} ref={mainRef}>
