@@ -22,17 +22,13 @@ export default function AddMonobankCardData(props: Props): ReactElement {
         <Span14bold>Користувач:</Span14bold>
         <Span14 className={classes.user_name}>{data.user.name}</Span14>
       </div>
-      <div className={classes.cards_title}>
-        <Span14bold>Рахунки:</Span14bold>
-      </div>
+      <Span14bold className={classes.cards_title}>Рахунки:</Span14bold>
       <div className={classes.cards_row}>
         {data.bankCards.map((el) => (
           <BankCardGray key={el.id} className={classes.card_item} data={el} />
         ))}
       </div>
-      <div className={classes.row}>
-        <ButtonSaveMonobankCard token={token} onClose={onClose} data={data} />
-      </div>
+      <ButtonSaveMonobankCard token={token} onClose={onClose} data={data} />
     </div>
   )
 }
