@@ -1,9 +1,9 @@
 import classes from "./style.module.scss"
-import { Input, Row } from "antd"
 import { ChangeEvent, ReactElement, useState } from "react"
 import InputActiveIcon from "./InputActiveIcon"
 import { status } from "@/enums"
 import api from "@/api"
+import { Input } from "@/components/Inputs"
 
 interface Props {
   token: string
@@ -39,7 +39,7 @@ export default function AddMonobankTokenInput(props: Props): ReactElement {
   }
 
   return (
-    <Row className={classes.token_input_row}>
+    <div className={classes.token_input_row}>
       <Input
         className={classes.token_input}
         placeholder={placeholder}
@@ -50,6 +50,6 @@ export default function AddMonobankTokenInput(props: Props): ReactElement {
         className={classes.token_status_icon}
         isActiveToken={token !== "" && isActiveToken}
       />
-    </Row>
+    </div>
   )
 }
