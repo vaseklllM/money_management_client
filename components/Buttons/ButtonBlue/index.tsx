@@ -1,6 +1,5 @@
-import { txt } from "@/utils"
-import Link from "next/link"
-import React, { ReactElement } from "react"
+import React, { MouseEventHandler, ReactElement } from "react"
+import ButtonBlueWrapper from "./ButtonBlueWrapper"
 import classes from "./style.module.scss"
 
 interface Props {
@@ -8,6 +7,8 @@ interface Props {
   children: string | number
   to?: string
   openNewTab?: boolean
+  onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>
+  loading?: boolean
 }
 
 export default function ButtonBlue({
@@ -15,19 +16,18 @@ export default function ButtonBlue({
   children,
   to,
   openNewTab,
+  onClick,
+  loading,
 }: Props): ReactElement {
-  if (typeof to === "string" && to !== "") {
-    return (
-      <Link href={to}>
-        <a
-          target={openNewTab ? "_blank" : "_parent"}
-          className={txt.join([className, classes.link])}
-        >
-          {children}
-        </a>
-      </Link>
-    )
-  }
-
-  return <button className={txt.join([className, classes.button])}>{children}</button>
+  return (
+    <ButtonBlueWrapper
+      onClick={onClick}
+      className={className}
+      openNewTab={openNewTab}
+      to={to}
+      loading={loading}
+    >
+      {children}
+    </ButtonBlueWrapper>
+  )
 }

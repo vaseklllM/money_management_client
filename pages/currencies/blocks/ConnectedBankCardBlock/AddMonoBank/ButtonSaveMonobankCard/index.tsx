@@ -4,6 +4,7 @@ import SAVE_BANK from "./saveBank.gql"
 import { useMutation } from "@apollo/client"
 import { IMonobankUserData } from "@/api/banks/monobank/getUserInfo"
 import { err } from "@/utils"
+import { ButtonBlue } from "@/components/Buttons"
 
 interface Props {
   token: string
@@ -35,8 +36,10 @@ interface ISaveBankVariables {
 
 export default function ButtonSaveMonobankCard(props: Props): ReactElement {
   const { token, onClose, data } = props
-  const [saveToken, { loading: loadingSaveToken }] =
-    useMutation<ISaveBankData, ISaveBankVariables>(SAVE_BANK)
+  const [saveToken, { loading: loadingSaveToken }] = useMutation<
+    ISaveBankData,
+    ISaveBankVariables
+  >(SAVE_BANK)
 
   if (typeof token !== "string" || token === "") return null
 
@@ -69,8 +72,14 @@ export default function ButtonSaveMonobankCard(props: Props): ReactElement {
   }
 
   return (
-    <Button type='primary' onClick={onSaveCards} loading={loadingSaveToken}>
-      Зберегти
-    </Button>
+    <>
+      <ButtonBlue onClick={onSaveCards} loading={loadingSaveToken}>
+        Зберегти
+      </ButtonBlue>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <Button type='primary' onClick={onSaveCards} loading={loadingSaveToken}>
+        Зберегти
+      </Button>
+    </>
   )
 }
