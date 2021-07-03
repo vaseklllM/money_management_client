@@ -73,11 +73,11 @@ export default function ButtonSaveMonobankCard(props: Props): ReactElement {
 
   return (
     <>
-      <ButtonBlue onClick={onSaveCards} loading={loadingSaveToken}>
+      <ButtonBlue onClick={onSaveCards} loading/* ={loadingSaveToken} */>
         Зберегти
       </ButtonBlue>
       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-      <Button type='primary' onClick={onSaveCards} loading={loadingSaveToken}>
+      <Button type='primary' onClick={onSaveCards} loading/* ={loadingSaveToken} */>
         Зберегти
       </Button>
     </>
