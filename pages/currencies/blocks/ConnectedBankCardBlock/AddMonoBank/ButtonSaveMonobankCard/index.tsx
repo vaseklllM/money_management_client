@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react"
-import { Button, message } from "antd"
+import { message } from "antd"
 import SAVE_BANK from "./saveBank.gql"
 import { useMutation } from "@apollo/client"
 import { IMonobankUserData } from "@/api/banks/monobank/getUserInfo"
@@ -72,14 +72,8 @@ export default function ButtonSaveMonobankCard(props: Props): ReactElement {
   }
 
   return (
-    <>
-      <ButtonBlue onClick={onSaveCards} loading/* ={loadingSaveToken} */>
-        Зберегти
-      </ButtonBlue>
-      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-      <Button type='primary' onClick={onSaveCards} loading/* ={loadingSaveToken} */>
-        Зберегти
-      </Button>
-    </>
+    <ButtonBlue onClick={onSaveCards} loading={loadingSaveToken}>
+      Зберегти
+    </ButtonBlue>
   )
 }

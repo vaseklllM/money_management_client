@@ -22,7 +22,7 @@ export default function ButtonBlueWrapper({
   loading,
 }: Props): ReactElement {
   function click(event) {
-    if (!loading) {
+    if (!loading && typeof onClick === "function") {
       onClick(event)
     }
   }
