@@ -1,13 +1,20 @@
-import React, { ReactElement } from "react"
-import { CircleLoader } from "../Loaders"
-import classes from "./style.module.scss"
+import React, { ReactElement, useState } from "react"
+import { IMessage } from "./hooks/useMessage"
+import Messages from "./Messages"
 
-interface Props {}
+interface Props {
+  children?: any
+}
 
-export default function Message({}: Props): ReactElement {
+export const MessageContext = React.createContext(null)
+
+export default function Message({ children }: Props): ReactElement {
+  const [messages, setMessages] = useState<IMessage[]>([])
+
   return (
-    <div className={classes.body}>
-      <CircleLoader color='blue' /> Message
-    </div>
+    <MessageContext.Provider value={setMessages}>
+      {children}
+      <Messages messages={messages} />
+    </MessageContext.Provider>
   )
 }

@@ -24,32 +24,32 @@ export default function ButtonSaveMonobankCard(props: Props): ReactElement {
   async function onSaveCards() {
     const key = 1
     try {
-      message.loading({ content: "Збереження...", key })
-
-      await new Promise((res) => setTimeout(() => res(""), 10000))
-
-      message.success({ content: "Карту збережено", key })
-
       // message.loading({ content: "Збереження...", key })
 
-      // const nameArr = data.user.name.split(" ")
-
-      // await saveToken({
-      //   variables: {
-      //     token,
-      //     userFirstName: nameArr[1],
-      //     userLastName: nameArr[0],
-      //     cards: data.bankCards.map((card) => ({
-      //       iban: card.iban,
-      //       balance: card.balance / 100,
-      //       cardNumber: card.cardNumber,
-      //       currencyCode: card.currency,
-      //     })),
-      //   },
-      // })
+      // await new Promise((res) => setTimeout(() => res(""), 10000))
 
       // message.success({ content: "Карту збережено", key })
-      // onClose()
+
+      message.loading({ content: "Збереження...", key })
+
+      const nameArr = data.user.name.split(" ")
+
+      await saveToken({
+        variables: {
+          token,
+          userFirstName: nameArr[1],
+          userLastName: nameArr[0],
+          cards: data.bankCards.map((card) => ({
+            iban: card.iban,
+            balance: card.balance / 100,
+            cardNumber: card.cardNumber,
+            currencyCode: card.currency,
+          })),
+        },
+      })
+
+      message.success({ content: "Карту збережено", key })
+      onClose()
     } catch (error) {
       message.error({ content: err.getFirstMessage(error), key })
     }

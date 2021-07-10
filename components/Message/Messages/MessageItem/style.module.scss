@@ -1,13 +1,14 @@
-.body {
-  position: fixed;
-  padding: 5px 20px;
+.message {
+  padding: 7px 20px;
   box-shadow: 0 3px 6px -4px rgb(0 0 0 / 15%), 0 6px 16px 0 rgb(0 0 0 / 10%),
     0 9px 28px 8px rgb(0 0 0 / 8%);
-  left: 50%;
-  transform: translateX(-50%);
-  top: 20px;
-  z-index: 10;
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
-  
+  display: flex;
+  align-items: center;
+  width: max-content;
+
+  .text {
+    margin-left: 15px;
+  }
 }
