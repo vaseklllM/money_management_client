@@ -8,8 +8,8 @@ import MessageButton from "./MessageButton"
 export default function ConnectedBankCardBlock(): ReactElement {
   return (
     <ContentBlock>
-      <H5>Підключення банківських карт</H5>
       <MessageButton />
+      <H5>Підключення банківських карт</H5>
       <P14 className={classes.subtitle}>
         Підключіть банківські карти для регулярного автоматичного перегляду змін на
         рахунках.
