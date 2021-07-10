@@ -1,4 +1,4 @@
-import fetchData, { IfetchDataParams } from "../../fetchData"
+import fetchData, { IfetchDataParams } from "@/api/fetchData"
 
 interface IServSaveMonobankToken extends IfetchDataParams {
   message?: string

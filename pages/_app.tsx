@@ -5,6 +5,7 @@ import Apollo from "@/providers/Apollo"
 import { ReactElement } from "react"
 import Head from "next/head"
 import LoaderIndicator from "@/components/LoaderIndicator"
+import Message from "@/components/Message"
 
 export default function App({ Component, pageProps }): ReactElement {
   return (
@@ -14,6 +15,7 @@ export default function App({ Component, pageProps }): ReactElement {
       </Head>
       <Component {...pageProps} />
       <LoaderIndicator />
+      <Message />
     </Apollo>
   )
 }

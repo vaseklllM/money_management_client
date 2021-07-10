@@ -7,9 +7,10 @@ export default function txtJoin(stringArr: string[], symbol: string = " "): stri
   let str: string = ""
 
   stringArr.forEach((el) => {
-    if (str !== "") {
-      if (typeof el === "string" && el !== "") str = `${str}${symbol}${el}`
-    } else str = el
+    if (typeof el === "string" && el !== "") {
+      if (str === "") return (str = el)
+      str = `${str}${symbol}${el}`
+    }
   })
 
   return str

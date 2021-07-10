@@ -36,7 +36,7 @@ export default function BankCardsMonobankTable(props: Props): ReactElement {
       title: "Баланс",
       dataIndex: "balance",
       key: "balance",
-      align: "right",
+      // align: "right",
       render: (balance: number, obj: ITableData) => {
         const numberFormat = new Intl.NumberFormat("ru-RU", {
           style: "currency",
@@ -59,13 +59,13 @@ export default function BankCardsMonobankTable(props: Props): ReactElement {
       title: "Код валюти",
       dataIndex: "currencyKey",
       key: "currencyKey",
-      align: "center",
+      // align: "center",
     },
     {
       title: "iban",
       dataIndex: "iban",
       key: "iban",
-      align: "right",
+      // align: "right",
     },
   ]
 

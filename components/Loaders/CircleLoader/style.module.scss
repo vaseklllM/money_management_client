@@ -21,3 +21,15 @@ $pulse-duration: 750ms;
   border-top-color: $color;
   animation: spin $spin-duration infinite linear;
 }
+
+.color_ {
+  &white {
+    border: 0.25rem solid $off-white;
+    border-top-color: $color;
+  }
+
+  &blue {
+    // border: rgba(rgb(53, 50, 255), 0.2);
+    border-top-color: rgb(53, 50, 255);
+  }
+}

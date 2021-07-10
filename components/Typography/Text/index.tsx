@@ -2,18 +2,17 @@ import { txt } from "@/utils"
 import React from "react"
 import classes from "./style.module.scss"
 
-type TopographyType = React.DetailedHTMLProps<
+type tagType = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLHeadingElement>,
   HTMLHeadingElement
-> & {
+>
+
+type TopographyType = tagType & {
   /** сюда добавлять новые типы пропсов */
   light?: boolean
 }
 
-function getProps(
-  props: TopographyType,
-  activeClass: string
-): React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement> {
+function getProps(props: TopographyType, activeClass: string): tagType {
   /** здесь можно описать работу новых типов пропсов */
   const { light, className, ...lastProps } = props
   return {

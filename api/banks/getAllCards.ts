@@ -1,4 +1,4 @@
-import fetchData, { IfetchDataParams } from "../fetchData"
+import fetchData, { IfetchDataParams } from "../fetchData";
 
 interface IServAllBankCardsDataBank {
   isActive: Boolean
