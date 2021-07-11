@@ -1,14 +1,12 @@
 import { ReactElement } from "react"
-import { Typography } from "antd"
+import { H5, P14 } from "@/components/Typography"
+import classes from "./style.module.scss"
 
-interface Props {}
-
-export default function CurrencyAccountsTitleRow({}: Props): ReactElement {
-  const { Title, Text } = Typography
+export default function CurrencyAccountsTitleRow(): ReactElement {
   return (
-    <div>
-      <Title level={5}>Валютні рахунки</Title>
-      <Text type='secondary'>Список рахунків створених користувачем.</Text>
-    </div>
+    <>
+      <H5>Валютні рахунки</H5>
+      <P14 className={classes.subtitle}>Список рахунків створених користувачем.</P14>
+    </>
   )
 }
