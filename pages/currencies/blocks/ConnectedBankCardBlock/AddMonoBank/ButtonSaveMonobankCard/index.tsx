@@ -1,10 +1,10 @@
 import React, { ReactElement } from "react"
-import { message } from "antd"
 import { useMutation } from "@apollo/client"
 import { IMonobankUserData } from "@/api/banks/monobank/getUserInfo"
 import { err } from "@/utils"
 import { ButtonBlue } from "@/components/Buttons"
 import { ISaveBankData, ISaveBankVariables, SAVE_BANK } from "./saveBank.gql"
+import { useMessage } from "@/components/Message/hooks"
 
 interface Props {
   token: string
@@ -19,17 +19,13 @@ export default function ButtonSaveMonobankCard(props: Props): ReactElement {
     ISaveBankVariables
   >(SAVE_BANK)
 
+  const message = useMessage()
+
   if (typeof token !== "string" || token === "") return null
 
   async function onSaveCards() {
     const key = 1
     try {
-      // message.loading({ content: "Збереження...", key })
-
-      // await new Promise((res) => setTimeout(() => res(""), 10000))
-
-      // message.success({ content: "Карту збережено", key })
-
       message.loading({ content: "Збереження...", key })
 
       const nameArr = data.user.name.split(" ")
