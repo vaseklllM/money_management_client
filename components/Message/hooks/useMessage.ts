@@ -11,11 +11,13 @@ interface IMessageFunc {
 
 export type IMessage = IMessageFunc & {
   id: number
+  // timerKey?: number
 }
 
 export default function useMessage() {
   const setMessages = useContext(MessageContext)
 
+  /** додає унікальний id кожному елементу message */
   function getId(messages: IMessage[]) {
     if (messages.length === 0) return 0
 
@@ -28,6 +30,7 @@ export default function useMessage() {
     return id
   }
 
+  /** додає message в массив messages */
   function changeMessage({ key, ...params }: IMessageFunc) {
     setMessages((messages: IMessage[]) => {
       if (

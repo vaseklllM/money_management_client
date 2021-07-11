@@ -11,11 +11,15 @@ export const MessageContext = React.createContext(null)
 export default function Message({ children }: Props): ReactElement {
   const [messages, setMessages] = useState<IMessage[]>([])
 
+  /** додає таймер кожному повідомленню */
   useEffect(() => {
-    // messages.forEach((message) => {
-    //   console.log(message)
-    // })
-    console.log(messages)
+    messages.forEach((message) => {
+      if (message.type === "success") {
+        setTimeout(() => {
+          setMessages((m) => m.filter((i) => i.id !== message.id))
+        }, 2000)
+      }
+    })
   }, [messages])
 
   return (
