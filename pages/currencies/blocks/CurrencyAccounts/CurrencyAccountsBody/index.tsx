@@ -1,5 +1,5 @@
+import { ICurrencyAccountData } from "@/pages/currencies/currencyAccounts.gql"
 import React, { ReactElement } from "react"
-import { ICurrencyAccountData } from "../interface"
 import CurrencyAccountItem from "./CurrencyAccountItem"
 import classes from "./style.module.scss"
 

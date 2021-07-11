@@ -1,6 +1,6 @@
+import { ICurrencyAccountData } from "@/pages/currencies/currencyAccounts.gql"
 import { txt } from "@/utils"
 import React, { ReactElement } from "react"
-import { ICurrencyAccountData } from "../../../interface"
 import CurrencyAccountItemArrowIcon from "./CurrencyAccountItemArrowIcon"
 import CurrencyAccountItemDeleteIcon from "./CurrencyAccountItemDeleteIcon"
 import CurrencyAccountItemEditIcon from "./CurrencyAccountItemEditIcon"

@@ -5,13 +5,13 @@ import AddMonobankTitleRow from "./AddMonobankTitleRow"
 import BancCard from "@/components/finance/BancCard"
 import { IMonobankUserData } from "@/api/banks/monobank/getUserInfo"
 import { useMutation, useQuery } from "@apollo/client"
-import BANK_CARDS from "../../../bankCards.gql"
 import {
   DELETE_CARDS,
   IDeleteCardsData,
   IDeleteCardVariables,
   IBankCards,
 } from "./deleteCards.gql"
+import { BANK_CARDS } from "@/pages/currencies/bankCards.gql"
 
 interface Props {
   className?: string

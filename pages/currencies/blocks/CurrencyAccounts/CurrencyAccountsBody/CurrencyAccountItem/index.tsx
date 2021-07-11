@@ -1,7 +1,7 @@
+import { ICurrencyAccountData } from "@/pages/currencies/currencyAccounts.gql"
 import { txt } from "@/utils"
 import React, { ReactElement } from "react"
 import { useStateIfMounted } from "use-state-if-mounted"
-import { ICurrencyAccountData } from "../../interface"
 import CurrencyAccountItemHeader from "./CurrencyAccountItemHeader"
 import CurrencyAccountItemHistory from "./CurrencyAccountItemHistory"
 import classes from "./style.module.scss"

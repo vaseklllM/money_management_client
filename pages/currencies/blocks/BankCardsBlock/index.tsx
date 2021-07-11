@@ -1,7 +1,7 @@
 import ContentBlock from "@/components/finance/ContentBlock"
 import { useQuery } from "@apollo/client"
 import React, { ReactElement } from "react"
-import BANK_CARDS from "../../bankCards.gql"
+import { BANK_CARDS } from "../../bankCards.gql"
 import BankCardsBody from "./BankCardsBody"
 import BankCardsTitleRow from "./BankCardsTitleRow"
 import { IBankCardsData } from "./interfaces"

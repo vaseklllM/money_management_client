@@ -6,11 +6,11 @@ import CurrencyAccounts from "./blocks/CurrencyAccounts"
 import { GetServerSideProps } from "next"
 import { initializeApollo } from "@/providers/Apollo/apolloClient"
 import getConfig from "next/config"
-import BANK_CARDS from "./bankCards.gql"
-import CURRENCY_ACCOUNTS from "./currencyAccounts.gql"
 import CURRENCIES from "@/components/Wrappers/MainWrapper/currencies.gql"
 import { configCurrencyAccounts } from "./blocks/CurrencyAccounts/config"
 import SETTINGS from "@/components/Wrappers/MainWrapper/settings.gql"
+import { BANK_CARDS } from "./bankCards.gql"
+import { CURRENCY_ACCOUNTS } from "./currencyAccounts.gql"
 
 const { serverRuntimeConfig } = getConfig()
 

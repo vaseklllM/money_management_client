@@ -1,15 +1,14 @@
 import ContentBlock from "@/components/finance/ContentBlock"
 import React, { ReactElement } from "react"
 import CurrencyAccountsTitleRow from "./CurrencyAccountsTitleRow"
-import CURRENCY_ACCOUNTS from "../../currencyAccounts.gql"
 import { useQuery } from "@apollo/client"
-import { ICurrencyAccountsData } from "./interface"
 import CurrencyAccountsBody from "./CurrencyAccountsBody"
 import { configCurrencyAccounts } from "./config"
-
-interface ICurrencyAccountsVariables {
-  numberOfHistoryItems: number
-}
+import {
+  CURRENCY_ACCOUNTS,
+  ICurrencyAccountsData,
+  ICurrencyAccountsVariables,
+} from "../../currencyAccounts.gql"
 
 export default function CurrencyAccounts(): ReactElement {
   const { loading, data } = useQuery<ICurrencyAccountsData, ICurrencyAccountsVariables>(
