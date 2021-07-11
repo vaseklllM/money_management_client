@@ -1,6 +1,6 @@
 import { Span14 } from "@/components/Typography"
 import { txt } from "@/utils"
-import React, { ReactElement, useEffect } from "react"
+import React, { ReactElement, useEffect, useState } from "react"
 import { IMessage } from "../../hooks/useMessage"
 import classes from "./style.module.scss"
 import MessageItemIcon from "./MessageItemIcon"
@@ -17,9 +17,12 @@ export default function MessageItem({
   className,
   setMessages,
 }: Props): ReactElement {
+  const [isTimer, setIsTimer] = useState(false)
+
   /** додає таймер повідомленню */
   useEffect(() => {
-    if (data.type === "success") {
+    if (!isTimer && data.type === "success") {
+      setIsTimer(true)
       setTimeout(() => {
         setMessages((messages) => messages.filter((i) => i.id !== data.id))
       }, 2000)
