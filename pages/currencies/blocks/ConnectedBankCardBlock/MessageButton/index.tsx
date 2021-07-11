@@ -1,14 +1,21 @@
 import { useMessage } from "@/components/Message/hooks"
 import React, { ReactElement } from "react"
 
-interface Props {}
-
-export default function MessageButton({}: Props): ReactElement {
+export default function MessageButton(): ReactElement {
   const message = useMessage()
 
   const key = 1
+  const key2 = 2
 
-  console.log("update")
+  async function onClick() {
+    message.loading({ content: "test request loading...", key: key2 })
+    await new Promise((res) =>
+      setTimeout(() => {
+        res("")
+      }, 2500)
+    )
+    message.success({ content: "test request success", key: key2 })
+  }
 
   return (
     <div>
@@ -21,9 +28,7 @@ export default function MessageButton({}: Props): ReactElement {
       <button onClick={() => message.success({ content: "new message" })}>
         new message
       </button>
-      <button onClick={() => message.success({ content: "new message" })}>
-        test request
-      </button>
+      <button onClick={onClick}>test request</button>
     </div>
   )
 }
