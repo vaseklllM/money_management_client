@@ -1,4 +1,5 @@
-import React, { ReactElement, useEffect, useState } from "react"
+import React, { ReactElement, useEffect } from "react"
+import { useStateIfMounted } from "use-state-if-mounted"
 import { IMessage } from "./hooks/useMessage"
 import Messages from "./Messages"
 
@@ -8,24 +9,15 @@ interface Props {
 
 export const MessageContext = React.createContext(null)
 
-export default function Message({ children }: Props): ReactElement {
-  const [messages, setMessages] = useState<IMessage[]>([])
+export type SetMessagesType = React.Dispatch<React.SetStateAction<IMessage[]>>
 
-  /** додає таймер кожному повідомленню */
-  useEffect(() => {
-    messages.forEach((message) => {
-      if (message.type === "success") {
-        setTimeout(() => {
-          setMessages((m) => m.filter((i) => i.id !== message.id))
-        }, 2000)
-      }
-    })
-  }, [messages])
+export default function Message({ children }: Props): ReactElement {
+  const [messages, setMessages] = useStateIfMounted<IMessage[]>([])
 
   return (
     <MessageContext.Provider value={setMessages}>
       {children}
-      <Messages messages={messages} />
+      <Messages messages={messages} setMessages={setMessages} />
     </MessageContext.Provider>
   )
 }

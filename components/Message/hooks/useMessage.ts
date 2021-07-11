@@ -13,10 +13,6 @@ export type IMessage = IMessageFunc & {
   id: number
 }
 
-type IChangeMessage = IMessageFunc & {
-  type: IMessageType
-}
-
 export default function useMessage() {
   const setMessages = useContext(MessageContext)
 
@@ -34,35 +30,31 @@ export default function useMessage() {
   }
 
   /** додає message в массив messages */
-  function changeMessage({ key, ...params }: IChangeMessage) {
-    setMessages((messages: IMessage[]) => {
-      if (
-        (typeof key === "string" || typeof key === "number") &&
-        messages.find((i) => i.key === key)
-      ) {
-        return messages.map((message) => {
-          if (message.key !== key) return message
-          return {
-            ...message,
-            ...params,
-          }
-        })
-      } else {
-        return [{ key, ...params, id: getId(messages) }, ...messages]
-      }
-    })
-  }
-
-  function loading(params: IMessageFunc) {
-    changeMessage({ ...params, type: "loading" })
-  }
-
-  function success(params: IMessageFunc) {
-    changeMessage({ ...params, type: "success" })
+  function changeMessage(type: IMessageType) {
+    return function ({ key, ...params }: IMessageFunc) {
+      setMessages((messages: IMessage[]) => {
+        if (
+          (typeof key === "string" || typeof key === "number") &&
+          messages.find((i) => i.key === key)
+        ) {
+          return messages.map((message) => {
+            if (message.key !== key) return message
+            return {
+              ...message,
+              ...params,
+              type,
+            }
+          })
+        } else {
+          return [{ key, type, ...params, id: getId(messages) }, ...messages]
+        }
+      })
+    }
   }
 
   return {
-    loading,
-    success,
+    loading: changeMessage("loading"),
+    success: changeMessage("success"),
+    error: changeMessage("error"),
   }
 }

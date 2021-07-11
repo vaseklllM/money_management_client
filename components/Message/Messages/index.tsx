@@ -3,12 +3,14 @@ import classes from "./style.module.scss"
 import { IMessage } from "../hooks/useMessage"
 import MessageItem from "./MessageItem"
 import { CSSTransition, TransitionGroup } from "react-transition-group"
+import { SetMessagesType } from ".."
 
 interface Props {
   messages: IMessage[]
+  setMessages: SetMessagesType
 }
 
-export default function Messages({ messages }: Props): ReactElement {
+export default function Messages({ messages, setMessages }: Props): ReactElement {
   return (
     <TransitionGroup className={classes.messages}>
       {messages.map((message) => (
@@ -22,7 +24,11 @@ export default function Messages({ messages }: Props): ReactElement {
             exitActive: classes.message_exit_active,
           }}
         >
-          <MessageItem data={message} className={classes.message} />
+          <MessageItem
+            data={message}
+            className={classes.message}
+            setMessages={setMessages}
+          />
         </CSSTransition>
       ))}
     </TransitionGroup>
