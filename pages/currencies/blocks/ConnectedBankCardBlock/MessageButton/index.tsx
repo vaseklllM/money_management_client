@@ -14,8 +14,8 @@ export default function MessageButton(): ReactElement {
         res("")
       }, 2500)
     )
-    // message.success({ content: "test request success", key: key2 })
     message.success({ content: "test request success", key: key2 })
+    // message.error({ content: "test request success", key: key2 })
   }
 
   return (
@@ -26,7 +26,7 @@ export default function MessageButton(): ReactElement {
       <button onClick={() => message.success({ content: "Карту збережено", key })}>
         success
       </button>
-      <button onClick={() => message.success({ content: "new message" })}>
+      <button onClick={() => message.error({ content: "new message" })}>
         new message
       </button>
       <button onClick={onClick}>test request</button>

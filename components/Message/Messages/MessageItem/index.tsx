@@ -21,7 +21,7 @@ export default function MessageItem({
 
   /** додає таймер повідомленню */
   useEffect(() => {
-    if (!isTimer && data.type === "success") {
+    if (!isTimer && (data.type === "success" || data.type === "error")) {
       setIsTimer(true)
       setTimeout(() => {
         setMessages((messages) => messages.filter((i) => i.id !== data.id))

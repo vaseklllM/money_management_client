@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from "react"
+import React, { createContext, Dispatch, ReactElement, SetStateAction } from "react"
 import { useStateIfMounted } from "use-state-if-mounted"
 import { IMessage } from "./hooks/useMessage"
 import Messages from "./Messages"
@@ -7,9 +7,9 @@ interface Props {
   children?: any
 }
 
-export const MessageContext = React.createContext(null)
+export const MessageContext = createContext(null)
 
-export type SetMessagesType = React.Dispatch<React.SetStateAction<IMessage[]>>
+export type SetMessagesType = Dispatch<SetStateAction<IMessage[]>>
 
 export default function Message({ children }: Props): ReactElement {
   const [messages, setMessages] = useStateIfMounted<IMessage[]>([])
