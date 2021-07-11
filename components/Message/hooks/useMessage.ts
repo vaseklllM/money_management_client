@@ -6,12 +6,15 @@ export type IMessageType = "loading" | "success" | "error"
 interface IMessageFunc {
   content: string
   key?: number | string
-  type: IMessageType
 }
 
 export type IMessage = IMessageFunc & {
+  type: IMessageType
   id: number
-  // timerKey?: number
+}
+
+type IChangeMessage = IMessageFunc & {
+  type: IMessageType
 }
 
 export default function useMessage() {
@@ -31,7 +34,7 @@ export default function useMessage() {
   }
 
   /** додає message в массив messages */
-  function changeMessage({ key, ...params }: IMessageFunc) {
+  function changeMessage({ key, ...params }: IChangeMessage) {
     setMessages((messages: IMessage[]) => {
       if (
         (typeof key === "string" || typeof key === "number") &&

@@ -21,6 +21,9 @@ export default function MessageButton({}: Props): ReactElement {
       <button onClick={() => message.success({ content: "new message" })}>
         new message
       </button>
+      <button onClick={() => message.success({ content: "new message" })}>
+        test request
+      </button>
     </div>
   )
 }
