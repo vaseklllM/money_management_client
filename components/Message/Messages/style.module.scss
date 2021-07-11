@@ -13,4 +13,19 @@
       margin-top: 20px;
     }
   }
+
+  .message_enter {
+    opacity: 0;
+  }
+  .message_enter_active {
+    opacity: 1;
+    transition: opacity 150ms ease-in;
+  }
+  .message_exit {
+    opacity: 1;
+  }
+  .message_exit_active {
+    opacity: 0;
+    transition: opacity 150ms ease-in;
+  }
 }
