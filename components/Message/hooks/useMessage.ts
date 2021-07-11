@@ -6,8 +6,10 @@ interface IMessageFunc {
   key?: number | string
 }
 
+export type IMessageType = "loading" | "success" | "error"
+
 export type IMessage = IMessageFunc & {
-  type: "loading" | "success" | "error"
+  type: IMessageType
 }
 
 export default function useMessage() {

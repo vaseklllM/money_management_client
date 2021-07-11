@@ -7,8 +7,10 @@
   display: flex;
   align-items: center;
   width: max-content;
+  min-height: 38px;
+
 
   .text {
-    margin-left: 15px;
+    margin-left: 10px;
   }
 }
