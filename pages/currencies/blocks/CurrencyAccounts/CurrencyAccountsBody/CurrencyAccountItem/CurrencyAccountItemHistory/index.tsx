@@ -1,10 +1,5 @@
-import { Table, Tag, Typography } from "antd"
-import React, { ReactElement, useRef } from "react"
-import {
-  ICurrencyAccountDataHistory,
-  ICurrencyAccountDataCurrency,
-  ICurrencyAccountData as IData,
-} from "../../../interface"
+import { Table, Tag } from "antd"
+import React, { ReactElement } from "react"
 import classes from "./style.module.scss"
 import { date } from "@/utils"
 import { IPagination } from "@/interfaces"
@@ -12,6 +7,13 @@ import CURRENCY_ACCOUNT from "./currencyAccount.gql"
 import { useLazyQuery } from "@apollo/client"
 import { configCurrencyAccounts } from "../../../config"
 import DeleteHistoryItem from "./DeleteHistoryItem"
+import {
+  ICurrencyAccountDataHistory,
+  ICurrencyAccountDataCurrency,
+  ICurrencyAccountData as IData,
+} from "@/pages/currencies/currencyAccounts.gql"
+import { P14 } from "@/components/Typography"
+
 interface Props {
   data: ICurrencyAccountDataHistory[]
   currency: ICurrencyAccountDataCurrency
@@ -41,8 +43,6 @@ interface ICurrencyAccountData {
 export default function ItemHistory(props: Props): ReactElement {
   const { currency, currencyAccountId, data, pagination, numberOfHistoryItems, page } =
     props
-
-  const { Text } = Typography
 
   const [getCurrencyAccount, { loading }] = useLazyQuery<
     ICurrencyAccountData,
@@ -136,7 +136,7 @@ export default function ItemHistory(props: Props): ReactElement {
 
   return (
     <div className={classes.body}>
-      <Text type='secondary'>Історія операцій з рахунком</Text>
+      <P14>Історія операцій з рахунком</P14>
       <Table
         columns={columns}
         dataSource={data.map((el) => ({
