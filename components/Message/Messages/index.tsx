@@ -10,8 +10,8 @@ interface Props {
 export default function Messages({ messages }: Props): ReactElement {
   return (
     <div className={classes.messages}>
-      {messages.map((el, idx) => (
-        <MessageItem data={el} key={idx} className={classes.message} />
+      {messages.map((message) => (
+        <MessageItem data={message} key={message.id} className={classes.message} />
       ))}
     </div>
   )

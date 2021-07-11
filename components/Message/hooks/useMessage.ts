@@ -1,21 +1,34 @@
 import { useContext } from "react"
 import { MessageContext } from ".."
 
+export type IMessageType = "loading" | "success" | "error"
+
 interface IMessageFunc {
   content: string
   key?: number | string
+  type: IMessageType
 }
 
-export type IMessageType = "loading" | "success" | "error"
-
 export type IMessage = IMessageFunc & {
-  type: IMessageType
+  id: number
 }
 
 export default function useMessage() {
   const setMessages = useContext(MessageContext)
 
-  function changeMessage({ key, ...params }: IMessage) {
+  function getId(messages: IMessage[]) {
+    if (messages.length === 0) return 0
+
+    let id = 1
+
+    messages.forEach((message: IMessage) => {
+      if (message.id >= id) id = message.id + 1
+    })
+
+    return id
+  }
+
+  function changeMessage({ key, ...params }: IMessageFunc) {
     setMessages((messages: IMessage[]) => {
       if (
         (typeof key === "string" || typeof key === "number") &&
@@ -29,7 +42,7 @@ export default function useMessage() {
           }
         })
       } else {
-        return [{ key, ...params }, ...messages]
+        return [{ key, ...params, id: getId(messages) }, ...messages]
       }
     })
   }
