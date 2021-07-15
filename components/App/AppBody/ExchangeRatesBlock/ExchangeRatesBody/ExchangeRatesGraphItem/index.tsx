@@ -1,4 +1,3 @@
-import { Typography } from "antd"
 import React, { ReactElement } from "react"
 import { Area, AreaChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts"
 import { ICurrency } from "../interface"
@@ -6,8 +5,7 @@ import randomColorRGB from "random-color-rgb"
 import classes from "./style.module.scss"
 import { date } from "@/utils"
 import ExchangeRatesGraphItemTitle from "./ExchangeRatesGraphItemTitle"
-
-const { Text } = Typography
+import { Span14 } from "@/components/Typography"
 
 interface Props {
   data: ICurrency
@@ -44,10 +42,10 @@ export default function ExchangeRatesGraphItem({ data }: Props): ReactElement {
 
               return (
                 <div className={classes.tooltip}>
-                  <Text className={classes.tooltip_fs_12}>{params.label}</Text>
-                  <Text className={classes.tooltip_fs_12}>
+                  <Span14 className={classes.tooltip_fs_12}>{params.label}</Span14>
+                  <Span14 className={classes.tooltip_fs_12}>
                     {numberFormat.format(value)}
-                  </Text>
+                  </Span14>
                 </div>
               )
             }}
