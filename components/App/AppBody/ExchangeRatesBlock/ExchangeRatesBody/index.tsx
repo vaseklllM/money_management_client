@@ -3,7 +3,7 @@ import ExchangeRatesGraphItem from "./ExchangeRatesGraphItem"
 import { useQuery } from "@apollo/client"
 import { ICurrenciesData, ICurrency } from "./interface"
 import classes from "./style.module.scss"
-import CURRENCIES from "../../../currencies.gql"
+import { CURRENCIES } from "@/components/App/currencies.gql"
 
 interface ICurrenciesVariables {
   numberOfHistoryItems: number
