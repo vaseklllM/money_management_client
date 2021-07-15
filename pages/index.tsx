@@ -3,9 +3,9 @@ import { initializeApollo } from "@/providers/Apollo/apolloClient"
 import { GetServerSideProps } from "next"
 import getConfig from "next/config"
 import CURRENCY_ACCOUNTS from "@/components/App/currencyAccounts.gql"
-import BANK_CARDS from "@/components/App/bankCards.gql"
+import { BANK_CARDS } from "@/components/App/bankCards.gql"
 import CURRENCIES from "@/components/App/currencies.gql"
-import SETTINGS from '@/components/Wrappers/MainWrapper/settings.gql'
+import SETTINGS from "@/components/Wrappers/MainWrapper/settings.gql"
 
 const { serverRuntimeConfig } = getConfig()
 

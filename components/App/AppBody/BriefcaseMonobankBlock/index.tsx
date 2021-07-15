@@ -3,12 +3,12 @@ import React, { ReactElement } from "react"
 import MonobankBlockBody from "./MonobankBlockBody"
 import MonobankBlockTitleRow from "./MonobankBlockTitleRow"
 import classes from "./style.module.scss"
-import BANC_CARDS from "../../bankCards.gql"
 import { useQuery } from "@apollo/client"
 import { IBankCards } from "./interfaces"
+import { BANK_CARDS } from "../../bankCards.gql"
 
 export default function BriefcaseMonobankBlock(): ReactElement {
-  const { data, loading } = useQuery<IBankCards>(BANC_CARDS)
+  const { data, loading } = useQuery<IBankCards>(BANK_CARDS)
 
   if (loading || !data || !data.bankcards.monobank) return null
 

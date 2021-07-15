@@ -1,7 +1,7 @@
 import CURRENCY_ACCOUNTS from "../../../currencyAccounts.gql"
-import BANK_CARDS from "../../../bankCards.gql"
 import { useQuery } from "@apollo/client"
 import { ICurrencyRatioData } from "../CurrencyRatio/interface"
+import { BANK_CARDS } from "@/components/App/bankCards.gql"
 
 interface ICurrency {
   code: string
