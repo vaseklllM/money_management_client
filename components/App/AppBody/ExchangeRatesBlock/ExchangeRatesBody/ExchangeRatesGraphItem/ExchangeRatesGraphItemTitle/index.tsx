@@ -1,8 +1,6 @@
-import { Typography } from "antd"
+import { P14, Span14 } from "@/components/Typography"
 import React, { ReactElement } from "react"
 import classes from "./style.module.scss"
-
-const { Text } = Typography
 
 interface Props {
   currencyCode: string
@@ -13,9 +11,9 @@ export default function ExchangeRatesGraphItemTitle({
 }: Props): ReactElement {
   return (
     <div className={classes.body}>
-      <Text className={classes.fs_12} type='secondary'>
-        Валюта: <Text>{currencyCode}</Text>
-      </Text>
+      <P14 className={classes.fs_12}>
+        Валюта: <Span14>{currencyCode}</Span14>
+      </P14>
     </div>
   )
 }
