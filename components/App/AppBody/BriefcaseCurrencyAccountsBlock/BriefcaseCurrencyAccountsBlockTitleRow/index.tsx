@@ -1,4 +1,4 @@
-import { Typography } from "antd"
+import { Span14, Span14bold } from "@/components/Typography"
 import React, { ReactElement } from "react"
 import classes from "./style.module.scss"
 
@@ -9,17 +9,13 @@ interface Props {
 export default function BriefcaseCurrencyAccountsBlockTitleRow({
   isNotData,
 }: Props): ReactElement {
-  const { Title, Text } = Typography
-
   return (
-    <div>
-      <Title level={5} className={classes.title}>
-        Валютні рахунки
-      </Title>
+    <div className={classes.body}>
+      <Span14bold className={classes.title}>Валютні рахунки</Span14bold>
       {isNotData && (
-        <Text>
+        <Span14 className={classes.not_currency_accounts}>
           В вас немає рахунків. Створіть новий рахунок для відображення статистики.
-        </Text>
+        </Span14>
       )}
     </div>
   )

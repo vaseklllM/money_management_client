@@ -19,7 +19,6 @@ export default function BriefcaseCurrencyAccountsBlock(): ReactElement {
     variables: {
       numberOfHistoryItems: 15,
     },
-    // fetchPolicy: "cache-and-network",
   })
 
   if (loading || !data) return null
