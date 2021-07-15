@@ -1,8 +1,8 @@
 import { BANK_CARDS } from "@/components/App/bankCards.gql"
 import { CURRENCY_ACCOUNTS } from "@/components/App/currencyAccounts.gql"
 import { useQuery } from "@apollo/client"
-import { Statistic } from "antd"
 import { ReactElement } from "react"
+import FullPriceViewer from "./FullPriceViewer"
 
 interface ICA {
   currencyAccounts: {
@@ -61,7 +61,7 @@ export default function FullPrice(): ReactElement {
     currencyDisplay: "narrowSymbol",
   })
 
-  return <Statistic title='Вартість всіх рахунків' value={numberFormat.format(price)} />
+  return <FullPriceViewer value={numberFormat.format(price)} />
 }
 
 function CAFullPrice(data: ICA): number {
