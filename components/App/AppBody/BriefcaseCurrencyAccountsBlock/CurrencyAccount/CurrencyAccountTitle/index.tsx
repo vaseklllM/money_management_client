@@ -1,4 +1,4 @@
-import { Typography } from "antd"
+import { P14, Span14 } from "@/components/Typography"
 import React, { ReactElement } from "react"
 import { ICurrencyAccountsDataCurrency } from "../../interfaces"
 import classes from "./style.module.scss"
@@ -9,16 +9,14 @@ interface Props {
 }
 
 export default function CurrencyAccountTitle({ name, currency }: Props): ReactElement {
-  const { Text } = Typography
-
   return (
     <div className={classes.body}>
-      <Text className={classes.name} type='secondary'>
-        Назва: <Text>{name}</Text>
-      </Text>
-      <Text className={classes.currency} type='secondary'>
-        Валюта: <Text>{currency.code}</Text>
-      </Text>
+      <P14 className={classes.name}>
+        Назва: <Span14>{name}</Span14>
+      </P14>
+      <P14 className={classes.currency}>
+        Валюта: <Span14>{currency.code}</Span14>
+      </P14>
     </div>
   )
 }
