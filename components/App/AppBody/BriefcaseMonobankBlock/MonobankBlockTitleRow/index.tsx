@@ -1,9 +1,8 @@
-import { Typography } from "antd"
+import { P14, Span14bold } from "@/components/Typography"
 import React, { ReactElement } from "react"
 import { IBankCardsUser } from "../interfaces"
 import classes from "./style.module.scss"
 
-const { Title, Text } = Typography
 interface Props {
   user: IBankCardsUser
 }
@@ -11,12 +10,10 @@ interface Props {
 export default function MonobankBlockTitleRow({ user }: Props): ReactElement {
   return (
     <div className={classes.body}>
-      <Title className={classes.title} level={5}>
-        Статистика монобанка
-      </Title>
-      <Text className={classes.subtitle} type='secondary'>
+      <Span14bold className={classes.title}>Статистика монобанка</Span14bold>
+      <P14 className={classes.subtitle}>
         Власник: {user.lastName} {user.firstName}
-      </Text>
+      </P14>
     </div>
   )
 }
