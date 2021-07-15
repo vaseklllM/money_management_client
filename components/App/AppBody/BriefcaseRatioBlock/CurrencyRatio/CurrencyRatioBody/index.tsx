@@ -1,10 +1,8 @@
-import { Typography } from "antd"
+import { P14, Span14 } from "@/components/Typography"
 import React, { ReactElement } from "react"
 import { Cell, Legend, Pie, PieChart, Tooltip } from "recharts"
 import { ICurrencyRatioData } from "../interface"
 import classes from "./style.module.scss"
-
-const { Text } = Typography
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"]
 
@@ -46,7 +44,7 @@ function renderLegend(params) {
             className={classes.legend_item_color}
             style={{ backgroundColor: i.color }}
           />
-          <Text className={classes.legend_item_text}>{i.payload.code}</Text>
+          <Span14 className={classes.legend_item_text}>{i.payload.code}</Span14>
         </div>
       ))}
     </div>
@@ -66,7 +64,7 @@ function renderTooltip(params) {
 
     return (
       <div className={classes.tooltip}>
-        <Text>{numberFormat?.format(value)}</Text>
+        <Span14>{numberFormat?.format(value)}</Span14>
       </div>
     )
   }
@@ -83,7 +81,7 @@ interface IProps {
 export default function CurrencyRatioBody({ data }: IProps): ReactElement {
   return (
     <div>
-      <Text type='secondary'>Співвідношення валют</Text>
+      <P14>Співвідношення валют</P14>
       <div
         className={classes.ratio}
         style={{ width: `${radius * 2}px`, height: `${radius * 2}px` }}
