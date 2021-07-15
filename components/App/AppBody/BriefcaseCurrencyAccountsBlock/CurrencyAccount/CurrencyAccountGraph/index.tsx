@@ -5,9 +5,9 @@ import {
 } from "../../interfaces"
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
 import classes from "./style.module.scss"
-import { Typography } from "antd"
 import { date, txt } from "@/utils"
 import randomColorRGB from "random-color-rgb"
+import { Span14 } from "@/components/Typography"
 
 interface Props {
   data: ICurrencyAccountsDataHistory[]
@@ -20,8 +20,6 @@ export default function CurrencyAccountGraph({
   currency,
   className,
 }: Props): ReactElement {
-  const { Text } = Typography
-
   const numberFormat = new Intl.NumberFormat("ru-RU", {
     style: "currency",
     currency: currency.code,
@@ -46,10 +44,10 @@ export default function CurrencyAccountGraph({
 
               return (
                 <div className={classes.tooltip}>
-                  <Text className={classes.tooltip_label}>{params.label}</Text>
-                  <Text className={classes.tooltip_value}>
+                  <Span14 className={classes.tooltip_label}>{params.label}</Span14>
+                  <Span14 className={classes.tooltip_value}>
                     {numberFormat.format(value)}
-                  </Text>
+                  </Span14>
                 </div>
               )
             }}
