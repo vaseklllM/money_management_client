@@ -1,11 +1,11 @@
 import ContentBlock from "@/components/finance/ContentBlock"
 import { useQuery } from "@apollo/client"
 import React, { ReactElement } from "react"
+import { CURRENCY_ACCOUNTS } from "../../currencyAccounts.gql"
 import BriefcaseCurrencyAccountsBlockTitleRow from "./BriefcaseCurrencyAccountsBlockTitleRow"
 import CurrencyAccount from "./CurrencyAccount"
 import { ICurrencyAccountsQueryData } from "./interfaces"
 import classes from "./style.module.scss"
-import CURRENCY_ACCOUNTS from "../../currencyAccounts.gql"
 
 interface ICurrencyAccountVariables {
   numberOfHistoryItems: number
