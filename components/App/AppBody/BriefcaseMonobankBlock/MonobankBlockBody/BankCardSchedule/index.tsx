@@ -1,13 +1,11 @@
 import { date, txt } from "@/utils"
-import { Typography } from "antd"
 import React, { ReactElement } from "react"
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
 import { IBankCardItem } from "../../interfaces"
 import BankCardScheduleTitle from "./BankCardScheduleTitle"
 import classes from "./style.module.scss"
 import randomColorRGB from "random-color-rgb"
-
-const { Text } = Typography
+import { Span14 } from "@/components/Typography"
 
 interface Props {
   data: IBankCardItem
@@ -40,10 +38,10 @@ export default function BankCardSchedule({ data, className }: Props): ReactEleme
 
               return (
                 <div className={classes.tooltip}>
-                  <Text className={classes.tooltip_fs_12}>{params.label}</Text>
-                  <Text className={classes.tooltip_fs_12}>
+                  <Span14 className={classes.tooltip_fs_12}>{params.label}</Span14>
+                  <Span14 className={classes.tooltip_fs_12}>
                     {numberFormat.format(value)}
-                  </Text>
+                  </Span14>
                 </div>
               )
             }}
