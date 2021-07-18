@@ -1,4 +1,5 @@
-import { Input, Typography } from "antd"
+import { Input } from "@/components/Inputs"
+import { Span14 } from "@/components/Typography"
 import React, { ReactElement } from "react"
 import classes from "./style.module.scss"
 
@@ -11,11 +12,9 @@ export default function ModalAddWalletActionNameInput({
   name,
   setName,
 }: Props): ReactElement {
-  const { Text } = Typography
-
   return (
     <div>
-      <Text>Назва транзакції</Text>
+      <Span14>Назва транзакції</Span14>
       <Input
         placeholder='Назва'
         value={name}
