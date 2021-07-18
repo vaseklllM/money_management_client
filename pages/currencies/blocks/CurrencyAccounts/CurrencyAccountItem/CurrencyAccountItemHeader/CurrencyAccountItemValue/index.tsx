@@ -1,5 +1,7 @@
-import { Typography } from "antd"
+import { Span14 } from "@/components/Typography"
+import { txt } from "@/utils"
 import React, { ReactElement } from "react"
+import classes from "./style.module.scss"
 
 interface Props {
   value: number
@@ -12,8 +14,6 @@ export default function CurrencyAccountItemValue({
   value,
   className,
 }: Props): ReactElement {
-  const { Text } = Typography
-
   const numberFormat = new Intl.NumberFormat("ru-RU", {
     style: "currency",
     currency: currencyCode,
@@ -21,11 +21,8 @@ export default function CurrencyAccountItemValue({
   })
 
   return (
-    <Text
-      className={className}
-      type={value === 0 ? "secondary" : value > 0 ? "success" : "danger"}
-    >
+    <Span14 className={txt.join([className, value > 0 ? classes.green : classes.red])}>
       {numberFormat.format(value)}
-    </Text>
+    </Span14>
   )
 }

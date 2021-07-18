@@ -1,4 +1,4 @@
-import { Typography } from "antd"
+import { Span14bold } from "@/components/Typography"
 import React, { ReactElement } from "react"
 
 interface Props {
@@ -10,11 +10,5 @@ export default function CurrencyAccountItemName({
   name,
   className,
 }: Props): ReactElement {
-  const { Text } = Typography
-
-  return (
-    <Text className={className} strong>
-      {name}
-    </Text>
-  )
+  return <Span14bold className={className}>{name}</Span14bold>
 }
