@@ -1,6 +1,6 @@
+import { ButtonBlue } from "@/components/Buttons"
 import { configCurrencyAccounts } from "@/pages/currencies/blocks/CurrencyAccounts/config"
 import { useMutation } from "@apollo/client"
-import { Button } from "antd"
 import React, { ReactElement } from "react"
 import ADD_TRANSACTION from "./addTransactionCurrencyAccount.gql"
 
@@ -43,8 +43,10 @@ export default function ModalAddWalletActionButtonSave({
   currencyAccountId,
   page,
 }: Props): ReactElement {
-  const [addTransaction, { loading }] =
-    useMutation<IAddTransactionData, IAddTransactionVariables>(ADD_TRANSACTION)
+  const [addTransaction, { loading }] = useMutation<
+    IAddTransactionData,
+    IAddTransactionVariables
+  >(ADD_TRANSACTION)
 
   async function save() {
     await addTransaction({
@@ -60,8 +62,8 @@ export default function ModalAddWalletActionButtonSave({
   }
 
   return (
-    <Button disabled={!value.sum} type='primary' onClick={save} loading={loading}>
+    <ButtonBlue disabled={!value.sum} onClick={save} loading={loading}>
       Добавити
-    </Button>
+    </ButtonBlue>
   )
 }

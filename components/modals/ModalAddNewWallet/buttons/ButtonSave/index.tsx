@@ -1,7 +1,7 @@
+import { ButtonBlue } from "@/components/Buttons"
 import { useMessage } from "@/components/Message/hooks"
 import { err } from "@/utils"
 import { useLazyQuery, useMutation } from "@apollo/client"
-import { Button } from "antd"
 import React, { ReactElement } from "react"
 import { useStateIfMounted } from "use-state-if-mounted"
 import CREATE_CURRENCY_ACCOUNT from "./createCurrencyAccount.gql"
@@ -69,13 +69,12 @@ export default function ButtonSave(props: Props): ReactElement {
   }
 
   return (
-    <Button
+    <ButtonBlue
       disabled={!value.currency || value.name === ""}
-      type='primary'
       loading={loading}
       onClick={save}
     >
       Створити
-    </Button>
+    </ButtonBlue>
   )
 }
