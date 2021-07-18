@@ -4,7 +4,7 @@ import { IconButtonDelete } from "@/components/Buttons"
 import DELETE_CURRENCY_ACCOUNT_HISTORY_ITEM from "./deleteCurrencyAccountHistoryItem.gql"
 import { useMutation } from "@apollo/client"
 import { ICurrencyAccountData } from "../../../../interface"
-import { configCurrencyAccounts } from "../../../../config"
+import { configCurrencyAccounts } from "../../../config"
 
 interface Props {
   className?: string

@@ -2,7 +2,7 @@ import { ReactElement } from "react"
 import classes from "./style.module.scss"
 
 interface IProps {
-  children: ReactElement | ReactElement[] | string
+  children: any
 }
 
 export default function ContentBlock(props: IProps): ReactElement {

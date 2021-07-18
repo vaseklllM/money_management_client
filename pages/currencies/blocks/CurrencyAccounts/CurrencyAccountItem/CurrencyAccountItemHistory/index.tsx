@@ -5,7 +5,7 @@ import { date } from "@/utils"
 import { IPagination } from "@/interfaces"
 import CURRENCY_ACCOUNT from "./currencyAccount.gql"
 import { useLazyQuery } from "@apollo/client"
-import { configCurrencyAccounts } from "../../../config"
+import { configCurrencyAccounts } from "../../config"
 import DeleteHistoryItem from "./DeleteHistoryItem"
 import {
   ICurrencyAccountDataHistory,
