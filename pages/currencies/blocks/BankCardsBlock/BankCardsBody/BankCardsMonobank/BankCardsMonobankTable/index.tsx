@@ -1,4 +1,5 @@
-import { Table, Typography } from "antd"
+import { Span14bold } from "@/components/Typography"
+import { Table } from "antd"
 import React, { ReactElement } from "react"
 import { ICars } from "../../../interfaces"
 import classes from "./style.module.scss"
@@ -16,8 +17,6 @@ interface ITableData {
 }
 
 export default function BankCardsMonobankTable(props: Props): ReactElement {
-  const { Text } = Typography
-
   const data: ITableData[] = props.data.map((card, idx) => ({
     balance: card.balance,
     cardNumber: card.cardNumber || "-",
@@ -49,9 +48,9 @@ export default function BankCardsMonobankTable(props: Props): ReactElement {
         if (balance === 0) return num
 
         return (
-          <Text type={balance > 0 ? "success" : "danger"} strong>
+          <Span14bold className={balance > 0 ? classes.green : classes.red}>
             {num}
-          </Text>
+          </Span14bold>
         )
       },
     },
