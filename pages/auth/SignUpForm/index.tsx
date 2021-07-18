@@ -2,13 +2,13 @@ import React, { ReactElement } from "react"
 import { AuthPageButton, AuthPageForm, AuthPageH1, AuthPageInput } from "../components"
 import classes from "./style.module.scss"
 import { useForm } from "react-hook-form"
-import { message } from "antd"
 import SING_UP from "./SIGN_UP.gql"
 import { useMutation } from "@apollo/client"
 import { err } from "@/utils"
 import { useRouter } from "next/router"
 import { useAuthGetUser } from "@/hooks"
 import Cookies from "js-cookie"
+import { useMessage } from "@/components/Message/hooks"
 
 const key = "singUp"
 
@@ -31,6 +31,8 @@ export default function SignUpForm(): ReactElement {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>()
+
+  const message = useMessage()
 
   const [signUp] = useMutation<ISignUpData, Inputs>(SING_UP)
   const { getUser } = useAuthGetUser()
