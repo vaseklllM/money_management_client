@@ -1,5 +1,6 @@
+import { Input } from "@/components/Inputs"
+import { Span14 } from "@/components/Typography"
 import { txt } from "@/utils"
-import { Input, Typography } from "antd"
 import React, { ReactElement } from "react"
 import classes from "./style.module.scss"
 
@@ -18,8 +19,6 @@ export default function ModalAddWalletInputNewValue({
   activeValue,
   setTransactionType,
 }: Props): ReactElement {
-  const { Text } = Typography
-
   function onChange(event) {
     const value = txt.parseInputFloat(event.target.value, { fixedNumbers: 2 })
 
@@ -37,7 +36,7 @@ export default function ModalAddWalletInputNewValue({
 
   return (
     <div className={classes.body}>
-      <Text>Нове значення рахунку</Text>
+      <Span14>Нове значення рахунку</Span14>
       <Input className={classes.input} value={newValue} onChange={onChange} />
     </div>
   )
