@@ -1,9 +1,7 @@
+import { P16, Span16 } from "@/components/Typography"
 import { txt } from "@/utils"
-import { Typography } from "antd"
 import React, { ReactElement } from "react"
 import classes from "./style.module.scss"
-
-const { Text } = Typography
 
 interface Props {
   className?: string
@@ -18,17 +16,17 @@ export default function AuthAdaptiveDownButtons({
 }: Props): ReactElement {
   return (
     <div className={txt.join([className, classes.body])}>
-      <Text className={classes.text}>
+      <P16 className={classes.text}>
         {isSingUp ? "Вже зареєстровані" : "Немає аккаунта"}?&nbsp;
         <button
           className={classes.blue_link_btn}
           onClick={() => setIsSingUp((v: boolean) => !v)}
         >
-          <Text className={classes.blue_link_text}>
+          <Span16 className={classes.blue_link_text}>
             {isSingUp ? "Ввійти" : "Зареєструватися"}
-          </Text>
+          </Span16>
         </button>
-      </Text>
+      </P16>
     </div>
   )
 }
