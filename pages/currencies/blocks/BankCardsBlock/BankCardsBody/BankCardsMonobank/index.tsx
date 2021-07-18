@@ -2,7 +2,7 @@ import classes from "./style.module.scss"
 import React, { ReactElement } from "react"
 import { IBankCardsMonobankData } from "../../interfaces"
 import BankCardsMonobankTable from "./BankCardsMonobankTable"
-import { H5, P14, Span14 } from "@/components/Typography"
+import { P14, Span14, Span16 } from "@/components/Typography"
 
 interface Props {
   data?: IBankCardsMonobankData
@@ -15,7 +15,7 @@ export default function BankCardsMonobank(props: Props): ReactElement {
 
   return (
     <div className={classes.body}>
-      <H5 className={classes.title}>Монобанк</H5>
+      <Span16>Монобанк</Span16>
       <P14>
         Власник:&nbsp;&nbsp;
         <Span14>
