@@ -1,4 +1,5 @@
-import { Input, Typography } from "antd"
+import { Input } from "@/components/Inputs"
+import { Span14 } from "@/components/Typography"
 import React, { ReactElement } from "react"
 import classes from "./style.module.scss"
 
@@ -10,11 +11,9 @@ interface Props {
 export default function WalletNameInput(props: Props): ReactElement {
   const { name, setName } = props
 
-  const { Text } = Typography
-
   return (
     <>
-      <Text>Назва рахунку</Text>
+      <Span14>Назва рахунку</Span14>
       <Input
         value={name}
         onChange={(e) => setName(e.target.value)}
