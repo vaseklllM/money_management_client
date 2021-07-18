@@ -2,7 +2,7 @@ import { ButtonBlue } from "@/components/Buttons"
 import { configCurrencyAccounts } from "@/pages/currencies/blocks/CurrencyAccounts/config"
 import { useMutation } from "@apollo/client"
 import React, { ReactElement } from "react"
-import ADD_TRANSACTION from "./addTransactionCurrencyAccount.gql"
+import { ADD_TRANSACTION } from "./addTransactionCurrencyAccount.gql"
 
 interface Props {
   onSave: () => any

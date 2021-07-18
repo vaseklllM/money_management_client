@@ -1,5 +1,4 @@
 import { txt } from "@/utils"
-import Link from "next/link"
 import { useRouter } from "next/router"
 import React, { ReactElement } from "react"
 import classes from "./style.module.scss"

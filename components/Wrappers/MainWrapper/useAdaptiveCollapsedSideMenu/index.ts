@@ -1,7 +1,7 @@
 import { useResize } from "@/hooks"
 import { useMutation } from "@apollo/client"
 import { useEffect } from "react"
-import UPDATE_SETTINGS from "./updateSettings.gql"
+import { UPDATE_SETTINGS } from "./updateSettings.gql"
 
 interface ISettingsData {
   settings: {
@@ -17,8 +17,9 @@ interface IUpdateSettingsVariables {
 }
 
 export function useAdaptiveCollapsedSideMenu(bodyRef: React.MutableRefObject<any>) {
-  const [updateSettings] =
-    useMutation<ISettingsData, IUpdateSettingsVariables>(UPDATE_SETTINGS)
+  const [updateSettings] = useMutation<ISettingsData, IUpdateSettingsVariables>(
+    UPDATE_SETTINGS
+  )
 
   const { width } = useResize(bodyRef)
 

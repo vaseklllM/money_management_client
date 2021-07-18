@@ -3,7 +3,7 @@ import { initializeApollo } from "@/providers/Apollo/apolloClient"
 import { GetServerSideProps } from "next"
 import getConfig from "next/config"
 import { BANK_CARDS } from "@/components/App/bankCards.gql"
-import SETTINGS from "@/components/Wrappers/MainWrapper/settings.gql"
+import { SETTINGS } from "@/components/Wrappers/MainWrapper/settings.gql"
 import { CURRENCIES } from "@/components/App/currencies.gql"
 import { CURRENCY_ACCOUNTS } from "@/components/App/currencyAccounts.gql"
 

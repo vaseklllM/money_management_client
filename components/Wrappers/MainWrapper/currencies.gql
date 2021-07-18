@@ -1,9 +1,0 @@
-query currencies($numberOfHistoryItems: Int!) {
-  currencies(numberOfHistoryItems: $numberOfHistoryItems) {
-    code
-    symbol
-    historyCourseInUAH {
-      price
-    }
-  }
-}

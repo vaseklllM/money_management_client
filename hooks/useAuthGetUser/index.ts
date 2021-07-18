@@ -1,5 +1,5 @@
 import { OperationVariables, QueryLazyOptions, useLazyQuery } from "@apollo/client"
-import USER from "./user.gql"
+import { USER } from "./user.gql"
 
 interface IUserData {
   user: {

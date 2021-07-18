@@ -1,5 +1,0 @@
-mutation deleteCurrencyAccount($id: ID!) {
-  deleteCurrencyAccount(deleteCurrencyAccount: { id: $id }) {
-    name
-  }
-}

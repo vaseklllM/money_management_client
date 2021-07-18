@@ -3,7 +3,7 @@ import { useMessage } from "@/components/Message/hooks"
 import { err } from "@/utils"
 import { useMutation } from "@apollo/client"
 import React, { ReactElement, useState } from "react"
-import UPDATE_CURRENCY_ACCOUNT from "./updateCurrencyAccount.gql"
+import { UPDATE_CURRENCY_ACCOUNT } from "./updateCurrencyAccount.gql"
 
 interface Props {
   value: {

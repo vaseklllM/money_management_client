@@ -5,7 +5,7 @@ import { useRouter } from "next/router"
 import React, { ReactElement } from "react"
 import { ReactSVG } from "react-svg"
 import classes from "./style.module.scss"
-import SETTINGS from "../../settings.gql"
+import { SETTINGS } from "../../settings.gql"
 
 interface Props {
   text: string

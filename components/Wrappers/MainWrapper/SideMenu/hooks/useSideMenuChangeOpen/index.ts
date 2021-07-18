@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client"
-import UPDATE_SETTINGS from "./updateSettings.gql"
-import SETTINGS from "../../../settings.gql"
+import { UPDATE_SETTINGS } from "./updateSettings.gql"
+import { SETTINGS } from "../../../settings.gql"
 
 interface IReturnUseSideMenuChangeOpen {
   open: boolean

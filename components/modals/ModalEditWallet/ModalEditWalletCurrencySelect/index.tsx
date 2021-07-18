@@ -2,7 +2,7 @@ import { Span14 } from "@/components/Typography"
 import { useQuery } from "@apollo/client"
 import { Select } from "antd"
 import React, { ReactElement } from "react"
-import CURRENCIES from "./currencies.gql"
+import { CURRENCIES } from "./currencies.gql"
 import classes from "./style.module.scss"
 
 interface Props {

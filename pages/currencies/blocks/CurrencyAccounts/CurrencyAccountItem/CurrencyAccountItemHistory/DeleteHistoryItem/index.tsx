@@ -1,9 +1,8 @@
 import React, { ReactElement } from "react"
 import { useStateIfMounted } from "use-state-if-mounted"
 import { IconButtonDelete } from "@/components/Buttons"
-import DELETE_CURRENCY_ACCOUNT_HISTORY_ITEM from "./deleteCurrencyAccountHistoryItem.gql"
+import { DELETE_CURRENCY_ACCOUNT_HISTORY_ITEM } from "./deleteCurrencyAccountHistoryItem.gql"
 import { useMutation } from "@apollo/client"
-import { ICurrencyAccountData } from "../../../../interface"
 import { configCurrencyAccounts } from "../../../config"
 
 interface Props {
@@ -19,10 +18,6 @@ interface IDeleteHistoryItemVariables {
   historyPage: number
 }
 
-interface IDeleteHistoryItemData {
-  deleteCurrencyAccount: ICurrencyAccountData
-}
-
 export default function DeleteHistoryItem({
   className,
   id,
@@ -31,10 +26,9 @@ export default function DeleteHistoryItem({
 }: Props): ReactElement {
   const [loading, setLoading] = useStateIfMounted(false)
 
-  const [deleteHistory] = useMutation<
-    IDeleteHistoryItemData,
-    IDeleteHistoryItemVariables
-  >(DELETE_CURRENCY_ACCOUNT_HISTORY_ITEM)
+  const [deleteHistory] = useMutation<any, IDeleteHistoryItemVariables>(
+    DELETE_CURRENCY_ACCOUNT_HISTORY_ITEM
+  )
 
   async function onRemove(_, { setVisible }) {
     setLoading(true)
