@@ -1,5 +1,5 @@
 import { SwitchBadGood } from "@/components/switches"
-import { Typography } from "antd"
+import { Span14 } from "@/components/Typography"
 import React, { ReactElement } from "react"
 import classes from "./style.module.scss"
 
@@ -18,8 +18,6 @@ export default function ModalAddWalletActionTypeToggle({
   buySaleValue,
   setNewValue,
 }: Props): ReactElement {
-  const { Text } = Typography
-
   function onChange(value) {
     setTransactionType(value)
 
@@ -35,7 +33,7 @@ export default function ModalAddWalletActionTypeToggle({
 
   return (
     <div className={classes.switch_row}>
-      <Text>Тип операції:</Text>
+      <Span14>Тип операції:</Span14>
       <SwitchBadGood
         className={classes.switch}
         badText='Продажа'
