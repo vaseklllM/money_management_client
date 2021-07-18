@@ -2,11 +2,10 @@ import { Modal } from "antd"
 import React, { ReactElement, useEffect, useState } from "react"
 import ButtonSave from "./buttons/ButtonSave"
 import AddNewWalletValueInput from "./AddNewWalletValueInput"
-import CURRENCIES from "./currencies.gql"
 import { useQuery } from "@apollo/client"
-import { ICurrenciesData } from "./interfaces"
 import { WalletNameInput, ButtonCancel } from "../components"
 import classes from "./style.module.scss"
+import { CURRENCIES, ICurrenciesData } from "./currencies.gql"
 
 interface Props {
   visible: boolean
