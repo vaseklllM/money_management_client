@@ -1,6 +1,7 @@
+import { useMessage } from "@/components/Message/hooks"
 import { err } from "@/utils"
 import { useMutation } from "@apollo/client"
-import { Button, message } from "antd"
+import { Button } from "antd"
 import React, { ReactElement, useState } from "react"
 import UPDATE_CURRENCY_ACCOUNT from "./updateCurrencyAccount.gql"
 
@@ -40,6 +41,8 @@ export default function ModalEditWalletButtonSave({
   id,
 }: Props): ReactElement {
   const [loading, setLoading] = useState(false)
+  const message = useMessage()
+
   const [updateCurrencyAccount] = useMutation<
     IUpdateCurrencyAccountData,
     IUpdateCurrencyAccountVariables
@@ -60,7 +63,7 @@ export default function ModalEditWalletButtonSave({
       setLoading(false)
       onSave()
     } catch (error) {
-      message.error(err.getFirstMessage(error))
+      message.error({ content: err.getFirstMessage(error) })
       setLoading(false)
     }
   }

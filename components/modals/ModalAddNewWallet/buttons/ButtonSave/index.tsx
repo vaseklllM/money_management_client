@@ -1,6 +1,7 @@
+import { useMessage } from "@/components/Message/hooks"
 import { err } from "@/utils"
 import { useLazyQuery, useMutation } from "@apollo/client"
-import { Button, message } from "antd"
+import { Button } from "antd"
 import React, { ReactElement } from "react"
 import { useStateIfMounted } from "use-state-if-mounted"
 import CREATE_CURRENCY_ACCOUNT from "./createCurrencyAccount.gql"
@@ -30,6 +31,7 @@ interface ICurrencyAccountVariables {
 export default function ButtonSave(props: Props): ReactElement {
   const { onCancel, value } = props
   const [loading, setLoading] = useStateIfMounted(false)
+  const message = useMessage()
 
   const [createCurrencyAccount] = useMutation<
     ICurrencyAccountData,
@@ -58,10 +60,10 @@ export default function ButtonSave(props: Props): ReactElement {
       await getCurrencyAccounts()
 
       setLoading(false)
-      message.success("Рахунок збережено")
+      message.success({ content: "Рахунок збережено" })
       onCancel()
     } catch (error) {
-      message.error(err.getFirstMessage(error))
+      message.error({ content: err.getFirstMessage(error) })
       setLoading(false)
     }
   }
