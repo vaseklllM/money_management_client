@@ -30,7 +30,6 @@ export default function AddNewWalletValueInput(props: Props): ReactElement {
       <div className={classes.inputs}>
         <Input
           className={classes.input}
-          defaultValue={value}
           value={value}
           onChange={(e) =>
             setValue(txt.parseInputFloat(e.target.value, { fixedNumbers: 2 }))
