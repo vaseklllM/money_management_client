@@ -7,6 +7,7 @@ interface Props {
   onChange: (event: any) => any
   value: string
   placeholder?: string
+  defaultValue: string
 }
 
 export default function Input(props: Props): ReactElement {

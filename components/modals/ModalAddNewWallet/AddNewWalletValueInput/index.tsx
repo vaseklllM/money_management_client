@@ -1,8 +1,10 @@
 import React, { ReactElement } from "react"
-import { Input, Select, Typography } from "antd"
+import { Select } from "antd"
 import classes from "./style.module.scss"
 import { txt } from "@/utils"
 import { ICurrency } from "../interfaces"
+import { Span14 } from "@/components/Typography"
+import { Input } from "@/components/Inputs"
 
 interface Props {
   value: string
@@ -18,39 +20,36 @@ export default function AddNewWalletValueInput(props: Props): ReactElement {
     props
 
   const { Option } = Select
-  const { Text } = Typography
-
-  const selectAfter = (
-    <Select
-      defaultValue={currencies[0].id}
-      className='select-after'
-      onChange={setActiveCurrency}
-      value={activeCurrency}
-    >
-      {currencies.map((el) => (
-        <Option key={el.id} value={el.id}>
-          {el.code}
-        </Option>
-      ))}
-    </Select>
-  )
 
   return (
     <div className={txt.join([className, classes.body])}>
       <div className={classes.title_row}>
-        <Text>Початкова сума</Text>
-        <Text>Валюта</Text>
+        <Span14>Початкова сума</Span14>
+        <Span14>Валюта</Span14>
       </div>
-      <Input
-        className={classes.input}
-        addonAfter={selectAfter}
-        defaultValue={value}
-        value={value}
-        onChange={(e) =>
-          setValue(txt.parseInputFloat(e.target.value, { fixedNumbers: 2 }))
-        }
-        placeholder='Сума'
-      />
+      <div className={classes.inputs}>
+        <Input
+          className={classes.input}
+          defaultValue={value}
+          value={value}
+          onChange={(e) =>
+            setValue(txt.parseInputFloat(e.target.value, { fixedNumbers: 2 }))
+          }
+          placeholder='Сума'
+        />
+        <Select
+          defaultValue={currencies[0].id}
+          className='select-after'
+          onChange={setActiveCurrency}
+          value={activeCurrency}
+        >
+          {currencies.map((el) => (
+            <Option key={el.id} value={el.id}>
+              {el.code}
+            </Option>
+          ))}
+        </Select>
+      </div>
     </div>
   )
 }
