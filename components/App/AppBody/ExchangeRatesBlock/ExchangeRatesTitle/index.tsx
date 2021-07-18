@@ -1,14 +1,6 @@
-import { Typography } from "antd"
+import { Span14bold } from "@/components/Typography"
 import React, { ReactElement } from "react"
 
-const { Title } = Typography
+const ExchangeRatesTitle = (): ReactElement => <Span14bold>Курс валют</Span14bold>
 
-interface Props {}
-
-export default function ExchangeRatesTitle({}: Props): ReactElement {
-  return (
-    <div>
-      <Title level={5}>Курс валют</Title>
-    </div>
-  )
-}
+export default ExchangeRatesTitle
