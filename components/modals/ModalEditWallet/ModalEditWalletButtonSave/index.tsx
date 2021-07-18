@@ -1,7 +1,7 @@
+import { ButtonBlue } from "@/components/Buttons"
 import { useMessage } from "@/components/Message/hooks"
 import { err } from "@/utils"
 import { useMutation } from "@apollo/client"
-import { Button } from "antd"
 import React, { ReactElement, useState } from "react"
 import UPDATE_CURRENCY_ACCOUNT from "./updateCurrencyAccount.gql"
 
@@ -69,8 +69,7 @@ export default function ModalEditWalletButtonSave({
   }
 
   return (
-    <Button
-      type='primary'
+    <ButtonBlue
       disabled={
         value.name === "" ||
         (value.name === value.defaultName && value.currencyId === value.defaultCurrencyId)
@@ -79,6 +78,6 @@ export default function ModalEditWalletButtonSave({
       onClick={save}
     >
       Зберегти
-    </Button>
+    </ButtonBlue>
   )
 }

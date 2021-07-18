@@ -9,6 +9,7 @@ interface Props {
   openNewTab?: boolean
   onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>
   loading?: boolean
+  disabled?: boolean
 }
 
 export default function ButtonBlue({
@@ -18,6 +19,7 @@ export default function ButtonBlue({
   openNewTab,
   onClick,
   loading,
+  disabled,
 }: Props): ReactElement {
   return (
     <ButtonBlueWrapper
@@ -26,6 +28,7 @@ export default function ButtonBlue({
       openNewTab={openNewTab}
       to={to}
       loading={loading}
+      disabled={disabled}
     >
       {children}
     </ButtonBlueWrapper>

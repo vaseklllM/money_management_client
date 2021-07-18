@@ -40,3 +40,14 @@
   display: block;
   width: max-content;
 }
+
+.disabled {
+  opacity: 0.5;
+  cursor: auto;
+  pointer-events: none;
+
+  &:hover {
+    background-color: #1890ff;
+    color: white;
+  }
+}

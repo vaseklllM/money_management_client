@@ -11,6 +11,7 @@ interface Props {
   className?: string
   onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>
   loading?: boolean
+  disabled?: boolean
 }
 
 export default function ButtonBlueWrapper({
@@ -20,9 +21,10 @@ export default function ButtonBlueWrapper({
   className,
   onClick,
   loading,
+  disabled,
 }: Props): ReactElement {
   function click(event) {
-    if (!loading && typeof onClick === "function") {
+    if (!loading && !disabled && typeof onClick === "function") {
       onClick(event)
     }
   }
@@ -49,6 +51,7 @@ export default function ButtonBlueWrapper({
         classes.body,
         className,
         loading && classes.loading_button,
+        disabled && classes.disabled,
       ])}
     >
       {loading && <CircleLoader className={classes.button_circle_loader} />}
