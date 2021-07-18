@@ -1,5 +1,6 @@
+import { Span14 } from "@/components/Typography"
 import { useQuery } from "@apollo/client"
-import { Select, Typography } from "antd"
+import { Select } from "antd"
 import React, { ReactElement } from "react"
 import CURRENCIES from "./currencies.gql"
 import classes from "./style.module.scss"
@@ -23,7 +24,6 @@ export default function ModalEditWalletCurrencySelect({
   setCurrencyId,
 }: Props): ReactElement {
   const { Option } = Select
-  const { Text } = Typography
 
   const { data, loading } = useQuery<ICurrenciesData>(CURRENCIES)
 
@@ -33,7 +33,7 @@ export default function ModalEditWalletCurrencySelect({
 
   return (
     <div className={classes.body}>
-      <Text>Валюта</Text>
+      <Span14>Валюта</Span14>
       <Select
         style={{ width: 120 }}
         onChange={setCurrencyId}

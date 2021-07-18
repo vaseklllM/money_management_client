@@ -1,13 +1,12 @@
 import React, { memo, ReactElement } from "react"
 import { LoadingOutlined } from "@ant-design/icons"
 import { Spin } from "antd"
-import { Typography } from "antd"
 import classes from "./style.module.scss"
 import CURRENCIES from "../../currencies.gql"
 import { useQuery } from "@apollo/client"
 import { txt } from "@/utils"
+import { Span18bold } from "@/components/Typography"
 
-const { Title } = Typography
 interface ICurrencies {
   currencies: {
     code: string
@@ -43,9 +42,9 @@ export default memo(function FinanceHeaderTitle({ className }: Props): ReactElem
       {data.currencies
         .filter((i) => i.code !== "UAH")
         .map((el) => (
-          <Title key={el.code} level={4} className={classes.currency_item}>{`${
+          <Span18bold key={el.code} className={classes.currency_item}>{`${
             el.symbol
-          }${parseFloat(el.historyCourseInUAH[0].price.toFixed(2))}`}</Title>
+          }${parseFloat(el.historyCourseInUAH[0].price.toFixed(2))}`}</Span18bold>
         ))}
     </div>
   )
