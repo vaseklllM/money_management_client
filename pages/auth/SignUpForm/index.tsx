@@ -51,7 +51,7 @@ export default function SignUpForm(): ReactElement {
         },
       })
 
-      message.success({ content: "Успішна реєстрація", key, duration: 3 })
+      message.success({ content: "Успішна реєстрація", key })
       // localStorage.setItem("token", result.data.signUp.token)
       Cookies.set("token", result.data.signUp.token)
       getUser()
@@ -62,7 +62,6 @@ export default function SignUpForm(): ReactElement {
         message.error({
           content: arrErrMessages,
           key,
-          duration: 3,
         })
       }
     }

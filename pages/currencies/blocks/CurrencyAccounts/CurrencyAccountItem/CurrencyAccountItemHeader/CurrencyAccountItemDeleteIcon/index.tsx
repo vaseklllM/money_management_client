@@ -1,4 +1,3 @@
-import { message } from "antd"
 import React, { ReactElement } from "react"
 import DELETE_CURRENCY_ACCOUNT from "./deleteCurrencyAccount.gql"
 import { useLazyQuery, useMutation } from "@apollo/client"
@@ -6,6 +5,7 @@ import { err } from "@/utils"
 import CURRENCY_ACCOUNTS from "./currencyAccounts.gql"
 import { useStateIfMounted } from "use-state-if-mounted"
 import { IconButtonDelete } from "@/components/Buttons"
+import { useMessage } from "@/components/Message/hooks"
 
 interface Props {
   className?: string
@@ -33,6 +33,7 @@ export default function CurrencyAccountItemDeleteIcon({
   id,
 }: Props): ReactElement {
   const [confirmLoading, setConfirmLoading] = useStateIfMounted(false)
+  const message = useMessage()
 
   const [onDeleteCurrencyAccount] = useMutation<
     IDeleteCurrencyAccountData,
@@ -61,7 +62,7 @@ export default function CurrencyAccountItemDeleteIcon({
       setVisible(false)
       await getCurrencyAccounts()
     } catch (error) {
-      message.error(err.getFirstMessage(error))
+      message.error({ content: err.getFirstMessage(error) })
       setConfirmLoading(false)
     }
   }
