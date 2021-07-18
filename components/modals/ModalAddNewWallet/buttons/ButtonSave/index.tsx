@@ -4,8 +4,8 @@ import { err } from "@/utils"
 import { useLazyQuery, useMutation } from "@apollo/client"
 import React, { ReactElement } from "react"
 import { useStateIfMounted } from "use-state-if-mounted"
-import CREATE_CURRENCY_ACCOUNT from "./createCurrencyAccount.gql"
-import CURRENCY_ACCOUNTS from "./currencyAccounts.gql"
+import { CREATE_CURRENCY_ACCOUNT } from "./createCurrencyAccount.gql"
+import { CURRENCY_ACCOUNTS } from "./currencyAccounts.gql"
 
 interface Props {
   onCancel: Function
