@@ -40,7 +40,7 @@ export default function SideMenuLink({ icon, text, to, className }: Props): Reac
           open && classes.open_link,
         ])}
       >
-        <ReactSVG className={classes.icon} src={icon} />
+        <ReactSVG className={classes.icon} src={`sideMenuIcons/${icon}.svg`} />
         <span className={classes.text}>{text}</span>
       </a>
     </Link>

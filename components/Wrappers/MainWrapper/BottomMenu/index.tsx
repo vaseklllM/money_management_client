@@ -1,8 +1,8 @@
 import React, { ReactElement } from "react"
 import BottomMenuLink from "./BottomMenuButton"
 import classes from "./style.module.scss"
-import { /* BitcoinIcon, */ BriefcaseIcon } from "@/components/Icons"
-import { DollarCircleOutlined /* BarChartOutlined */ } from "@ant-design/icons"
+import { BriefcaseIcon } from "@/components/Icons"
+import { DollarCircleOutlined } from "@ant-design/icons"
 
 interface Props {}
 

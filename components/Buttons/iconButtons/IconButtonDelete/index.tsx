@@ -1,7 +1,6 @@
 import { Popconfirm } from "antd"
 import React, { MouseEvent, MouseEventHandler, ReactElement, useRef } from "react"
 import { ReactSVG } from "react-svg"
-import remove from "./dustbin.svg"
 import classes from "./style.module.scss"
 import { QuestionCircleOutlined } from "@ant-design/icons"
 import { useStateIfMounted } from "use-state-if-mounted"
@@ -74,7 +73,7 @@ export default function IconButtonDelete(props: Props): ReactElement {
         cancelText='Ні'
         okText='Так'
       >
-        <ReactSVG src={remove} className={classes.icon} onClick={onDelete} />
+        <ReactSVG src='icons/trash.svg' className={classes.icon} onClick={onDelete} />
       </Popconfirm>
     </div>
   )
