@@ -1,6 +1,5 @@
 import React, { ReactElement, useState } from "react"
 import classes from "./style.module.scss"
-import plus from "./plus.svg"
 import { ReactSVG } from "react-svg"
 import { ModalAddWalletAction } from "@/components/modals"
 
@@ -21,7 +20,11 @@ export default function CurrencyAccountItemPlusIcon({
 
   return (
     <div className={className} onClick={(event) => event.stopPropagation()}>
-      <ReactSVG src={plus} className={classes.icon} onClick={() => setVisible(true)} />
+      <ReactSVG
+        src='icons/plus.svg'
+        className={classes.icon}
+        onClick={() => setVisible(true)}
+      />
       <ModalAddWalletAction
         visible={visible}
         onCancel={() => setVisible(false)}

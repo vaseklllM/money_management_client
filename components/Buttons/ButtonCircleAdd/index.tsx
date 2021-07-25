@@ -7,6 +7,7 @@ import { PlusOutlined } from "@ant-design/icons"
 import { useStateIfMounted } from "use-state-if-mounted"
 import ButtonCircleAddNewWallet from "./buttons/ButtonCircleAddNewWallet"
 import ButtonCircleAddItem from "./ButtonCircleAddItem"
+import ButtonCircleAddPlusIcon from "./ButtonCircleAddPlusIcon"
 
 interface IUSerData {
   user: {
@@ -24,11 +25,10 @@ export default function ButtonCircleAdd(): ReactElement {
 
   function onClick() {
     /** відкриття */
+    setActive(!active)
     if (!active) {
-      setActive(true)
       document.addEventListener("click", clickOutside)
     } else {
-      setActive(false)
       document.removeEventListener("click", clickOutside)
     }
   }
@@ -45,6 +45,7 @@ export default function ButtonCircleAdd(): ReactElement {
       ref={bodyRef}
     >
       <div className={txt.join([classes.circle, classes.label])} onClick={onClick}>
+        <ButtonCircleAddPlusIcon />
         <PlusOutlined className={classes.circle_icon} />
       </div>
       <div className={classes.subs}>
