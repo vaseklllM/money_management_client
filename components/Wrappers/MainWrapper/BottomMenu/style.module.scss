@@ -9,6 +9,15 @@
   box-shadow: 0 0 10px 6px rgb(0 0 0 / 20%);
   display: flex;
   align-items: center;
+
+  .icon {
+    display: flex;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
 }
 
 @media screen and (min-width: 600px) {

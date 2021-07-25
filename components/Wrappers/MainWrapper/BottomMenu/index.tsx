@@ -1,19 +1,16 @@
 import React, { ReactElement } from "react"
 import BottomMenuLink from "./BottomMenuButton"
 import classes from "./style.module.scss"
-import { BriefcaseIcon } from "@/components/Icons"
-import { DollarCircleOutlined } from "@ant-design/icons"
+import { ReactSVG } from "react-svg"
 
-interface Props {}
-
-export default function BottomMenu({}: Props): ReactElement {
+export default function BottomMenu(): ReactElement {
   return (
     <div className={classes.body}>
       <BottomMenuLink to='/'>
-        <BriefcaseIcon />
+        <ReactSVG src='sideMenuIcons/briefcase.svg' className={classes.icon} />
       </BottomMenuLink>
       <BottomMenuLink to='/currencies'>
-        <DollarCircleOutlined />
+        <ReactSVG src='sideMenuIcons/currency.svg' className={classes.icon} />
       </BottomMenuLink>
     </div>
   )
