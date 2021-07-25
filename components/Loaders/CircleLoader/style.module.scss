@@ -31,4 +31,8 @@ $pulse-duration: 750ms;
   &blue {
     @include borderColor(rgb(24, 144, 255));
   }
+
+  &black {
+    @include borderColor(rgb(24, 144, 255));
+  }
 }

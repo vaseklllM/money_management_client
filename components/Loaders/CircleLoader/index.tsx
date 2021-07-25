@@ -4,7 +4,7 @@ import classes from "./style.module.scss"
 
 interface Props {
   className?: string
-  color?: "white" | "blue"
+  color?: "white" | "blue" | "black"
 }
 
 export default function CircleLoader({
