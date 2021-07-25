@@ -1,11 +1,10 @@
 import React, { memo, ReactElement } from "react"
-import { LoadingOutlined } from "@ant-design/icons"
-import { Spin } from "antd"
 import classes from "./style.module.scss"
 import { CURRENCIES } from "../../currencies.gql"
 import { useQuery } from "@apollo/client"
 import { txt } from "@/utils"
 import { Span18bold } from "@/components/Typography"
+import { CircleLoader } from "@/components/Loaders"
 
 interface ICurrencies {
   currencies: {
@@ -32,7 +31,7 @@ export default memo(function FinanceHeaderTitle({ className }: Props): ReactElem
   )
 
   if (loading) {
-    return <Spin indicator={<LoadingOutlined style={{ fontSize: 23 }} spin />} />
+    return <CircleLoader color='blue' className={classes.spin} />
   }
 
   if (error) return <div>Помилка при завантажені даних</div>
