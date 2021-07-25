@@ -3,7 +3,6 @@ import { useQuery } from "@apollo/client"
 import React, { ReactElement, useRef } from "react"
 import classes from "./style.module.scss"
 import { USER } from "./user.gql"
-import { PlusOutlined } from "@ant-design/icons"
 import { useStateIfMounted } from "use-state-if-mounted"
 import ButtonCircleAddNewWallet from "./buttons/ButtonCircleAddNewWallet"
 import ButtonCircleAddItem from "./ButtonCircleAddItem"
@@ -45,8 +44,7 @@ export default function ButtonCircleAdd(): ReactElement {
       ref={bodyRef}
     >
       <div className={txt.join([classes.circle, classes.label])} onClick={onClick}>
-        <ButtonCircleAddPlusIcon />
-        <PlusOutlined className={classes.circle_icon} />
+        <ButtonCircleAddPlusIcon className={classes.circle_icon} />
       </div>
       <div className={classes.subs}>
         <ButtonCircleAddItem className={classes.subs_item}>
