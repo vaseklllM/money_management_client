@@ -11,7 +11,7 @@ const { serverRuntimeConfig } = getConfig()
 export default function Page(): ReactElement {
   return (
     <>
-      <Link href='/'>
+      <Link href='/promotions'>
         <a>back</a>
       </Link>
       <PostItem />
