@@ -6,6 +6,7 @@ const configuration = {
   webpackDevMiddleware: (config) => {
     return config
   },
+  webpack5: true,
 }
 
 module.exports = withImages(configuration)
