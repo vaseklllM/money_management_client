@@ -5,14 +5,12 @@ import Router from "next/router"
 const errorLink = onError((params) => {
   const { graphQLErrors, networkError, response } = params
 
-  const isServer = typeof window === "undefined"
-
   if (graphQLErrors) {
     for (let err of graphQLErrors) {
       /** Обработка Unauthorized */
-      if (err?.extensions?.exception?.status === 401) {
-        if (!isServer) authError()
-        response.errors = undefined
+      if (err.extensions.response.statusCode === 401) {
+        if (typeof window !== "undefined") authError()
+        response.errors = null
       }
     }
   }
