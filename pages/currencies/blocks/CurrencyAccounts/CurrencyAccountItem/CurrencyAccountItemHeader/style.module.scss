@@ -3,8 +3,8 @@
   background-color: #f0f0f0;
   border-radius: 5px;
   display: grid;
-  grid-template-columns: 1fr 2fr 37px 40px 35px 10px;
-  grid-template-areas: "name value plus_icon edit_icon delete_icon arrow_icon";
+  grid-template-columns: 1fr 2fr 16px 15px 21px 15px 18px 30px;
+  grid-template-areas: "name value plus_icon . edit_icon . delete_icon arrow_icon";
 
   .name {
     grid-area: name;

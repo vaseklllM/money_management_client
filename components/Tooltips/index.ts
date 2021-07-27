@@ -1,3 +1,4 @@
 import TooltipBlack from "./TooltipBlack"
+import TooltipConfirm from "./TooltipConfirm"
 
-export { TooltipBlack }
+export { TooltipBlack, TooltipConfirm }

@@ -5,6 +5,8 @@ import classes from "./style.module.scss"
 import { QuestionCircleOutlined } from "@ant-design/icons"
 import { useStateIfMounted } from "use-state-if-mounted"
 import { txt } from "@/utils"
+import { TooltipConfirm } from "@/components/Tooltips"
+import { tooltipConfirmIconTypes } from "@/components/Tooltips/TooltipConfirm"
 
 interface onOkParams {
   setVisible: (v: boolean) => any
@@ -58,12 +60,13 @@ export default function IconButtonDelete(props: Props): ReactElement {
   }
 
   return (
-    <div
-      onClick={bodyOnClick}
-      className={txt.join([className, disabled && classes.body_disabled])}
-      ref={bodyRef}
-    >
-      <Popconfirm
+    <div className={className}>
+      <div
+        onClick={bodyOnClick}
+        className={txt.join([disabled && classes.body_disabled])}
+        ref={bodyRef}
+      >
+        <Popconfirm
         title={title}
         visible={visible}
         onConfirm={onOk}
@@ -75,6 +78,21 @@ export default function IconButtonDelete(props: Props): ReactElement {
       >
         <ReactSVG src='icons/trash.svg' className={classes.icon} onClick={onDelete} />
       </Popconfirm>
+        <TooltipConfirm
+          title={title}
+          visible={visible}
+          iconType={tooltipConfirmIconTypes.question}
+          cancelText='Ні'
+          okText='Так'
+
+          // onConfirm={onOk}
+          // okButtonProps={{ loading }}
+          // onCancel={handleCancel}
+          // icon={<QuestionCircleOutlined style={{ color: "red" }} />}
+        >
+          <ReactSVG src='icons/trash.svg' className={classes.icon} onClick={onDelete} />
+        </TooltipConfirm>
+      </div>
     </div>
   )
 }

@@ -1,0 +1,58 @@
+.body {
+  position: relative;
+
+  .tooltip {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%;
+    background-color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transform: translateX(-50%);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.15s, opacity 0.15s ease-in-out;
+    width: max-content;
+    box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%),
+      0 9px 28px 8px rgb(0 0 0 / 5%);
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: calc(50% - 1px);
+      bottom: -10px;
+      border: 5px solid transparent;
+      border-top: 5px solid white;
+      transform: translateX(-50%);
+    }
+
+    .text_row {
+      display: flex;
+      align-items: center;
+
+      .title {
+        margin: 0;
+      }
+    }
+
+    .buttons {
+      width: 100%;
+      margin-top: 8px;
+
+      .button {
+        padding: 1px 7px;
+
+        &:not(:first-child) {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+.active {
+  .tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+}
