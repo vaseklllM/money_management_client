@@ -1,4 +1,4 @@
-import { Button } from "antd"
+import { ButtonOutline } from "@/components/Buttons"
 import React, { MouseEventHandler, ReactElement } from "react"
 
 interface Props {
@@ -7,5 +7,5 @@ interface Props {
 
 export default function ButtonCancel(props: Props): ReactElement {
   const { onCancel } = props
-  return <Button onClick={onCancel}>Закрити</Button>
+  return <ButtonOutline onClick={onCancel}>Закрити</ButtonOutline>
 }
