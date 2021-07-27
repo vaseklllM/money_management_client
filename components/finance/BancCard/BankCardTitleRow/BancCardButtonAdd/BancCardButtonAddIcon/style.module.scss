@@ -1,4 +1,4 @@
-.icon {
+.icon div {
   display: flex;
 
   svg {
@@ -9,14 +9,14 @@
 }
 
 .plusIcon {
-  svg {
+  div svg {
     width: 12px;
     height: 12px;
   }
 }
 
 .minusIcon {
-  svg {
+  div svg {
     width: 14px;
     height: 14px;
   }
