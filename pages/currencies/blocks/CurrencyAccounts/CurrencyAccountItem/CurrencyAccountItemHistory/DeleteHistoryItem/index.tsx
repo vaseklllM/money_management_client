@@ -30,7 +30,7 @@ export default function DeleteHistoryItem({
     DELETE_CURRENCY_ACCOUNT_HISTORY_ITEM
   )
 
-  async function onRemove(_, { setVisible }) {
+  async function onRemove({ setVisible }) {
     setLoading(true)
     deleteHistory({
       variables: {

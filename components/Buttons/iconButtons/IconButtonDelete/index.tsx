@@ -1,8 +1,6 @@
-import { Popconfirm } from "antd"
-import React, { MouseEvent, MouseEventHandler, ReactElement, useRef } from "react"
+import React, { MouseEventHandler, ReactElement, useRef } from "react"
 import { ReactSVG } from "react-svg"
 import classes from "./style.module.scss"
-import { QuestionCircleOutlined } from "@ant-design/icons"
 import { useStateIfMounted } from "use-state-if-mounted"
 import { txt } from "@/utils"
 import { TooltipConfirm } from "@/components/Tooltips"
@@ -17,7 +15,7 @@ interface Props {
   className?: string
   title?: string
   loading?: boolean
-  onOk?: (e?: MouseEvent, params?: onOkParams) => any
+  onOk?: (params?: onOkParams) => any
   disabled?: boolean
 }
 
@@ -27,9 +25,9 @@ export default function IconButtonDelete(props: Props): ReactElement {
 
   const bodyRef = useRef()
 
-  function onOk(e) {
+  function onOk() {
     if (!disabled) {
-      props.onOk(e, { setVisible })
+      props.onOk({ setVisible })
     }
   }
 
@@ -66,29 +64,15 @@ export default function IconButtonDelete(props: Props): ReactElement {
         className={txt.join([disabled && classes.body_disabled])}
         ref={bodyRef}
       >
-        <Popconfirm
-        title={title}
-        visible={visible}
-        onConfirm={onOk}
-        okButtonProps={{ loading }}
-        onCancel={handleCancel}
-        icon={<QuestionCircleOutlined style={{ color: "red" }} />}
-        cancelText='Ні'
-        okText='Так'
-      >
-        <ReactSVG src='icons/trash.svg' className={classes.icon} onClick={onDelete} />
-      </Popconfirm>
         <TooltipConfirm
           title={title}
           visible={visible}
           iconType={tooltipConfirmIconTypes.question}
           cancelText='Ні'
           okText='Так'
-
-          // onConfirm={onOk}
-          // okButtonProps={{ loading }}
-          // onCancel={handleCancel}
-          // icon={<QuestionCircleOutlined style={{ color: "red" }} />}
+          onCancel={handleCancel}
+          onConfirm={onOk}
+          okButtonProps={{ loading }}
         >
           <ReactSVG src='icons/trash.svg' className={classes.icon} onClick={onDelete} />
         </TooltipConfirm>

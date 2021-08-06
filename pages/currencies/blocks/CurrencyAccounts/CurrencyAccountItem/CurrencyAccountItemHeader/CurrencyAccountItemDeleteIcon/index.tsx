@@ -48,7 +48,7 @@ export default function CurrencyAccountItemDeleteIcon({
   })
 
   /** Видалення рахунку */
-  async function onOk(_, { setVisible }) {
+  async function onOk({ setVisible }) {
     setConfirmLoading(true)
 
     try {

@@ -1,15 +1,17 @@
 import React, { MouseEventHandler, ReactElement } from "react"
 import ButtonBlueWrapper from "./ButtonBlueWrapper"
-import classes from "./style.module.scss"
 
-interface Props {
+export interface ButtonBlueProps {
   className?: string
-  children: string | number
   to?: string
   openNewTab?: boolean
   onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>
   loading?: boolean
   disabled?: boolean
+}
+
+type Props = ButtonBlueProps & {
+  children: string | number
 }
 
 export default function ButtonBlue({

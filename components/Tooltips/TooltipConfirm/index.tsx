@@ -1,4 +1,4 @@
-import { ButtonBlue, ButtonOutline } from "@/components/Buttons"
+import { ButtonBlue, ButtonBlueProps, ButtonOutline } from "@/components/Buttons"
 import { txt } from "@/utils"
 import React, { ReactElement } from "react"
 import classes from "./style.module.scss"
@@ -15,6 +15,9 @@ interface Props {
   iconType?: tooltipConfirmIconTypes
   cancelText?: string
   okText?: string
+  onCancel: () => any
+  onConfirm: () => any
+  okButtonProps?: ButtonBlueProps
 }
 
 export default function TooltipConfirm({
@@ -24,6 +27,9 @@ export default function TooltipConfirm({
   iconType,
   cancelText = "no",
   okText = "ok",
+  onCancel,
+  onConfirm,
+  okButtonProps,
 }: Props): ReactElement {
   return (
     <div className={txt.join([classes.body, visible && classes.active])}>
@@ -34,8 +40,12 @@ export default function TooltipConfirm({
           {typeof title === "string" ? <p className={classes.title}>{title}</p> : title}
         </div>
         <div className={classes.buttons}>
-          <ButtonOutline className={classes.button}>{cancelText}</ButtonOutline>
-          <ButtonBlue className={classes.button}>{okText}</ButtonBlue>
+          <ButtonOutline className={classes.button} onClick={onCancel}>
+            {cancelText}
+          </ButtonOutline>
+          <ButtonBlue className={classes.button} onClick={onConfirm} {...okButtonProps}>
+            {okText}
+          </ButtonBlue>
         </div>
       </div>
       {children}
