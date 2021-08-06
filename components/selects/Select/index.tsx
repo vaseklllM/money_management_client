@@ -1,3 +1,4 @@
+import { useClickListener } from "@/hooks"
 import React, { ReactElement, useRef, useState } from "react"
 import SelectHeader from "./SelectHeader"
 import SelectItems from "./SelectItems"
@@ -22,29 +23,12 @@ export default function Select({
   data,
   value,
 }: Props): ReactElement {
-  const [show, setShow] = useState(false)
-  const bodyRef = useRef()
-
-  function onClickHeader() {
-    setShow((v) => !v)
-    document.addEventListener("click", clickOutside)
-  }
-
-  function onChangeItem() {
-    setShow(false)
-    document.removeEventListener("click", clickOutside)
-  }
-
-  function clickOutside(event) {
-    const domNode = bodyRef.current
-    // @ts-ignore
-    if (!domNode || !domNode.contains(event.target)) setShow(false)
-  }
+  const { ref, open, onOpen, onClose } = useClickListener()
 
   return (
-    <div className={className} ref={bodyRef}>
-      <SelectHeader onClick={onClickHeader} />
-      {show && <SelectItems data={data} value={value} onChange={onChangeItem} />}
+    <div className={className} ref={ref}>
+      <SelectHeader onClick={onOpen} />
+      {open && <SelectItems data={data} value={value} onChange={onClose} />}
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react"
 
 interface Props {
-  onClick: () => void
+  onClick?: () => void
 }
 
 export default function SelectHeader({ onClick }: Props): ReactElement {

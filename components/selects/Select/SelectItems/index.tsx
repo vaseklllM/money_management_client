@@ -6,7 +6,7 @@ import classes from "./style.module.scss"
 interface Props {
   data: ISelectDataItem[]
   value: ISelectDataItemId
-  onChange: () => void
+  onChange?: () => void
 }
 
 export default function SelectItems({ data, value, onChange }: Props): ReactElement {
