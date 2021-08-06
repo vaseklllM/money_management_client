@@ -1,5 +1,5 @@
 import { useClickListener } from "@/hooks"
-import React, { ReactElement, useRef, useState } from "react"
+import React, { ReactElement } from "react"
 import SelectHeader from "./SelectHeader"
 import SelectItems from "./SelectItems"
 
@@ -25,10 +25,14 @@ export default function Select({
 }: Props): ReactElement {
   const { ref, open, onOpen, onClose } = useClickListener()
 
+  function onChangeActiveItem() {
+    onClose()
+  }
+
   return (
     <div className={className} ref={ref}>
-      <SelectHeader onClick={onOpen} />
-      {open && <SelectItems data={data} value={value} onChange={onClose} />}
+      <SelectHeader onClick={onOpen} open={open} />
+      {open && <SelectItems data={data} value={value} onChange={onChangeActiveItem} />}
     </div>
   )
 }
