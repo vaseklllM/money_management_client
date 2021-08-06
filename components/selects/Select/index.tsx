@@ -31,7 +31,11 @@ export default function Select({
 
   return (
     <div className={className} ref={ref}>
-      <SelectHeader onClick={onOpen} open={open} />
+      <SelectHeader
+        onClick={onOpen}
+        open={open}
+        activeEl={data.find((i) => i.id === value)}
+      />
       {open && <SelectItems data={data} value={value} onChange={onChangeActiveItem} />}
     </div>
   )
