@@ -1,17 +1,17 @@
 import React, { ReactElement } from "react"
-import { Select } from "antd"
+import { Select as AntdSelect } from "antd"
 import classes from "./style.module.scss"
 import { txt } from "@/utils"
-import { ICurrency } from "../interfaces"
 import { Span14 } from "@/components/Typography"
 import { Input } from "@/components/Inputs"
+import AddNewWalletCurrencySelect from "./AddNewWalletCurrencySelect"
 
 interface Props {
   value: string
   setValue: Function
   activeCurrency: string
   setActiveCurrency: (id: string) => any
-  currencies: ICurrency[]
+  currencies: any[]
   className?: string
 }
 
@@ -19,7 +19,7 @@ export default function AddNewWalletValueInput(props: Props): ReactElement {
   const { setValue, value, currencies, setActiveCurrency, className, activeCurrency } =
     props
 
-  const { Option } = Select
+  const { Option } = AntdSelect
 
   return (
     <div className={txt.join([className, classes.body])}>
@@ -36,7 +36,8 @@ export default function AddNewWalletValueInput(props: Props): ReactElement {
           }
           placeholder='Сума'
         />
-        <Select
+        <AddNewWalletCurrencySelect />
+        <AntdSelect
           defaultValue={currencies[0].id}
           className='select-after'
           onChange={setActiveCurrency}
@@ -47,7 +48,7 @@ export default function AddNewWalletValueInput(props: Props): ReactElement {
               {el.code}
             </Option>
           ))}
-        </Select>
+        </AntdSelect>
       </div>
     </div>
   )
