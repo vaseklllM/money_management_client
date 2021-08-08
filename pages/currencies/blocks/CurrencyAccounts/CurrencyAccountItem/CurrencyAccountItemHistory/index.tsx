@@ -13,6 +13,9 @@ import {
   ICurrencyAccountData as IData,
 } from "@/pages/currencies/currencyAccounts.gql"
 import { P14 } from "@/components/Typography"
+import CurrencyAccountTableHeader from "./CurrencyAccountTableHeader"
+import CurrencyAccountTableBody from "./CurrencyAccountTableBody"
+import CurrencyAccountTablePagination from "./CurrencyAccountTablePagination"
 
 interface Props {
   data: ICurrencyAccountDataHistory[]
@@ -137,6 +140,16 @@ export default function ItemHistory(props: Props): ReactElement {
   return (
     <div className={classes.body}>
       <P14>Історія операцій з рахунком</P14>
+      <div>
+        <CurrencyAccountTableHeader />
+        <CurrencyAccountTableBody
+          data={data}
+          currencyCode={currency.code}
+          numberOfHistoryItems={numberOfHistoryItems}
+          page={page}
+        />
+        <CurrencyAccountTablePagination />
+      </div>
       <Table
         columns={columns}
         dataSource={data.map((el) => ({

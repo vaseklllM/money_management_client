@@ -4,8 +4,15 @@ import classes from "./style.module.scss"
 
 interface Props {}
 
-export default function MonobankTableHeader({}: Props): ReactElement {
-  const tabs: string[] = ["Номер карти", "Баланс", "Код валюти", "iban"]
+export default function CurrencyAccountTableHeader({}: Props): ReactElement {
+  const tabs: string[] = [
+    "Назва",
+    "Дата",
+    "Сумма операції",
+    "Сумма рахунку",
+    "Тип",
+    "Дія",
+  ]
 
   return (
     <div className={classes.body}>

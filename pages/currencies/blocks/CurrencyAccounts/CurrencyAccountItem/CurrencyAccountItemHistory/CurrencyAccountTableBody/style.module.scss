@@ -1,0 +1,20 @@
+.body {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr 120px 70px;
+  border: 1px solid #f0f0f0;
+  border-top: none;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+  .item {
+    padding: 10px;
+
+    &:not(:nth-last-child(1), :nth-last-child(2), :nth-last-child(3), :nth-last-child(4), :nth-last-child(5), :nth-last-child(6)) {
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    &:nth-child(6n + 5) {
+      text-align: center;
+    }
+  }
+}

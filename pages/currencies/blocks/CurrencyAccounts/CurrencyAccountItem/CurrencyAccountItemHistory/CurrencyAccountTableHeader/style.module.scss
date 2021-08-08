@@ -1,0 +1,20 @@
+.body {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr 120px 70px;
+  background-color: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  .item {
+    padding: 10px;
+
+    &:not(:last-child) {
+      border-right: 1px solid #f0f0f0;
+    }
+
+    &:nth-child(6n + 5) {
+      text-align: center;
+    }
+  }
+}
