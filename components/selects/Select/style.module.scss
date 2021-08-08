@@ -1,0 +1,9 @@
+.body {
+  position: relative;
+
+  .content {
+    position: absolute;
+    width: 100%;
+    top: calc(100% + 2px);
+  }
+}

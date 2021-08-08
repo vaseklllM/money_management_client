@@ -1,7 +1,9 @@
 import { useClickListener } from "@/hooks"
+import { txt } from "@/utils"
 import React, { ReactElement } from "react"
 import SelectHeader from "./SelectHeader"
 import SelectItems from "./SelectItems"
+import classes from "./style.module.scss"
 
 export type ISelectDataItemId = string | number
 
@@ -25,18 +27,26 @@ export default function Select({
 }: Props): ReactElement {
   const { ref, open, onOpen, onClose } = useClickListener()
 
-  function onChangeActiveItem() {
+  function onChangeActiveItem(id: ISelectDataItemId) {
+    onChange(id)
     onClose()
   }
 
   return (
-    <div className={className} ref={ref}>
+    <div className={txt.join([className, classes.body])} ref={ref}>
       <SelectHeader
         onClick={onOpen}
         open={open}
         activeEl={data.find((i) => i.id === value)}
       />
-      {open && <SelectItems data={data} value={value} onChange={onChangeActiveItem} />}
+      {open && (
+        <SelectItems
+          className={classes.content}
+          data={data}
+          value={value}
+          onChange={onChangeActiveItem}
+        />
+      )}
     </div>
   )
 }

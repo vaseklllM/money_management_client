@@ -1,7 +1,20 @@
 .body {
   width: max-content;
+  padding: 5px 12px;
+  cursor: pointer;
+  width: 100%;
+  background-color: white;
+  transition: background-color 0.15s ease-in-out;
+
+  &:hover {
+    background-color: rgb(238, 238, 238);
+  }
 }
 
 .active {
-  
+  background-color: rgb(220, 238, 255);
+
+  &:hover {
+    background-color: rgb(220, 238, 255);
+  }
 }

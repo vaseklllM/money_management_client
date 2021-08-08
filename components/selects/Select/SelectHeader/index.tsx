@@ -13,12 +13,9 @@ interface Props {
 
 export default function SelectHeader({ onClick, open, activeEl }: Props): ReactElement {
   return (
-    <div className={classes.body} onClick={onClick}>
+    <div className={txt.join([classes.body, open && classes.open])} onClick={onClick}>
       <Span14 className={classes.name}>{activeEl.name}</Span14>
-      <ReactSVG
-        className={txt.join([classes.arrow_icon, open && classes.arrow_icon_open])}
-        src='icons/arrow.svg'
-      />
+      <ReactSVG className={classes.arrow_icon} src='icons/arrow.svg' />
     </div>
   )
 }

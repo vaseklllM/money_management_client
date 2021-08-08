@@ -1,7 +1,7 @@
 .body {
   background-color: white;
   border: 1px solid #d9d9d9;
-  padding: 3px 10px;
+  padding: 4px 10px;
   cursor: pointer;
   border-radius: 5px;
   display: flex;
@@ -9,6 +9,8 @@
 
   .name {
     width: max-content;
+    opacity: 1;
+    transition: opacity 0.15s ease-in-out;
   }
 
   .arrow_icon {
@@ -25,9 +27,15 @@
         height: 8px;
       }
     }
+  }
+}
 
-    &_open {
-      transform: rotate(180deg);
-    }
+.open {
+  .name {
+    opacity: 0.5;
+  }
+
+  .arrow_icon {
+    transform: rotate(180deg);
   }
 }
