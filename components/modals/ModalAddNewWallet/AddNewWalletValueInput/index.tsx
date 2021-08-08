@@ -1,26 +1,28 @@
 import React, { ReactElement } from "react"
-import { Select as AntdSelect } from "antd"
 import classes from "./style.module.scss"
 import { txt } from "@/utils"
 import { Span14 } from "@/components/Typography"
 import { Input } from "@/components/Inputs"
-import AddNewWalletCurrencySelect from "./AddNewWalletCurrencySelect"
+import { ICurrency } from "../currencies.gql"
+import { Select } from "@/components/selects"
 
 interface Props {
   value: string
   setValue: Function
   activeCurrency: string
   setActiveCurrency: (id: string) => any
-  currencies: any[]
+  currencies: ICurrency[]
   className?: string
 }
 
-export default function AddNewWalletValueInput(props: Props): ReactElement {
-  const { setValue, value, currencies, setActiveCurrency, className, activeCurrency } =
-    props
-
-  const { Option } = AntdSelect
-
+export default function AddNewWalletValueInput({
+  setValue,
+  value,
+  currencies,
+  setActiveCurrency,
+  className,
+  activeCurrency,
+}: Props): ReactElement {
   return (
     <div className={txt.join([className, classes.body])}>
       <div className={classes.title_row}>
@@ -36,19 +38,11 @@ export default function AddNewWalletValueInput(props: Props): ReactElement {
           }
           placeholder='Сума'
         />
-        <AddNewWalletCurrencySelect />
-        <AntdSelect
-          defaultValue={currencies[0].id}
-          className='select-after'
-          onChange={setActiveCurrency}
+        <Select
+          data={currencies.map((currency) => ({ id: currency.id, name: currency.code }))}
           value={activeCurrency}
-        >
-          {currencies.map((el) => (
-            <Option key={el.id} value={el.id}>
-              {el.code}
-            </Option>
-          ))}
-        </AntdSelect>
+          onChange={setActiveCurrency}
+        />
       </div>
     </div>
   )

@@ -1,17 +1,19 @@
+$borderRadius: 3px;
+
 .body {
   background-color: white;
   box-shadow: 0 0 1px 1px rgb(0 0 0 / 7%), 0 0 6px 3px rgb(0 0 0 / 6%);
-  border-radius: 5px;
+  border-radius: $borderRadius;
 
   .item {
     &:first-child {
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
+      border-top-left-radius: $borderRadius;
+      border-top-right-radius: $borderRadius;
     }
 
     &:last-child {
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: $borderRadius;
+      border-bottom-right-radius: $borderRadius;
     }
   }
 }

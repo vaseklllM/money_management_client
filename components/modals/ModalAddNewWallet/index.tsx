@@ -21,6 +21,8 @@ export default function ModalAddNewWallet(props: Props): ReactElement {
   const [value, setValue] = useState("0")
   const [activeCurrency, setActiveCurrency] = useState<string>(undefined)
 
+  // console.log(activeCurrency)
+
   useEffect(() => {
     if (!loading && data) {
       setActiveCurrency(data.currencies[0].id)
