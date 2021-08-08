@@ -1,0 +1,32 @@
+.body {
+  display: grid;
+  grid-template-columns: 2fr 1.1fr 1.5fr 3.7fr;
+  border: 1px solid #f0f0f0;
+  border-top: none;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+  .item {
+    padding: 10px;
+
+    &:not(:nth-child(4n)) {
+      border-right: 1px solid #f0f0f0;
+    }
+
+    &:not(:nth-last-child(1), :nth-last-child(2), :nth-last-child(3), :nth-last-child(4)) {
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    &:nth-child(4n + 2) {
+      text-align: right;
+    }
+
+    &:nth-child(4n + 3) {
+      text-align: center;
+    }
+
+    &:nth-child(4n + 4) {
+      text-align: right;
+    }
+  }
+}
