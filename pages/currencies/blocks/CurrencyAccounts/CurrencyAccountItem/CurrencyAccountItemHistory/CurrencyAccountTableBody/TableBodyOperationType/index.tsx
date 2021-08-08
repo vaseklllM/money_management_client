@@ -1,5 +1,5 @@
+import { eTagColors, Tag } from "@/components/tags"
 import { Span14 } from "@/components/Typography"
-import { Tag } from "antd"
 import React, { ReactElement } from "react"
 
 interface Props {
@@ -13,14 +13,12 @@ export default function TableBodyOperationType({
 }: Props): ReactElement {
   if (value === 0) return <Span14 className={className}>-</Span14>
 
-  let color = value > 0 ? "green" : "volcano"
-  const tag = value > 0 ? "Покупка" : "Продажа"
-
   return (
     <div className={className}>
-      <Tag color={color} key={tag}>
-        {tag}
-      </Tag>
+      <Tag
+        color={value > 0 ? eTagColors.green : eTagColors.volcano}
+        text={value > 0 ? "Покупка" : "Продажа"}
+      />
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from "react"
+import React, { ReactElement } from "react"
 import RcPagination from "rc-pagination"
 import classes from "./style.module.scss"
 import { txt } from "@/utils"
