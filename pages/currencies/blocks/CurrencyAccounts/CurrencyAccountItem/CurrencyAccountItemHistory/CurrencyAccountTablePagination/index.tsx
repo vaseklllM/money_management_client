@@ -5,5 +5,12 @@ import classes from "./style.module.scss"
 interface Props {}
 
 export default function CurrencyAccountTablePagination({}: Props): ReactElement {
-  return <Pagination className={classes.pagination} />
+  return (
+    <Pagination
+      className={classes.pagination}
+      numberOfPages={300}
+      page={5}
+      onChange={() => {}}
+    />
+  )
 }

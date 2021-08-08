@@ -6,20 +6,23 @@ import { ReactSVG } from "react-svg"
 
 interface Props {
   className?: string
+  numberOfPages: number
+  onChange: (e: number) => void
+  page: number
 }
 
-export default function Pagination({ className }: Props): ReactElement {
-  const [page, setPage] = useState(2)
-
-  function onChange(e) {
-    setPage(e)
-  }
+export default function Pagination({
+  className,
+  numberOfPages,
+  onChange,
+  page,
+}: Props): ReactElement {
   return (
     <RcPagination
       className={txt.join([className, classes.pagination])}
       onChange={onChange}
       current={page}
-      total={3000}
+      total={numberOfPages}
       pageSize={1}
       prevIcon={
         <button className={classes.prev_button}>
