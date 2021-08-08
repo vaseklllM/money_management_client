@@ -15,23 +15,41 @@ $blueColor: #1684eb;
   cursor: pointer;
   border-radius: $borderRadius;
   background-color: transparent;
+
+  .icon div {
+    display: flex;
+
+    svg {
+      width: 9px;
+      height: 9px;
+      fill: rgb(80, 80, 80);
+    }
+  }
+}
+
+@mixin jump {
+  button {
+    margin-left: $marginLeft;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    &::before {
+      content: "...";
+    }
+  }
 }
 
 .pagination {
   list-style: none;
-  margin: 0;
+  margin-bottom: 0;
   padding: 0;
   display: flex;
   align-items: center;
 
-  :global(.rc-pagination-prev) {
-    button {
-      @include button;
-
-      &::before {
-        content: "<";
-      }
-    }
+  :global(.rc-pagination-jump-prev) {
+    @include jump;
   }
 
   :global(.rc-pagination-item) {
@@ -57,14 +75,24 @@ $blueColor: #1684eb;
     }
   }
 
-  :global(.rc-pagination-next) {
-    button {
-      @include button;
-      margin-left: $marginLeft;
+  :global(.rc-pagination-jump-next) {
+    @include jump;
+  }
+}
 
-      &::before {
-        content: ">";
-      }
-    }
+.prev_button {
+  @include button;
+
+  .icon {
+    transform: rotate(90deg);
+  }
+}
+
+.next_button {
+  @include button;
+  margin-left: $marginLeft;
+
+  .icon {
+    transform: rotate(-90deg);
   }
 }
