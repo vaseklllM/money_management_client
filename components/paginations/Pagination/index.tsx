@@ -17,6 +17,8 @@ export default function Pagination({
   onChange,
   page,
 }: Props): ReactElement {
+  if (numberOfPages <= 1) return null
+
   return (
     <RcPagination
       className={txt.join([className, classes.pagination])}
