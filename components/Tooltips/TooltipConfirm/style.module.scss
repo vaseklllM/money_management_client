@@ -49,3 +49,23 @@
     }
   }
 }
+
+.animation_wrapper {
+  &_enter {
+    opacity: 0;
+
+    &_active {
+      opacity: 1;
+      transition: opacity 200ms;
+    }
+  }
+
+  &_exit {
+    opacity: 1;
+
+    &_active {
+      opacity: 0;
+      transition: opacity 200ms;
+    }
+  }
+}

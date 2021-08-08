@@ -2,6 +2,7 @@ import { ButtonBlue, ButtonBlueProps, ButtonOutline } from "@/components/Buttons
 import React, { ReactElement } from "react"
 import classes from "./style.module.scss"
 import TooltipConfirmIcon from "./TooltipConfirmIcon"
+import { CSSTransition } from "react-transition-group"
 
 export enum tooltipConfirmIconTypes {
   question,
@@ -32,7 +33,17 @@ export default function TooltipConfirm({
 }: Props): ReactElement {
   return (
     <div className={classes.body}>
-      {visible && (
+      <CSSTransition
+        in={visible}
+        timeout={200}
+        unmountOnExit
+        classNames={{
+          enter: classes.animation_wrapper_enter,
+          enterActive: classes.animation_wrapper_enter_active,
+          exit: classes.animation_wrapper_exit,
+          exitActive: classes.animation_wrapper_exit_active,
+        }}
+      >
         <div className={classes.tooltip}>
           <div className={classes.text_row}>
             <TooltipConfirmIcon iconType={iconType} />
@@ -48,7 +59,7 @@ export default function TooltipConfirm({
             </ButtonBlue>
           </div>
         </div>
-      )}
+      </CSSTransition>
       {children}
     </div>
   )
