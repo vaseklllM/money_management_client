@@ -4,7 +4,7 @@ import React, { ReactElement, useState } from "react"
 
 interface Props {}
 
-const selectData: ISelectDataItem[] = arr.getArrByLength({ end: 10 }, (idx) => ({
+const selectData: ISelectDataItem[] = arr.getArrByLength({ end: 15 }, (idx) => ({
   id: idx,
   name: `select ${idx}`,
 }))

@@ -1,3 +1,4 @@
+import { Scroll } from "@/components/scrolls"
 import { txt } from "@/utils"
 import React, { ReactElement } from "react"
 import { ISelectDataItem, ISelectDataItemId } from ".."
@@ -18,7 +19,7 @@ export default function SelectItems({
   className,
 }: Props): ReactElement {
   return (
-    <div className={txt.join([classes.body, className])}>
+    <Scroll className={txt.join([classes.body, className])}>
       {data.map((el) => (
         <SelectItem
           key={el.id}
@@ -28,6 +29,6 @@ export default function SelectItems({
           onChange={onChange}
         />
       ))}
-    </div>
+    </Scroll>
   )
 }
