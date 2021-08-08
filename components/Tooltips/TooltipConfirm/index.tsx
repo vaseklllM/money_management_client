@@ -37,14 +37,15 @@ export default function TooltipConfirm({
         in={visible}
         timeout={200}
         unmountOnExit
+        className={classes.tooltip}
         classNames={{
-          enter: classes.animation_wrapper_enter,
-          enterActive: classes.animation_wrapper_enter_active,
-          exit: classes.animation_wrapper_exit,
-          exitActive: classes.animation_wrapper_exit_active,
+          enter: classes.tooltip_enter,
+          enterActive: classes.tooltip_enter_active,
+          exit: classes.tooltip_exit,
+          exitActive: classes.tooltip_exit_active,
         }}
       >
-        <div className={classes.tooltip}>
+        <div>
           <div className={classes.text_row}>
             <TooltipConfirmIcon iconType={iconType} />
             &nbsp;

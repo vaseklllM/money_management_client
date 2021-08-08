@@ -11,7 +11,7 @@
     padding: 8px 12px;
     border-radius: 5px;
     transform: translateX(-50%);
-    transition: visibility 0.15s, opacity 0.15s ease-in-out;
+    transition: transform 0.15s, opacity 0.15s ease-in-out;
     width: max-content;
     box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%),
       0 9px 28px 8px rgb(0 0 0 / 5%);
@@ -24,6 +24,24 @@
       border: 5px solid transparent;
       border-top: 5px solid white;
       transform: translateX(-50%);
+    }
+
+    &_enter {
+      opacity: 0;
+      transform: translateX(-50%) translate3d(0, 20%, 0);
+
+      &_active {
+        opacity: 1;
+        transform: translateX(-50%) translateZ(0);
+      }
+    }
+
+    &_exit {
+      opacity: 1;
+
+      &_active {
+        opacity: 0;
+      }
     }
 
     .text_row {
@@ -46,26 +64,6 @@
           margin-left: 10px;
         }
       }
-    }
-  }
-}
-
-.animation_wrapper {
-  &_enter {
-    opacity: 0;
-
-    &_active {
-      opacity: 1;
-      transition: opacity 200ms;
-    }
-  }
-
-  &_exit {
-    opacity: 1;
-
-    &_active {
-      opacity: 0;
-      transition: opacity 200ms;
     }
   }
 }
