@@ -8,7 +8,7 @@ $blueColor: #1684eb;
   width: $width;
   height: $height;
   padding: 0;
-  border: 1px solid rgb(187, 187, 187);
+  border: 1px solid rgb(224, 224, 224);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,6 +47,12 @@ $blueColor: #1684eb;
   padding: 0;
   display: flex;
   align-items: center;
+
+  :global(.rc-pagination-disabled) {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: auto;
+  }
 
   :global(.rc-pagination-jump-prev) {
     @include jump;

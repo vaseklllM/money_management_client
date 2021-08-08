@@ -148,7 +148,10 @@ export default function ItemHistory(props: Props): ReactElement {
           numberOfHistoryItems={numberOfHistoryItems}
           page={page}
         />
-        <CurrencyAccountTablePagination />
+        <CurrencyAccountTablePagination
+          pagination={pagination}
+          currencyAccountId={currencyAccountId}
+        />
       </div>
       <Table
         columns={columns}
