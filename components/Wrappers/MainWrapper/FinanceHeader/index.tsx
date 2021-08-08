@@ -1,5 +1,4 @@
 import { ReactElement, useEffect, useState } from "react"
-// import { PageHeader } from "antd"
 import classes from "./style.module.scss"
 import FinanceHeaderTitle from "./FinanceHeaderTitle"
 import LogoutButton from "./LogoutButton"
@@ -36,11 +35,4 @@ export default function Header({ className }: Props): ReactElement {
       </div>
     </div>
   )
-  // return (
-  //   <PageHeader
-  //     className={classes.header}
-  //     title={<FinanceHeaderTitle />}
-  //     extra={<LogoutButton />}
-  //   ></PageHeader>
-  // )
 }
