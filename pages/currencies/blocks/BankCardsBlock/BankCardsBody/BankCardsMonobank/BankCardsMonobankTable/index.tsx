@@ -2,6 +2,7 @@ import { Span14bold } from "@/components/Typography"
 import { Table } from "antd"
 import React, { ReactElement } from "react"
 import { ICars } from "../../../interfaces"
+import MonobankTableHeader from "./MonobankTableHeader"
 import classes from "./style.module.scss"
 
 interface Props {
@@ -35,7 +36,7 @@ export default function BankCardsMonobankTable(props: Props): ReactElement {
       title: "Баланс",
       dataIndex: "balance",
       key: "balance",
-      // align: "right",
+      align: "right",
       render: (balance: number, obj: ITableData) => {
         const numberFormat = new Intl.NumberFormat("ru-RU", {
           style: "currency",
@@ -58,24 +59,29 @@ export default function BankCardsMonobankTable(props: Props): ReactElement {
       title: "Код валюти",
       dataIndex: "currencyKey",
       key: "currencyKey",
-      // align: "center",
+      align: "center",
     },
     {
       title: "iban",
       dataIndex: "iban",
       key: "iban",
-      // align: "right",
+      align: "right",
     },
   ]
 
   return (
-    <Table
-      className={classes.table}
-      columns={columns}
-      dataSource={data}
-      pagination={false}
-      bordered
-      size='middle'
-    />
+    <>
+      <div className={classes.table}>
+        <MonobankTableHeader />
+      </div>
+      <Table
+        className={classes.prev_table}
+        columns={columns}
+        dataSource={data}
+        pagination={false}
+        bordered
+        size='middle'
+      />
+    </>
   )
 }

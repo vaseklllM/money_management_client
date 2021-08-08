@@ -1,0 +1,28 @@
+.body {
+  display: grid;
+  grid-template-columns: 2fr 1.1fr 1.5fr 3.7fr;
+  background-color: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  .item {
+    padding: 10px;
+
+    &:not(:last-child) {
+      border-right: 1px solid #f0f0f0;
+    }
+
+    &:nth-child(2) {
+      text-align: right;
+    }
+
+    &:nth-child(3) {
+      text-align: center;
+    }
+
+    &:nth-child(4) {
+      text-align: right;
+    }
+  }
+}
