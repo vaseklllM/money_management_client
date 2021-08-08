@@ -11,8 +11,6 @@
     padding: 8px 12px;
     border-radius: 5px;
     transform: translateX(-50%);
-    visibility: hidden;
-    opacity: 0;
     transition: visibility 0.15s, opacity 0.15s ease-in-out;
     width: max-content;
     box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%),
@@ -49,12 +47,5 @@
         }
       }
     }
-  }
-}
-
-.active {
-  .tooltip {
-    opacity: 1;
-    visibility: visible;
   }
 }

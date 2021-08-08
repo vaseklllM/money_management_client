@@ -17,8 +17,6 @@ export default function CurrencyAccountItemArrowIcon({
     <ReactSVG
       src={arrowIcon}
       className={txt.join([className, classes.icon, arrowActive && classes.active])}
-    >
-      CurrencyAccountItemArrowIcon
-    </ReactSVG>
+    />
   )
 }
