@@ -9,8 +9,10 @@ export default function useResize(myRef: React.MutableRefObject<any>) {
     function handleResize() {
       if (myRef) {
         setTimeout(() => {
-          setWidth(myRef.current.offsetWidth)
-          setHeight(myRef.current.offsetHeight)
+          if (myRef.current) {
+            setWidth(myRef.current.offsetWidth)
+            setHeight(myRef.current.offsetHeight)
+          }
         }, 0)
       }
     }
