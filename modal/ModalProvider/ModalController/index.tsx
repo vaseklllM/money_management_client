@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react"
 import { enumModal, modalsList } from "../modalsList"
+import ModalWrapper from "./ModalWrapper"
 
 interface Props {
   modals: enumModal[]
@@ -12,5 +13,9 @@ export default function ModalController({ modals }: Props): ReactElement {
 
   if (!Modal) return null
 
-  return <Modal />
+  return (
+    <ModalWrapper>
+      <Modal />
+    </ModalWrapper>
+  )
 }
