@@ -16,6 +16,8 @@ export default function ModalController({
 }: Props): ReactElement {
   const Modal = modalsList[activeModal]
 
+  // console.log(activeModal, activeModalData)
+
   return (
     <ModalWrapper>
       <SwitchTransition mode='out-in'>
@@ -30,10 +32,15 @@ export default function ModalController({
             exit: classes.animation_exit,
             exitActive: classes.animation_exit_active,
           }}
+          unmountOnExit
         >
-          <ModalContentWrapper>
-            {activeModal in modalsList && <Modal {...activeModalData} />}
-          </ModalContentWrapper>
+          <>
+            {activeModal in modalsList && (
+              <ModalContentWrapper>
+                <Modal {...activeModalData} />
+              </ModalContentWrapper>
+            )}
+          </>
         </CSSTransition>
       </SwitchTransition>
     </ModalWrapper>
