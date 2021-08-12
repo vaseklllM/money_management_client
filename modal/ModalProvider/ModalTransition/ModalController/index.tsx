@@ -3,6 +3,7 @@ import { enumModal, modalsList } from "../../modalsList"
 import ModalWrapper from "./ModalWrapper"
 import classes from "./style.module.scss"
 import { SwitchTransition, CSSTransition } from "react-transition-group"
+import ModalContentWrapper from "./ModalContentWrapper"
 
 interface Props {
   activeModal: enumModal
@@ -30,7 +31,9 @@ export default function ModalController({
             exitActive: classes.animation_exit_active,
           }}
         >
-          <>{activeModal in modalsList && <Modal {...activeModalData} />}</>
+          <ModalContentWrapper>
+            {activeModal in modalsList && <Modal {...activeModalData} />}
+          </ModalContentWrapper>
         </CSSTransition>
       </SwitchTransition>
     </ModalWrapper>
