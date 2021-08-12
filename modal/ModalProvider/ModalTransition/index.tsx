@@ -24,12 +24,7 @@ export default function ModalTransition({
 
   function onExited() {
     setActiveModal(undefined)
-    setModalsData((activeModalsData) => {
-      const newModalsData = { ...activeModalsData }
-      console.log(modals, newModalsData)
-      // delete newModalsData[activeModal]
-      return newModalsData
-    })
+    setModalsData({})
   }
 
   return (
