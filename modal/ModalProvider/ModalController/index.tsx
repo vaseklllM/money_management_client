@@ -3,17 +3,17 @@ import { enumModal, modalsList } from "../modalsList"
 import ModalWrapper from "./ModalWrapper"
 
 interface Props {
-  modals: enumModal[]
-  modalsData: any
+  activeModal: enumModal
+  activeModalData: any
 }
 
-export default function ModalController({ modals, modalsData }: Props): ReactElement {
-  const activeModal = modals[0]
-  const activeModalData = modalsData[activeModal] || {}
+export default function ModalController({
+  activeModal,
+  activeModalData,
+}: Props): ReactElement {
+  if (!(activeModal in modalsList)) return null
 
   const Modal = modalsList[activeModal]
-
-  if (!Modal) return null
 
   return (
     <ModalWrapper>

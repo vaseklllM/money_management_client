@@ -13,10 +13,15 @@ export default function ModalProvider({ children }: Props): ReactElement {
   const [modals, setModals] = useState<enumModal[]>([])
   const [modalsData, setModalsData] = useState({})
 
+  // console.log(modals)
+
   return (
     <ModalContext.Provider value={setModals}>
       <ModalDataContext.Provider value={setModalsData}>
-        <ModalController modals={modals} modalsData={modalsData} />
+        <ModalController
+          activeModal={modals[0]}
+          activeModalData={modalsData[modals[0]] || {}}
+        />
         {children}
       </ModalDataContext.Provider>
     </ModalContext.Provider>

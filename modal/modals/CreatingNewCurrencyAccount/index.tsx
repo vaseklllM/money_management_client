@@ -8,6 +8,8 @@ export interface creatingNewCurrencyAccountProps {
 export default function CreatingNewCurrencyAccount(
   props: creatingNewCurrencyAccountProps
 ): ReactElement {
+  // console.log(props)
+
   return (
     <div>
       text: {props.text}, id: {props.id}

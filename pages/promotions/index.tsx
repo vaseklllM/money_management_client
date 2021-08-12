@@ -18,7 +18,7 @@ export default function Promotions({}: Props): ReactElement {
     modal.open(enumModal.editCurrencyAccount)
   }
 
-  console.log("update")
+  // console.log("update")
 
   return (
     <MainWrapper>

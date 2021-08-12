@@ -1,5 +1,4 @@
-import { enumModal, ModalContext, ModalDataContext } from "@/modal"
-import { modalsDataInterfaces } from "@/modal/ModalProvider/modalsList"
+import { enumModal, ModalContext, ModalDataContext, modalsDataInterfaces } from "@/modal"
 import { useContext } from "react"
 
 export default function useModal() {
@@ -10,8 +9,11 @@ export default function useModal() {
     modal: M,
     data?: D
   ) {
+    if (!(modal in enumModal)) return undefined
+    /** Добавление модального окна к списку modals */
     setModals((modals: enumModal[]) => Array.from(new Set([modal, ...modals])))
 
+    /** установка даты */
     if (data !== undefined && data !== null) {
       setModalsData((modalsData) => ({ ...modalsData, [modal]: data }))
     }
