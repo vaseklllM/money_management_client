@@ -13,8 +13,6 @@ export default function CreatingNewCurrencyAccount(
 ): ReactElement {
   const modal = useModal()
 
-  console.log("update")
-
   return (
     <div>
       text: {props.text}, id: {props.id}

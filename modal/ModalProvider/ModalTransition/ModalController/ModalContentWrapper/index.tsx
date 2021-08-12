@@ -1,16 +1,23 @@
-import React, { ReactElement } from "react"
+import { enumModal, modalsList } from "@/modal/ModalProvider/modalsList"
+import React, { memo, ReactElement } from "react"
 import ModalWrapperButtonClose from "./ModalWrapperButtonClose"
 import classes from "./style.module.scss"
 
 interface Props {
-  children: any
+  activeModal: enumModal
+  activeModalData: any
 }
 
-export default function ModalContentWrapper({ children }: Props): ReactElement {
+export default memo(function ModalContentWrapper({
+  activeModal,
+  activeModalData,
+}: Props): ReactElement {
+  const Modal = modalsList[activeModal]
+
   return (
     <div className={classes.content}>
       <ModalWrapperButtonClose className={classes.close_button} />
-      {children}
+      <Modal {...activeModalData} />
     </div>
   )
-}
+})
