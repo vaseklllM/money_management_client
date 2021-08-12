@@ -1,17 +1,12 @@
 import { enumModal, ModalContext, ModalDataContext } from "@/modal"
-import { creatingNewCurrencyAccountProps } from "@/modal/modals/CreatingNewCurrencyAccount"
+import { modalsDataInterfaces } from "@/modal/ModalProvider/modalsList"
 import { useContext } from "react"
-
-interface modalDataInterfaces {
-  [enumModal.creatingNewCurrencyAccount]: creatingNewCurrencyAccountProps
-  [enumModal.editCurrencyAccount]: undefined
-}
 
 export default function useModal() {
   const setModals = useContext(ModalContext)
   const setModalsData = useContext(ModalDataContext)
 
-  function open<M extends enumModal, D extends modalDataInterfaces[M]>(
+  function open<M extends enumModal, D extends modalsDataInterfaces[M]>(
     modal: M,
     data?: D
   ) {
