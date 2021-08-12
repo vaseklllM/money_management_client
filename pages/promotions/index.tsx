@@ -15,7 +15,7 @@ export default function Promotions({}: Props): ReactElement {
   }
 
   function onClick2() {
-    modal.open(enumModal.editCurrencyAccount)
+    modal.open(enumModal.editCurrencyAccount, { id: 1 })
   }
 
   // console.log("update")

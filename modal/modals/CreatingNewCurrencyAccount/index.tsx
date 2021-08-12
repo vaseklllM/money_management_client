@@ -18,7 +18,7 @@ export default function CreatingNewCurrencyAccount(
       text: {props.text}, id: {props.id}
       <br />
       <br />
-      <ButtonBlue onClick={() => modal.open(enumModal.editCurrencyAccount)}>
+      <ButtonBlue onClick={() => modal.open(enumModal.editCurrencyAccount, { id: 2 })}>
         open modal 2
       </ButtonBlue>
     </div>

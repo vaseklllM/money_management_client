@@ -1,7 +1,11 @@
 import React, { ReactElement } from "react"
 
-interface Props {}
+export interface editCurrencyAccountProps {
+  id: number
+}
 
-export default function EditCurrencyAccount(props: Props): ReactElement {
+export default function EditCurrencyAccount(
+  props: editCurrencyAccountProps
+): ReactElement {
   return <div>EditCurrencyAccount</div>
 }

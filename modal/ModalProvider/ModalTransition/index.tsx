@@ -1,25 +1,40 @@
 import React, { ReactElement, useEffect } from "react"
 import { CSSTransition } from "react-transition-group"
 import { useStateIfMounted } from "use-state-if-mounted"
-import ModalController from "../ModalController"
+import ModalController from "./ModalController"
 import { enumModal } from "../modalsList"
 import classes from "./style.module.scss"
 
 interface Props {
-  firstModal: enumModal
+  modals: enumModal[]
   modalsData: any
+  setModalsData: (obj: any) => void
 }
 
-export default function ModalTransition({ firstModal, modalsData }: Props): ReactElement {
+export default function ModalTransition({
+  modals,
+  modalsData,
+  setModalsData,
+}: Props): ReactElement {
   const [activeModal, setActiveModal] = useStateIfMounted(undefined)
 
   useEffect(() => {
-    if (firstModal in enumModal) setActiveModal(firstModal)
-  }, [firstModal])
+    if (modals[0] in enumModal) setActiveModal(modals[0])
+  }, [modals[0]])
+
+  function onExited() {
+    setActiveModal(undefined)
+    setModalsData((activeModalsData) => {
+      const newModalsData = { ...activeModalsData }
+      console.log(modals, newModalsData)
+      // delete newModalsData[activeModal]
+      return newModalsData
+    })
+  }
 
   return (
     <CSSTransition
-      in={firstModal in enumModal}
+      in={modals[0] in enumModal}
       timeout={300}
       unmountOnExit
       classNames={{
@@ -28,7 +43,7 @@ export default function ModalTransition({ firstModal, modalsData }: Props): Reac
         exit: classes.animation_exit,
         exitActive: classes.animation_exit_active,
       }}
-      onExited={() => setActiveModal(undefined)}
+      onExited={onExited}
     >
       <ModalController
         activeModal={activeModal}

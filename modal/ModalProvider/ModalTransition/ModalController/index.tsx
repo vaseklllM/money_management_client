@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react"
-import { enumModal, modalsList } from "../modalsList"
+import { enumModal, modalsList } from "../../modalsList"
 import ModalWrapper from "./ModalWrapper"
 
 interface Props {

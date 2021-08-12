@@ -2,6 +2,7 @@ import {
   CreatingNewCurrencyAccount,
   creatingNewCurrencyAccountProps,
   EditCurrencyAccount,
+  editCurrencyAccountProps,
 } from "../modals"
 
 /** перечисление модальных окон */
@@ -19,5 +20,5 @@ export const modalsList = {
 /** Связи пропсов с перечислением модальных окон */
 export interface modalsDataInterfaces {
   [enumModal.creatingNewCurrencyAccount]: creatingNewCurrencyAccountProps
-  [enumModal.editCurrencyAccount]: void
+  [enumModal.editCurrencyAccount]: editCurrencyAccountProps
 }

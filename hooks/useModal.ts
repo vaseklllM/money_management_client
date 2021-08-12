@@ -7,7 +7,7 @@ export default function useModal() {
 
   function open<M extends enumModal, D extends modalsDataInterfaces[M]>(
     modal: M,
-    data?: D
+    data: D
   ) {
     if (!(modal in enumModal)) return undefined
     /** Добавление модального окна к списку modals */

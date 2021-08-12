@@ -1,7 +1,7 @@
 import CreatingNewCurrencyAccount, {
   creatingNewCurrencyAccountProps,
 } from "./CreatingNewCurrencyAccount"
-import EditCurrencyAccount from "./EditCurrencyAccount"
+import EditCurrencyAccount, { editCurrencyAccountProps } from "./EditCurrencyAccount"
 
 export { CreatingNewCurrencyAccount, EditCurrencyAccount }
-export type { creatingNewCurrencyAccountProps }
+export type { creatingNewCurrencyAccountProps, editCurrencyAccountProps }
