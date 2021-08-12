@@ -30,7 +30,7 @@ export default function ModalTransition({
   return (
     <CSSTransition
       in={modals[0] in enumModal}
-      timeout={300}
+      timeout={200}
       unmountOnExit
       classNames={{
         enter: classes.animation_enter,

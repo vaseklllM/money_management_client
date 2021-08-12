@@ -19,9 +19,7 @@ export default function ModalController({
       <SwitchTransition mode='out-in'>
         <CSSTransition
           key={activeModal}
-          addEndListener={(node, done) => {
-            node.addEventListener("transitionend", done, false)
-          }}
+          timeout={150}
           classNames={{
             enter: classes.animation_enter,
             enterActive: classes.animation_enter_active,

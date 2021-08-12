@@ -1,4 +1,5 @@
 import { enumModal, modalsList } from "@/modal/ModalProvider/modalsList"
+import { txt } from "@/utils"
 import React, { memo, ReactElement } from "react"
 import ModalWrapperButtonClose from "./ModalWrapperButtonClose"
 import classes from "./style.module.scss"
