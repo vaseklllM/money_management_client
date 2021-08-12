@@ -11,13 +11,11 @@ export default function ModalController({
   activeModal,
   activeModalData,
 }: Props): ReactElement {
-  if (!(activeModal in modalsList)) return null
+  // if (!(activeModal in modalsList)) return null
 
   const Modal = modalsList[activeModal]
 
-  return (
-    <ModalWrapper>
-      <Modal {...activeModalData} />
-    </ModalWrapper>
-  )
+  const body = activeModal in modalsList ? <Modal {...activeModalData} /> : null
+
+  return <ModalWrapper>{body}</ModalWrapper>
 }
