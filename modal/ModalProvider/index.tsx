@@ -7,14 +7,18 @@ interface Props {
 }
 
 export const ModalContext = createContext(null)
+export const ModalDataContext = createContext(null)
 
 export default function ModalProvider({ children }: Props): ReactElement {
   const [modals, setModals] = useState<enumModal[]>([])
+  const [modalsData, setModalsData] = useState({})
 
   return (
     <ModalContext.Provider value={setModals}>
-      <ModalController modals={modals} />
-      {children}
+      <ModalDataContext.Provider value={setModalsData}>
+        <ModalController modals={modals} modalsData={modalsData} />
+        {children}
+      </ModalDataContext.Provider>
     </ModalContext.Provider>
   )
 }

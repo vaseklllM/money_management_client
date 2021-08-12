@@ -1,13 +1,9 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement } from "react"
 
-interface Props {
-  
-}
+interface Props {}
 
-export default function EditCurrencyAccount({}: Props): ReactElement {
-  return (
-    <div>
-      EditCurrencyAccount
-    </div>
-  )
+export default function EditCurrencyAccount(props: Props): ReactElement {
+  console.log(props)
+
+  return <div>EditCurrencyAccount</div>
 }

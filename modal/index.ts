@@ -1,4 +1,4 @@
-import ModalProvider, { ModalContext } from "./ModalProvider"
+import ModalProvider, { ModalContext, ModalDataContext } from "./ModalProvider"
 import { enumModal, modalsList } from "./ModalProvider/modalsList"
 
-export { ModalProvider, enumModal, modalsList, ModalContext }
+export { ModalProvider, enumModal, modalsList, ModalContext, ModalDataContext }

@@ -1,13 +1,16 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement } from "react"
 
-interface Props {
-  
+export interface creatingNewCurrencyAccountProps {
+  text: string
+  id: number
 }
 
-export default function CreatingNewCurrencyAccount({}: Props): ReactElement {
+export default function CreatingNewCurrencyAccount(
+  props: creatingNewCurrencyAccountProps
+): ReactElement {
   return (
     <div>
-      CreatingNewCurrencyAccount
+      text: {props.text}, id: {props.id}
     </div>
   )
 }

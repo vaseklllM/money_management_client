@@ -11,12 +11,15 @@ export default function Promotions({}: Props): ReactElement {
   const modal = useModal()
 
   function onClick() {
-    modal.open(enumModal.creatingNewCurrencyAccount, {})
+    // modal.open(enumModal.creatingNewCurrencyAccount)({ text: "opened modal №1", id: 45 })
+    modal.open(enumModal.creatingNewCurrencyAccount, { text: "opened modal №1", id: 45 })
   }
 
   function onClick2() {
-    modal.open(enumModal.editCurrencyAccount, {})
+    modal.open(enumModal.editCurrencyAccount)
   }
+
+  console.log("update")
 
   return (
     <MainWrapper>

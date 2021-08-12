@@ -9,3 +9,4 @@ export const modalsList = {
   [enumModal.creatingNewCurrencyAccount]: CreatingNewCurrencyAccount,
   [enumModal.editCurrencyAccount]: EditCurrencyAccount,
 }
+

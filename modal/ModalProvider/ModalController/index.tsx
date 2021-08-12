@@ -4,10 +4,12 @@ import ModalWrapper from "./ModalWrapper"
 
 interface Props {
   modals: enumModal[]
+  modalsData: any
 }
 
-export default function ModalController({ modals }: Props): ReactElement {
+export default function ModalController({ modals, modalsData }: Props): ReactElement {
   const activeModal = modals[0]
+  const activeModalData = modalsData[activeModal] || {}
 
   const Modal = modalsList[activeModal]
 
@@ -15,7 +17,7 @@ export default function ModalController({ modals }: Props): ReactElement {
 
   return (
     <ModalWrapper>
-      <Modal />
+      <Modal {...activeModalData} />
     </ModalWrapper>
   )
 }
