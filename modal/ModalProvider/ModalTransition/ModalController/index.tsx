@@ -1,6 +1,8 @@
 import React, { ReactElement } from "react"
 import { enumModal, modalsList } from "../../modalsList"
 import ModalWrapper from "./ModalWrapper"
+import classes from "./style.module.scss"
+import { SwitchTransition, CSSTransition } from "react-transition-group"
 
 interface Props {
   activeModal: enumModal
@@ -15,7 +17,22 @@ export default function ModalController({
 
   return (
     <ModalWrapper>
-      {activeModal in modalsList && <Modal {...activeModalData} />}
+      <SwitchTransition mode='out-in'>
+        <CSSTransition
+          key={activeModal}
+          addEndListener={(node, done) => {
+            node.addEventListener("transitionend", done, false)
+          }}
+          classNames={{
+            enter: classes.animation_enter,
+            enterActive: classes.animation_enter_active,
+            exit: classes.animation_exit,
+            exitActive: classes.animation_exit_active,
+          }}
+        >
+          <>{activeModal in modalsList && <Modal {...activeModalData} />}</>
+        </CSSTransition>
+      </SwitchTransition>
     </ModalWrapper>
   )
 }

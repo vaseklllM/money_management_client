@@ -1,9 +1,9 @@
 import React, { ReactElement, useEffect } from "react"
-import { CSSTransition } from "react-transition-group"
 import { useStateIfMounted } from "use-state-if-mounted"
 import ModalController from "./ModalController"
 import { enumModal } from "../modalsList"
 import classes from "./style.module.scss"
+import { CSSTransition } from "react-transition-group"
 
 interface Props {
   modals: enumModal[]
