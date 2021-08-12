@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react"
-import { ReactSVG } from "react-svg"
+import ModalWrapperButtonClose from "./ModalWrapperButtonClose"
 import classes from "./style.module.scss"
 
 interface Props {
@@ -10,9 +10,7 @@ export default function ModalWrapper({ children }: Props): ReactElement {
   return (
     <div className={classes.body}>
       <div className={classes.content}>
-        <button className={classes.close_button}>
-          <ReactSVG className={classes.close_icon} src='icons/close_1.svg' />
-        </button>
+        <ModalWrapperButtonClose className={classes.close_button} />
         {children}
       </div>
     </div>
