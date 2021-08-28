@@ -8,7 +8,7 @@ const errorLink = onError((params) => {
   if (graphQLErrors) {
     for (let err of graphQLErrors) {
       /** Обработка Unauthorized */
-      if (err.extensions.response.statusCode === 401) {
+      if (err.extensions?.response?.statusCode === 401) {
         if (typeof window !== "undefined") authError()
         response.errors = null
       }
