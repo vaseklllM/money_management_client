@@ -73,15 +73,9 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const { token } = req.cookies
   serverRuntimeConfig.token = token
 
-  let isAuth = false
-
-  if (typeof token === "string" && token !== "") {
-    isAuth = true
-  }
-
   return {
     props: {
-      isAuth,
+      isAuth: typeof token === "string" && token !== "",
     },
   }
 }

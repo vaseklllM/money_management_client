@@ -7,19 +7,22 @@ import Head from "next/head"
 import LoaderIndicator from "@/components/LoaderIndicator"
 import Message from "@/components/Message"
 import ModalProvider from "@/modal/ModalProvider"
+import AuthProvider from "@/providers/AuthProvider"
 
 export default function App({ Component, pageProps }): ReactElement {
   return (
     <Apollo pageProps={pageProps}>
-      <Message>
-        <ModalProvider>
-          <Head>
-            <title>Веб-додаток для аналізу курсів та особистих рахунків</title>
-          </Head>
-          <Component {...pageProps} />
-          <LoaderIndicator />
-        </ModalProvider>
-      </Message>
+      <AuthProvider>
+        <Message>
+          <ModalProvider>
+            <Head>
+              <title>Веб-додаток для аналізу курсів та особистих рахунків</title>
+            </Head>
+            <Component {...pageProps} />
+            <LoaderIndicator />
+          </ModalProvider>
+        </Message>
+      </AuthProvider>
     </Apollo>
   )
 }
