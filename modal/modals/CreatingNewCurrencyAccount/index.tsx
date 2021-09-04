@@ -1,26 +1,39 @@
-import { ButtonBlue } from "@/components/Buttons"
-import { useModal } from "@/hooks"
-import { enumModal } from "@/modal/ModalProvider/modalsList"
-import React, { ReactElement } from "react"
+import { Span16 } from "@/components/Typography"
+import { useQuery } from "@apollo/client"
+import React, { ReactElement, useEffect, useState } from "react"
+import CreatingNewWalletNameInput from "./CreatingNewWalletNameInput"
+import CreatingNewWalletValueInput from "./CreatingNewWalletValueInput"
+import { ICurrenciesData, CURRENCIES } from "./currencies.gql"
+import classes from "./style.module.scss"
 
-export interface creatingNewCurrencyAccountProps {
-  text: string
-  id: number
-}
+export default function CreatingNewCurrencyAccount(): ReactElement {
+  const { data, loading } = useQuery<ICurrenciesData>(CURRENCIES)
 
-export default function CreatingNewCurrencyAccount(
-  props: creatingNewCurrencyAccountProps
-): ReactElement {
-  const modal = useModal()
+  const [name, setName] = useState("")
+  const [value, setValue] = useState("0")
+  const [activeCurrency, setActiveCurrency] = useState<string>()
+
+  useEffect(() => {
+    if (!loading && data) {
+      setActiveCurrency(data.currencies[0].id)
+    }
+  }, [loading])
+
 
   return (
-    <div>
-      text: {props.text}, id: {props.id}
-      <br />
-      <br />
-      <ButtonBlue onClick={() => modal.open(enumModal.editCurrencyAccount, { id: 2 })}>
-        open modal 2
-      </ButtonBlue>
+    <div className={classes.body}>
+      <Span16 className={classes.title}>Створення нового рахунку</Span16>
+      <CreatingNewWalletNameInput name={name} setName={setName} />
+      {!loading && activeCurrency && (
+        <CreatingNewWalletValueInput
+          currencies={data.currencies}
+          value={value}
+          setValue={setValue}
+          activeCurrency={activeCurrency}
+          setActiveCurrency={setActiveCurrency}
+          className={classes.currency_input}
+        />
+      )}
     </div>
   )
 }
