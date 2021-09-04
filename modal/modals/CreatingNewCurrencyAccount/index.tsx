@@ -1,6 +1,8 @@
 import { Span16 } from "@/components/Typography"
 import { useQuery } from "@apollo/client"
 import React, { ReactElement, useEffect, useState } from "react"
+import { ModalButtonCancel } from "../components"
+import ButtonSave from "./buttons/ButtonSave"
 import CreatingNewWalletNameInput from "./CreatingNewWalletNameInput"
 import CreatingNewWalletValueInput from "./CreatingNewWalletValueInput"
 import { ICurrenciesData, CURRENCIES } from "./currencies.gql"
@@ -19,7 +21,6 @@ export default function CreatingNewCurrencyAccount(): ReactElement {
     }
   }, [loading])
 
-
   return (
     <div className={classes.body}>
       <Span16 className={classes.title}>Створення нового рахунку</Span16>
@@ -34,6 +35,13 @@ export default function CreatingNewCurrencyAccount(): ReactElement {
           className={classes.currency_input}
         />
       )}
+      <div className={classes.buttons}>
+        <ModalButtonCancel />
+        <ButtonSave
+          className={classes.save}
+          value={{ sum: parseFloat(value) || 0, currency: activeCurrency, name }}
+        />
+      </div>
     </div>
   )
 }
