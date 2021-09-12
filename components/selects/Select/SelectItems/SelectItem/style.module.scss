@@ -12,9 +12,13 @@
 }
 
 .active {
-  background-color: rgb(220, 238, 255);
+  background-color: #5db1ff;
 
   &:hover {
-    background-color: rgb(220, 238, 255);
+    background-color: #5db1ff;
+  }
+
+  .text {
+    color: white;
   }
 }

@@ -26,7 +26,7 @@ export default function SelectItem({
       className={txt.join([className, classes.body, active && classes.active])}
       onClick={onClick}
     >
-      <Span14>{data.name}</Span14>
+      <Span14 className={classes.text} >{data.name}</Span14>
     </div>
   )
 }
