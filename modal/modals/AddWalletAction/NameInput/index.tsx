@@ -10,7 +10,7 @@ interface Props {
 
 export default function NameInput({ name, setName }: Props): ReactElement {
   return (
-    <div>
+    <div className={classes.body}>
       <Span14>Назва транзакції</Span14>
       <Input
         placeholder='Назва'

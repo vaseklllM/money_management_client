@@ -1,7 +1,9 @@
 import React, { ReactElement } from "react"
 
 export interface editCurrencyAccountProps {
-  id: number
+  id: string
+  name: string
+  currencyId: string
 }
 
 export default function EditCurrencyAccount(
