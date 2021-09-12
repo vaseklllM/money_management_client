@@ -6,13 +6,14 @@ import React, { ReactElement } from "react"
 import { ADD_TRANSACTION } from "./addTransactionCurrencyAccount.gql"
 
 interface Props {
-  onSave: () => any
+  onSave: () => {}
   value: {
     sum: number
     name: string
   }
   currencyAccountId: string
   page: number
+  className?: string
 }
 
 interface IAddTransactionDataHistoryItem {
@@ -43,6 +44,7 @@ export default function ButtonSave({
   value,
   currencyAccountId,
   page,
+  className,
 }: Props): ReactElement {
   const [addTransaction, { loading }] = useMutation<
     IAddTransactionData,
@@ -66,7 +68,7 @@ export default function ButtonSave({
   }
 
   return (
-    <ButtonBlue disabled={!value.sum} onClick={save} loading={loading}>
+    <ButtonBlue className={className} disabled={!value.sum} onClick={save} loading={loading}>
       Добавити
     </ButtonBlue>
   )

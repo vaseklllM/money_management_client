@@ -71,6 +71,7 @@ export default function AddWalletAction({
             setName("")
             setBuySaleValue("")
           }}
+          className={classes.save}
         />
       </div>
     </div>
