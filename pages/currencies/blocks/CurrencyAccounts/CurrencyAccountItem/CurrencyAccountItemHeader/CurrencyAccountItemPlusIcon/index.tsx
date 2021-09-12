@@ -1,7 +1,6 @@
-import React, { ReactElement, useState } from "react"
+import React, { ReactElement } from "react"
 import classes from "./style.module.scss"
 import { ReactSVG } from "react-svg"
-import { ModalAddWalletAction } from "@/components/modals"
 import { useModal } from "@/hooks"
 import { enumModal } from "@/modal"
 
@@ -18,7 +17,6 @@ export default function CurrencyAccountItemPlusIcon({
   currencyAccountId,
   page,
 }: Props): ReactElement {
-  // const [visible, setVisible] = useState(false)
   const modal = useModal()
 
   function onClick() {
@@ -27,19 +25,7 @@ export default function CurrencyAccountItemPlusIcon({
 
   return (
     <div className={className} onClick={(event) => event.stopPropagation()}>
-      <ReactSVG
-        src='icons/plus.svg'
-        className={classes.icon}
-        // onClick={() => setVisible(true)}
-        onClick={onClick}
-      />
-      {/* <ModalAddWalletAction
-        visible={visible}
-        onCancel={() => setVisible(false)}
-        activeValue={activeValue}
-        currencyAccountId={currencyAccountId}
-        page={page}
-      /> */}
+      <ReactSVG src='icons/plus.svg' className={classes.icon} onClick={onClick} />
     </div>
   )
 }
