@@ -1,6 +1,7 @@
 import { Span16 } from "@/components/Typography"
 import React, { ReactElement, useState } from "react"
 import { ModalButtonCancel } from "../components"
+import ButtonSave from "./ButtonSave"
 import InputNewValue from "./InputNewValue"
 import InputSum from "./InputSum"
 import NameInput from "./NameInput"
@@ -9,10 +10,14 @@ import TypeToggle from "./TypeToggle"
 
 export interface AddWalletActionProps {
   activeValue: number
+  currencyAccountId: string
+  page: number
 }
 
 export default function AddWalletAction({
   activeValue,
+  currencyAccountId,
+  page,
 }: AddWalletActionProps): ReactElement {
   const getDefaultActiveValue = String(parseFloat(activeValue.toFixed(2)))
 
@@ -52,6 +57,21 @@ export default function AddWalletAction({
       />
       <div className={classes.buttons}>
         <ModalButtonCancel />
+        <ButtonSave
+          value={{
+            sum: transactionType
+              ? parseFloat(buySaleValue) || 0
+              : parseFloat(buySaleValue) * -1 || 0,
+            name,
+          }}
+          currencyAccountId={currencyAccountId}
+          page={page}
+          onSave={() => {
+            setTransactionType(true)
+            setName("")
+            setBuySaleValue("")
+          }}
+        />
       </div>
     </div>
   )

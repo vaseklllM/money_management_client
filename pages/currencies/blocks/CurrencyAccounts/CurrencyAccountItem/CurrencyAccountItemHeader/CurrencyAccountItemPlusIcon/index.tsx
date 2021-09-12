@@ -22,7 +22,7 @@ export default function CurrencyAccountItemPlusIcon({
   const modal = useModal()
 
   function onClick() {
-    modal.open(enumModal.addWalletAction, { activeValue })
+    modal.open(enumModal.addWalletAction, { activeValue, currencyAccountId, page })
   }
 
   return (
