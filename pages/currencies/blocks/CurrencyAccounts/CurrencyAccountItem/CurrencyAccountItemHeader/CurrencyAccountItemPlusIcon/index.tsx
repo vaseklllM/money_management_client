@@ -2,6 +2,8 @@ import React, { ReactElement, useState } from "react"
 import classes from "./style.module.scss"
 import { ReactSVG } from "react-svg"
 import { ModalAddWalletAction } from "@/components/modals"
+import { useModal } from "@/hooks"
+import { enumModal } from "@/modal"
 
 interface Props {
   className?: string
@@ -16,22 +18,28 @@ export default function CurrencyAccountItemPlusIcon({
   currencyAccountId,
   page,
 }: Props): ReactElement {
-  const [visible, setVisible] = useState(false)
+  // const [visible, setVisible] = useState(false)
+  const modal = useModal()
+
+  function onClick() {
+    modal.open(enumModal.addWalletAction, { activeValue })
+  }
 
   return (
     <div className={className} onClick={(event) => event.stopPropagation()}>
       <ReactSVG
         src='icons/plus.svg'
         className={classes.icon}
-        onClick={() => setVisible(true)}
+        // onClick={() => setVisible(true)}
+        onClick={onClick}
       />
-      <ModalAddWalletAction
+      {/* <ModalAddWalletAction
         visible={visible}
         onCancel={() => setVisible(false)}
         activeValue={activeValue}
         currencyAccountId={currencyAccountId}
         page={page}
-      />
+      /> */}
     </div>
   )
 }

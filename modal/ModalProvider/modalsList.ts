@@ -3,6 +3,7 @@ import {
   EditCurrencyAccount,
   editCurrencyAccountProps,
   AddWalletAction,
+  AddWalletActionProps,
 } from "../modals"
 
 /** перечисление модальных окон */
@@ -23,5 +24,5 @@ export const modalsList = {
 export interface modalsDataInterfaces {
   [enumModal.creatingNewCurrencyAccount]: any
   [enumModal.editCurrencyAccount]: editCurrencyAccountProps
-  [enumModal.addWalletAction]: any
+  [enumModal.addWalletAction]: AddWalletActionProps
 }

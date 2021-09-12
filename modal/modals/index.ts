@@ -1,6 +1,6 @@
 import CreatingNewCurrencyAccount from "./CreatingNewCurrencyAccount"
 import EditCurrencyAccount, { editCurrencyAccountProps } from "./EditCurrencyAccount"
-import AddWalletAction from "./AddWalletAction"
+import AddWalletAction, { AddWalletActionProps } from "./AddWalletAction"
 
 export { CreatingNewCurrencyAccount, EditCurrencyAccount, AddWalletAction }
-export type { editCurrencyAccountProps }
+export type { editCurrencyAccountProps, AddWalletActionProps }
